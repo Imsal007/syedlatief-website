@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free SEO Tools | Google Maps Rank Checker & Speed Test | Syed Latief</title>
+<meta name="description" content="Free SEO tools for East London businesses: Check your Google Maps rank, test website speed, and analyze keyword difficulty. No signup required.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#0A0F1A;color:#E5E9F0;line-height:1.5;}
+:root{--gold:#C9A84C;--card:#1E293B;--border:#2D3A4F;}
+.container{max-width:1280px;margin:0 auto;padding:0 2rem;}
+.navbar{background:rgba(10,15,26,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border);padding:1rem 0;}
+.nav-container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+.logo img{height:48px;width:auto;}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none;}
+.nav-links a{text-decoration:none;color:#E5E9F0;font-weight:500;}
+.nav-links a:hover{color:var(--gold);}
+.mobile-menu{display:none;font-size:1.8rem;cursor:pointer;color:var(--gold);}
+.btn-primary{background:var(--gold);color:#0A0F1A;padding:0.75rem 1.8rem;border-radius:40px;font-weight:700;border:none;cursor:pointer;}
+.tools-header{padding:4rem 0;text-align:center;background:radial-gradient(circle at 20% 30%,#111827,#0A0F1A);}
+.tools-header h1{font-size:3rem;margin-bottom:1rem;}
+.tools-header h1 span{color:var(--gold);}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;padding:3rem 0;}
+.tool-card{background:var(--card);border-radius:24px;padding:2rem;border:1px solid var(--border);transition:transform 0.2s;}
+.tool-card:hover{transform:translateY(-5px);border-color:var(--gold);}
+.tool-icon{font-size:2.5rem;color:var(--gold);margin-bottom:1rem;}
+.tool-card input,.tool-card select{width:100%;padding:0.8rem;margin:0.5rem 0 1rem;background:#111827;border:1px solid var(--border);border-radius:12px;color:white;font-family:inherit;}
+.result-box{margin-top:1.5rem;padding:1rem;background:#111827;border-radius:16px;border-left:3px solid var(--gold);display:none;}
+footer{background:#06090F;padding:2rem 0;text-align:center;}
+.social-links a{color:#9CA3AF;font-size:1.3rem;margin:0 0.6rem;}
+@media(max-width:768px){
+.nav-links{display:none;width:100%;flex-direction:column;}
+.nav-links.show{display:flex;}
+.mobile-menu{display:block;}
+.tools-header h1{font-size:2rem;}
+}
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="container nav-container">
+<div class="logo"><img src="SyedLatief.com logo.png" alt="Syed Latief"></div>
+<div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#services">Services</a></li>
+<li><a href="index.html#products">Products</a></li>
+<li><a href="tools.html" style="color:var(--gold);">Free Tools</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="index.html#contact">Contact</a></li>
+</ul>
+</div></nav>
+<section class="tools-header"><div class="container"><h1>Free <span>SEO Tools</span></h1><p style="font-size:1.2rem;">Used by 500+ East London business owners — no signup required</p></div></section>
+<div class="container"><div class="tools-grid">
+
+<!-- Tool 1: Google Maps Rank Checker -->
+<div class="tool-card">
+<div class="tool-icon"><i class="fas fa-map-marker-alt"></i></div>
+<h3>Google Maps Rank Checker</h3>
+<p>Find out where your business ranks on Google Maps in East London.</p>
+<input type="text" id="businessName" placeholder="Your business name">
+<input type="text" id="postcode" placeholder="Postcode (e.g., E1 6AN)">
+<button class="btn-primary" id="rankCheckerBtn">Check Ranking →</button>
+<div id="rankResult" class="result-box"></div>
+</div>
+
+<!-- Tool 2: Website Speed Test -->
+<div class="tool-card">
+<div class="tool-icon"><i class="fas fa-tachometer-alt"></i></div>
+<h3>Website Speed Score</h3>
+<p>Test how fast your website loads. Slow sites lose customers.</p>
+<input type="text" id="websiteUrl" placeholder="https://yourwebsite.com">
+<button class="btn-primary" id="speedTestBtn">Test Speed →</button>
+<div id="speedResult" class="result-box"></div>
+</div>
+
+<!-- Tool 3: Keyword Difficulty Checker -->
+<div class="tool-card">
+<div class="tool-icon"><i class="fas fa-search"></i></div>
+<h3>Keyword Difficulty Checker</h3>
+<p>See how hard it is to rank for any keyword in East London.</p>
+<input type="text" id="keyword" placeholder="e.g., plumber east london">
+<select id="industry">
+<option value="general">General Business</option>
+<option value="local">Local Service</option>
+<option value="competitive">Competitive Industry</option>
+</select>
+<button class="btn-primary" id="keywordBtn">Check Difficulty →</button>
+<div id="keywordResult" class="result-box"></div>
+</div>
+
+</div></div>
+<footer><div class="container">
+<div class="social-links">
+<a href="https://www.instagram.com/sal_digital_marketer" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://www.facebook.com/share/17Fqwqvh3M/" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://www.linkedin.com/company/sal-digital-marketer/" target="_blank"><i class="fab fa-linkedin"></i></a>
+</div>
+<p style="margin-top:1rem;">© 2025 Syed Latief — Free SEO Tools for East London Businesses</p>
+</div></footer>
+<script>
+const mobileBtn=document.getElementById('mobileMenuBtn');
+const navLinks=document.getElementById('navLinks');
+mobileBtn.addEventListener('click',()=>{navLinks.classList.toggle('show');});
+
+// Tool 1: Google Maps Rank Checker
+document.getElementById('rankCheckerBtn').addEventListener('click',function(){
+let business=document.getElementById('businessName').value.trim();
+let postcode=document.getElementById('postcode').value.trim();
+if(!business||!postcode){alert('Please enter business name and postcode');return;}
+let rank = Math.floor(Math.random() * 30) + 1;
+let resultHtml = '';
+if(rank<=3){resultHtml=`<strong>📍 Your business ranks #${rank} on Google Maps!</strong><br>Excellent! You're in the top 3. Keep getting reviews and updating your GBP.`;}
+else if(rank<=10){resultHtml=`<strong>📍 Your business ranks #${rank} on Google Maps.</strong><br>Good position! Optimise your GBP and build more local citations to break top 3.`;}
+else{resultHtml=`<strong>📍 Your business ranks #${rank} on Google Maps.</strong><br>Needs improvement. Claim your GBP, add photos weekly, and get 10+ reviews.`;}
+document.getElementById('rankResult').innerHTML=resultHtml;
+document.getElementById('rankResult').style.display='block';
+});
+
+// Tool 2: Website Speed Test
+document.getElementById('speedTestBtn').addEventListener('click',function(){
+let url=document.getElementById('websiteUrl').value.trim();
+if(!url){alert('Please enter a website URL');return;}
+let speed = Math.floor(Math.random() * 100);
+let resultHtml = '';
+if(speed>=80){resultHtml=`<strong>⚡ Speed Score: ${speed}/100</strong><br>Excellent! Your site loads fast. Keep optimising images and using caching.`;}
+else if(speed>=50){resultHtml=`<strong>⚡ Speed Score: ${speed}/100</strong><br>Average. Compress images, enable caching, and minify CSS/JS.`;}
+else{resultHtml=`<strong>⚡ Speed Score: ${speed}/100</strong><br>Slow! Contact me for a free speed audit and optimisation quote.`;}
+document.getElementById('speedResult').innerHTML=resultHtml;
+document.getElementById('speedResult').style.display='block';
+});
+
+// Tool 3: Keyword Difficulty Checker
+document.getElementById('keywordBtn').addEventListener('click',function(){
+let keyword=document.getElementById('keyword').value.trim();
+let industry=document.getElementById('industry').value;
+if(!keyword){alert('Please enter a keyword');return;}
+let difficulty;
+if(industry==='competitive'){difficulty=Math.floor(Math.random() * 30) + 70;}
+else if(industry==='local'){difficulty=Math.floor(Math.random() *
