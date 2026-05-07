@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syed Latief | Digital Marketing & AI | East London</title>
+<meta name="description" content="Syed Latief: MBA Digital Marketer. SEO, AI, Web Development for East London SMEs.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#0A0F1A;color:#E5E9F0;line-height:1.5;scroll-behavior:smooth;}
+:root{--gold:#C9A84C;--card:#1E293B;--border:#2D3A4F;}
+.container{max-width:1280px;margin:0 auto;padding:0 2rem;}
+.navbar{background:rgba(10,15,26,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border);padding:1rem 0;}
+.nav-container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+.logo img{height:48px;width:auto;}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none;}
+.nav-links a{text-decoration:none;color:#E5E9F0;font-weight:500;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.mobile-menu{display:none;font-size:1.8rem;cursor:pointer;color:var(--gold);}
+.btn-primary{background:var(--gold);color:#0A0F1A;padding:0.75rem 1.8rem;border-radius:40px;font-weight:700;text-decoration:none;display:inline-block;border:none;cursor:pointer;}
+.btn-primary:hover{background:#E2C28B;transform:translateY(-2px);}
+.btn-outline{border:1.5px solid var(--gold);color:var(--gold);background:transparent;padding:0.7rem 1.6rem;border-radius:40px;font-weight:600;text-decoration:none;display:inline-block;}
+.hero{padding:5rem 0 4rem;background:radial-gradient(circle at 20% 30%,#111827,#0A0F1A);}
+.hero-grid{display:flex;align-items:center;gap:3rem;flex-wrap:wrap;}
+.hero-content{flex:1;}
+.hero-badge{background:rgba(201,168,76,0.15);color:var(--gold);padding:0.3rem 0.9rem;border-radius:40px;font-size:0.8rem;font-weight:600;display:inline-block;margin-bottom:1.5rem;}
+.hero-content h1{font-size:3.3rem;font-weight:800;line-height:1.2;margin-bottom:1.2rem;}
+.highlight{color:var(--gold);}
+.hero-credentials{display:flex;gap:1.5rem;margin:1.5rem 0;flex-wrap:wrap;}
+.cred-item{display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:#9CA3AF;}
+.cred-item i{color:var(--gold);}
+section{padding:5rem 0;border-bottom:1px solid var(--border);}
+.section-title{font-size:2.2rem;font-weight:700;margin-bottom:1rem;text-align:center;}
+.section-sub{text-align:center;color:#9CA3AF;max-width:650px;margin:0 auto 3rem;}
+.services-grid,.products-grid,.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;}
+.service-card,.product-card,.portfolio-card{background:var(--card);border-radius:24px;padding:2rem;border:1px solid var(--border);transition:transform 0.2s;}
+.service-card:hover,.product-card:hover{transform:translateY(-6px);border-color:var(--gold);}
+.service-icon{font-size:2.5rem;color:var(--gold);margin-bottom:1.5rem;}
+.price-tag{font-weight:800;font-size:1.2rem;margin:1rem 0;color:var(--gold);}
+.coming-soon{opacity:0.6;}
+.badge-coming{background:#2D3A4F;display:inline-block;padding:0.2rem 0.8rem;border-radius:20px;font-size:0.7rem;font-weight:600;margin-top:0.8rem;}
+.contact-form{max-width:700px;margin:2rem auto;background:var(--card);padding:2rem;border-radius:28px;}
+.form-group{margin-bottom:1.2rem;}
+input,select,textarea{width:100%;padding:1rem;background:#111827;border:1px solid var(--border);border-radius:16px;color:white;font-family:inherit;}
+footer{background:#06090F;padding:3rem 0;text-align:center;}
+.social-links a{color:#9CA3AF;font-size:1.5rem;margin:0 0.8rem;}
+.social-links a:hover{color:var(--gold);}
+.trust-badges{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin:2rem 0;}
+@media(max-width:768px){
+.nav-links{display:none;width:100%;flex-direction:column;background:#0A0F1A;padding:1rem 0;}
+.nav-links.show{display:flex;}
+.mobile-menu{display:block;}
+.hero-content h1{font-size:2.2rem;}
+.container{padding:0 1.2rem;}
+}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<div class="container nav-container">
+<div class="logo"><img src="logo.png" alt="Syed Latief"></div>
+<div class="mobile-menu" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html" class="active">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="seo-score.html">Local SEO Score</a></li>
+<li><a href="adsense-generator.html">AdSense Generator</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-content">
+<span class="hero-badge">East London's trusted digital strategist</span>
+<h1>Grow smarter with <span class="highlight">Marketing + AI</span> that actually works</h1>
+<p style="font-size:1.1rem;margin-bottom:1rem;">MBA Marketing · CPD Certified Digital Marketer</p>
+<div class="hero-credentials">
+<span class="cred-item"><i class="fas fa-graduation-cap"></i> Heriot-Watt MBA</span>
+<span class="cred-item"><i class="fas fa-chart-line"></i> CPD Digital Marketer</span>
+<span class="cred-item"><i class="fas fa-laptop-code"></i> Web Development</span>
+</div>
+<div style="display:flex;gap:1rem;flex-wrap:wrap;">
+<a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Free consultation</a>
+<a href="#services" class="btn-outline">Explore services</a>
+</div>
+</div>
+<div style="flex:0.8;text-align:center;"><i class="fas fa-chalkboard-user" style="font-size:10rem;color:var(--gold);opacity:0.6;"></i></div>
+</div>
+</section>
+<section id="services"><div class="container">
+<h2 class="section-title">Services that drive results</h2>
+<p class="section-sub">One-off projects or monthly retainers — built for East London SMEs.</p>
+<div class="services-grid">
+<div class="service-card"><div class="service-icon"><i class="fas fa-chart-simple"></i></div><h3>Local SEO & Google Maps</h3><p>Rank #1 in East London searches. GBP optimisation, citations, local keywords.</p><div class="price-tag">from £297 one-off · £197/mo</div></div>
+<div class="service-card"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Web Development</h3><p>Lightning-fast HTML/CSS/JS sites or WordPress. Mobile-first, SEO-ready.</p><div class="price-tag">from £499 one-off · £99/mo care</div></div>
+<div class="service-card"><div class="service-icon"><i class="fas fa-google"></i></div><h3>Google Ads Management</h3><p>Max ROI for UK SMEs. Negative keywords, conversion tracking.</p><div class="price-tag">£297 setup + 10% ad spend</div></div>
+<div class="service-card coming-soon"><div class="service-icon"><i class="fas fa-robot"></i></div><h3>AI Chatbots & Automation</h3><p>Automate customer support & lead generation.</p><span class="badge-coming">🚀 Coming June 2025</span></div>
+<div class="service-card coming-soon"><div class="service-icon"><i class="fas fa-shield-alt"></i></div><h3>Cyber Security Audit</h3><p>GDPR + security healthcheck for SMEs.</p><span class="badge-coming">📅 Launching Q3 2025</span></div>
+<div class="service-card"><div class="service-icon"><i class="fas fa-envelope-open-text"></i></div><h3>Email Marketing Funnels</h3><p>Klaviyo/Mailchimp automation that converts.</p><div class="price-tag">£197 one-off · £147/mo</div></div>
+</div></div></section>
+<section id="products"><div class="container">
+<h2 class="section-title">Digital products</h2>
+<p class="section-sub">Instant PDF downloads — learn, implement, grow.</p>
+<div class="products-grid">
+<div class="product-card"><i class="fas fa-map-marker-alt" style="font-size:2rem;color:var(--gold);"></i><h3>East London Local SEO Blueprint</h3><p>Rank on Google Maps without an agency.</p><a href="https://payhip.com/b/FAoCP" target="_blank" class="btn-primary" style="margin-top:1rem;display:inline-block;">Buy £27 →</a></div>
+<div class="product-card"><i class="fas fa-calendar-alt" style="font-size:2rem;color:var(--gold);"></i><h3>90-Day Social Media System</h3><p>Templates, captions, scheduling strategy.</p><a href="https://payhip.com/b/RM10V" target="_blank" class="btn-primary" style="margin-top:1rem;display:inline-block;">Buy £22 →</a></div>
+<div class="product-card"><i class="fab fa-google" style="font-size:2rem;color:var(--gold);"></i><h3>Google Ads Starter Kit</h3><p>Stop wasting budget. Campaign templates.</p><a href="https://payhip.com/b/0UjF2" target="_blank" class="btn-primary" style="margin-top:1rem;display:inline-block;">Buy £37 →</a></div>
+<div class="product-card"><i class="fas fa-magic" style="font-size:2rem;color:var(--gold);"></i><h3>150 AI Prompts for Marketing</h3><p>Copy-paste prompts for social, email, ads.</p><a href="https://payhip.com/b/Lcxnw" target="_blank" class="btn-primary" style="margin-top:1rem;display:inline-block;">Buy £19 →</a></div>
+<div class="product-card"><i class="fas fa-chart-line" style="font-size:2rem;color:var(--gold);"></i><h3>AI Marketing Automation Guide</h3><p>Save 10+ hrs/week using free AI tools.</p><a href="https://payhip.com/b/iL6lA" target="_blank" class="btn-primary" style="margin-top:1rem;display:inline-block;">Buy £47 →</a></div>
+</div></div></section>
+<section id="contact"><div class="container">
+<h2 class="section-title">Let's grow your business</h2>
+<p class="section-sub">Book a free discovery call or send a message — I'll reply within 24h.</p>
+<div class="contact-form">
+<form action="https://formspree.io/f/mojrllnn" method="POST">
+<div class="form-group"><input type="text" name="name" placeholder="Full name" required></div>
+<div class="form-group"><input type="email" name="email" placeholder="Email address" required></div>
+<div class="form-group"><input type="text" name="business" placeholder="Business name"></div>
+<div class="form-group"><select name="service_interest"><option>Local SEO</option><option>Web Development</option><option>Google Ads</option><option>Other</option></select></div>
+<div class="form-group"><textarea rows="4" name="message" placeholder="Tell me about your goals..."></textarea></div>
+<button type="submit" class="btn-primary" style="width:100%">Send message →</button>
+</form>
+</div>
+</div></section>
+<footer><div class="container">
+<div class="logo" style="margin-bottom:1rem;"><img src="logo.png" alt="Syed Latief" style="height:45px;margin:0 auto;"></div>
+<div class="social-links">
+<a href="https://www.instagram.com/sal_digital_marketer" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://www.facebook.com/share/17Fqwqvh3M/" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://www.linkedin.com/company/sal-digital-marketer/" target="_blank"><i class="fab fa-linkedin"></i></a>
+</div>
+<div class="trust-badges"><span><i class="fas fa-shield-alt"></i> Secure</span><span><i class="fas fa-credit-card"></i> Payhip</span><span><i class="fas fa-lock"></i> SSL</span></div>
+<p>© 2025 Syed Latief — MBA, CPD Digital Marketer. East London</p>
+</div></footer>
+<script>
+const mobileBtn=document.getElementById('mobileMenuBtn');
+const navLinks=document.getElementById('navLinks');
+mobileBtn.addEventListener('click',()=>{navLinks.classList.toggle('show');});
+</script>
+</body>
+</html>
