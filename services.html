@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | SAL Digital — AI and Digital Marketing for UK Small Businesses</title>
+  <meta name="description" content="Fifteen services across four tiers. From a quick AI audit to full business transformation. Practical solutions for UK small businesses.">
+  <link rel="stylesheet" href="sal-shared.css">
+  <style>
+    .page-hero { padding: 100px 0 60px; text-align: center; }
+    .page-hero__title { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 3.25rem); font-weight: 600; color: var(--text-primary); margin-bottom: 16px; }
+    .page-hero__subtitle { font-family: var(--font-body); font-size: 17px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+    .tier-section { padding: 60px 0; }
+    .tier-section + .tier-section { border-top: 1px solid var(--border-subtle); }
+    .tier-header { margin-bottom: 40px; }
+    .tier-header__name { font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+    .tier-header__tagline { font-family: var(--font-body); font-size: 15px; color: var(--text-secondary); }
+    .service-detail-card { background-color: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 28px; transition: border-color var(--transition-base), transform var(--transition-base); display: flex; flex-direction: column; gap: 12px; }
+    .service-detail-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+    .service-detail-card__name { font-family: var(--font-heading); font-size: 20px; font-weight: 600; color: var(--text-primary); }
+    .service-detail-card__price { font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--gold); }
+    .service-detail-card__desc { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); line-height: 1.6; flex-grow: 1; }
+    .bottom-cta { text-align: center; padding: 60px 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" aria-label="SAL Digital Home">
+        <img src="SAL.png" alt="SAL Digital" class="header__logo">
+      </a>
+      <nav class="header__nav" aria-label="Main navigation">
+        <a href="index.html" class="header__nav-link">Home</a>
+        <a href="services.html" class="header__nav-link header__nav-link--active">Services</a>
+        <a href="products.html" class="header__nav-link">Digital Products</a>
+        <a href="portfolio.html" class="header__nav-link">Portfolio</a>
+        <a href="tools.html" class="header__nav-link">Tools</a>
+        <a href="blog.html" class="header__nav-link">Blog</a>
+        <a href="about.html" class="header__nav-link">About</a>
+        <a href="index.html#contact" class="header__nav-link">Contact</a>
+      </nav>
+      <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="header__cta">Book a Free Call</a>
+      <button class="header__hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="header__mobile-nav" id="mobileNav">
+      <a href="index.html" class="header__mobile-nav-link">Home</a>
+      <a href="services.html" class="header__mobile-nav-link header__mobile-nav-link--active">Services</a>
+      <a href="products.html" class="header__mobile-nav-link">Digital Products</a>
+      <a href="portfolio.html" class="header__mobile-nav-link">Portfolio</a>
+      <a href="tools.html" class="header__mobile-nav-link">Tools</a>
+      <a href="blog.html" class="header__mobile-nav-link">Blog</a>
+      <a href="about.html" class="header__mobile-nav-link">About</a>
+      <a href="index.html#contact" class="header__mobile-nav-link">Contact</a>
+      <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--primary header__mobile-cta">Book a Free Call</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">Services</h1>
+        <p class="page-hero__subtitle">Fifteen services across four tiers. From a quick audit to full business transformation.</p>
+      </div>
+    </section>
+
+    <!-- STARTER TIER -->
+    <section class="tier-section">
+      <div class="container">
+        <div class="tier-header">
+          <span class="tier-badge tier-badge--starter">Starter Tier</span>
+          <h2 class="tier-header__name">Quick wins, delivered fast</h2>
+          <p class="tier-header__tagline">Small investments that show immediate results. Perfect if you want to test AI before committing to bigger projects.</p>
+        </div>
+        <div class="grid-2">
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">AI Workflow Audit</h3>
+            <p class="service-detail-card__price">£400 to £600</p>
+            <p class="service-detail-card__desc">Map your processes, find AI opportunities, get a 10-slide action report with ROI estimate. Delivered in 48 hours.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">AI Chatbot Setup</h3>
+            <p class="service-detail-card__price">£300 to £500</p>
+            <p class="service-detail-card__desc">Install a 24/7 FAQ chatbot on your website or WhatsApp. Reduces missed enquiries from day one.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">AI Content Pack 30-day</h3>
+            <p class="service-detail-card__price">£250 to £400</p>
+            <p class="service-detail-card__desc">30 social captions and 10 branded Canva templates, edited for your brand voice and ready to post.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">Digital Marketing Health Check</h3>
+            <p class="service-detail-card__price">£200 to £350</p>
+            <p class="service-detail-card__desc">Full audit of your website, Google profile, social channels, and SEO. You get a scored action report.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE TIER -->
+    <section class="tier-section">
+      <div class="container">
+        <div class="tier-header">
+          <span class="tier-badge tier-badge--core">Core Tier</span>
+          <h2 class="tier-header__name">Foundations that generate results</h2>
+          <p class="tier-header__tagline">Set up the core systems every small business needs to attract and convert customers online.</p>
+        </div>
+        <div class="grid-2">
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">Google Business and Local SEO Setup</h3>
+            <p class="service-detail-card__price">£400 to £700</p>
+            <p class="service-detail-card__desc">Fully optimised Google Business Profile, citation building, review templates, and local keyword targeting.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">Email Marketing Setup and First Campaign</h3>
+            <p class="service-detail-card__price">£500 to £800</p>
+            <p class="service-detail-card__desc">Mailchimp or Klaviyo setup, welcome sequence, and your first three campaign emails written and scheduled.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">Lead Generation System Setup</h3>
+            <p class="service-detail-card__price">£600 to £900</p>
+            <p class="service-detail-card__desc">Opt-in funnel, landing page, lead magnet, and email sequence built end to end.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">Social Media Automation Setup</h3>
+            <p class="service-detail-card__price">£400 to £650</p>
+            <p class="service-detail-card__desc">60 days of posts pre-loaded into Buffer or Later. Brand voice configured. Handed over ready to run.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">Cybersecurity and GDPR Health Check</h3>
+            <p class="service-detail-card__price">£500 to £800</p>
+            <p class="service-detail-card__desc">Security and GDPR audit for UK SMEs. Vulnerability report, actionable fixes, and policy recommendations.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM TIER -->
+    <section class="tier-section">
+      <div class="container">
+        <div class="tier-header">
+          <span class="tier-badge tier-badge--premium">Premium Tier</span>
+          <h2 class="tier-header__name">Full transformation projects</h2>
+          <p class="tier-header__tagline">Comprehensive projects that overhaul how your business operates online. For businesses ready to scale.</p>
+        </div>
+        <div class="grid-2">
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">AI Business Transformation Package</h3>
+            <p class="service-detail-card__price">£1,500 to £2,500</p>
+            <p class="service-detail-card__desc">Four-week implementation combining audit, chatbot, automation, and content into one managed project.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">E-commerce Store Build</h3>
+            <p class="service-detail-card__price">£1,200 to £2,000</p>
+            <p class="service-detail-card__desc">Shopify or WooCommerce store with AI product descriptions, SEO metadata, and brand theme.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">AI Staff Training Workshop</h3>
+            <p class="service-detail-card__price">£800 to £1,500</p>
+            <p class="service-detail-card__desc">Half-day in-person or Zoom session teaching your team to use AI in their daily work.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">Brand Identity and AI Marketing Strategy</h3>
+            <p class="service-detail-card__price">£1,000 to £1,800</p>
+            <p class="service-detail-card__desc">Logo, brand colours, tone-of-voice guide, and 90-day marketing roadmap as a Notion and Canva pack.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RETAINER TIER -->
+    <section class="tier-section">
+      <div class="container">
+        <div class="tier-header">
+          <span class="tier-badge tier-badge--retainer">Retainer Tier</span>
+          <h2 class="tier-header__name">Ongoing monthly support</h2>
+          <p class="tier-header__tagline">Monthly management so your systems keep improving while you focus on running your business.</p>
+        </div>
+        <div class="grid-2">
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">AI Marketing Management</h3>
+            <p class="service-detail-card__price">£400 to £600 per month</p>
+            <p class="service-detail-card__desc">12 social posts, two email campaigns, Google Business updates, and a monthly performance report.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+          <div class="service-detail-card reveal">
+            <h3 class="service-detail-card__name">AI Automation Maintenance</h3>
+            <p class="service-detail-card__price">£300 to £500 per month</p>
+            <p class="service-detail-card__desc">Monthly automation check-up, chatbot updates, workflow suggestions, and a 30-minute review call.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--ghost" style="margin-top: auto; width: fit-content;">Book This Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-cta">
+      <div class="container">
+        <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--primary">Book a Free Discovery Call</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <img src="SAL.png" alt="SAL Digital" class="footer__brand-logo">
+          <p class="footer__tagline">AI-powered growth for modern businesses</p>
+          <p class="footer__location">Based in London, serving UK businesses nationwide</p>
+        </div>
+        <div>
+          <p class="footer__column-title">Quick Links</p>
+          <div class="footer__links">
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="products.html" class="footer__link">Digital Products</a>
+            <a href="portfolio.html" class="footer__link">Portfolio</a>
+            <a href="tools.html" class="footer__link">Tools</a>
+            <a href="blog.html" class="footer__link">Blog</a>
+            <a href="about.html" class="footer__link">About</a>
+            <a href="index.html#contact" class="footer__link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer__column-title">Connect</p>
+          <div class="footer__socials">
+            <a href="https://www.linkedin.com/in/saldigital/" target="_blank" class="footer__social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/syedlatief/" target="_blank" class="footer__social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/im_sal1/" target="_blank" class="footer__social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@imsal007" target="_blank" class="footer__social-link" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="https://uk.pinterest.com/imsal1/" target="_blank" class="footer__social-link" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__bottom-row">
+          <p class="footer__bottom-text">© 2026 SAL Digital. All rights reserved.</p>
+          <p class="footer__bottom-text">info@syedlatief.com · 07438 815 827</p>
+        </div>
+        <div class="footer__bottom-row">
+          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+          <span class="footer__legal-divider">·</span>
+          <a href="terms.html" class="footer__legal-link">Terms and Conditions</a>
+          <span class="footer__legal-divider">·</span>
+          <a href="cookies.html" class="footer__legal-link">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileNav() {
+      const hamburger = document.querySelector('.header__hamburger');
+      const mobileNav = document.getElementById('mobileNav');
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
