@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free SEO Tools | SAL Digital - Keyword Checker & Local SEO Audit</title>
+    <meta name="description" content="Free SEO tools for UK small businesses. Keyword difficulty checker, Google Maps rank checker, and Local SEO score card. No signup needed.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syedlatief.com/tools.html">
+    <meta property="og:title" content="Free SEO Tools for UK Small Businesses | SAL Digital">
+    <meta property="og:description" content="Free keyword difficulty checker, Google Maps rank checker, and Local SEO score card. No signup needed.">
+    <meta property="og:image" content="https://syedlatief.com/SAL.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
+            --border-color: #27272a;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navigation - Same as homepage */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo img { height: 40px; width: auto; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+            font-family: var(--font-main);
+        }
+        .btn-primary {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 160px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
+            z-index: -1;
+        }
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+        }
+
+        /* Tools Grid */
+        .tools-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 32px;
+            transition: var(--transition);
+        }
+        .tool-card:hover {
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+        .tool-card h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .tool-card > p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        /* Form Elements */
+        .form-group { margin-bottom: 20px; }
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+        }
+        .form-input::placeholder { color: var(--text-secondary); }
+        .tool-note {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Result Panels */
+        .result-panel {
+            display: none;
+            margin-top: 28px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 28px;
+        }
+        .result-panel.visible { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .result-score {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 8px;
+            letter-spacing: -0.03em;
+        }
+        .result-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+        .result-bar-wrap {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .result-bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+        .result-tips {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        .result-tips strong { color: var(--accent-gold); }
+
+        /* Difficulty Colors */
+        .difficulty-easy { color: #4ade80; }
+        .difficulty-med { color: #facc15; }
+        .difficulty-hard { color: #f97316; }
+        .difficulty-vhard { color: #ef4444; }
+        .bar-easy { background: #4ade80; }
+        .bar-med { background: #facc15; }
+        .bar-hard { background: #f97316; }
+        .bar-vhard { background: #ef4444; }
+
+        /* Maps Checklist */
+        .maps-checklist { margin-top: 16px; display: flex; flex-direction: column; gap: 12px; }
+        .maps-check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .check-icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+        .check-icon--yes { background: rgba(74,222,128,0.15); color: #4ade80; }
+        .check-icon--no { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(52, 211, 153, 0.05));
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius);
+            padding: 48px;
+            text-align: center;
+            margin: 60px 0;
+        }
+        .cta-banner h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .cta-banner p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer - Same as homepage */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 30px;
+            background: var(--bg-secondary);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand p { color: var(--text-secondary); margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
+        .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; }
+        .footer-col a:hover { color: var(--text-primary); }
+        .social-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+        .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { 
+                display: none; 
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 24px;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .tool-card { padding: 28px 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .result-score { font-size: 3rem; }
+            .cta-banner { padding: 32px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/SAL.png" alt="SAL Digital Logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#services">Systems</a></li>
+                <li><a href="/#portfolio">Builds</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/tools.html" class="active">Free Tools</a></li>
+                <li><a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Book Audit</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <span class="section-label">Free Resources</span>
+            <h1>SEO Tools That <span style="background: linear-gradient(135deg, var(--accent-gold), var(--accent-neon)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Actually Work</span></h1>
+            <p>Practical, free tools to check your rankings and find keyword opportunities. No signup. No spam. Just value.</p>
+        </div>
+    </header>
+
+    <!-- Tools -->
+    <main class="tools-container">
+
+        <!-- TOOL 1: Keyword Difficulty Checker -->
+        <div class="tool-card">
+            <h2>⚡ Keyword Difficulty Checker</h2>
+            <p>Get an instant difficulty estimate for any keyword. See how competitive it is to rank, with actionable tips tailored to your score.</p>
+            <div class="form-group">
+                <label class="form-label" for="kd-keyword">Enter a keyword</label>
+                <input type="text" id="kd-keyword" class="form-input" placeholder="e.g. digital marketing london">
+                <p class="tool-note">💡 Try a specific local keyword for the most useful results.</p>
+            </div>
+            <button class="btn btn-primary" onclick="checkKeywordDifficulty()" id="kd-btn">Check Difficulty →</button>
+            <div id="kd-result" class="result-panel" role="status"></div>
+        </div>
+
+        <!-- TOOL 2: Google Maps Rank Checker -->
+        <div class="tool-card">
+            <h2>📍 Google Maps Rank Checker</h2>
+            <p>Understand what it takes to rank on Google Maps for your keyword and location. Get a personalised checklist of what to improve.</p>
+            <div class="form-group">
+                <label class="form-label" for="mr-business">Business name</label>
+                <input type="text" id="mr-business" class="form-input" placeholder="e.g. Joe's Cafe London">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="mr-keyword">Keyword you want to rank for</label>
+                <input type="text" id="mr-keyword" class="form-input" placeholder="e.g. cafe near me">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="mr-location">Your location</label>
+                <input type="text" id="mr-location" class="form-input" placeholder="e.g. London E1">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="mr-gbp">Do you have a Google Business Profile?</label>
+                <select id="mr-gbp" class="form-select">
+                    <option value="">— Select —</option>
+                    <option value="yes_verified">Yes, verified and active</option>
+                    <option value="yes_unverified">Yes, but not verified or incomplete</option>
+                    <option value="no">No, I don't have one</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="checkMapsRank()" id="mr-btn">Check Rank Factors →</button>
+            <div id="mr-result" class="result-panel" role="status"></div>
+        </div>
+
+        <!-- TOOL 3: Local SEO Score Card -->
+        <div class="tool-card">
+            <h2>📊 Local SEO Score Card</h2>
+            <p>Answer 6 quick questions and get an instant local SEO health score with your top three priorities to fix first.</p>
+            <div class="form-group">
+                <label class="form-label" for="sc-gbp">Google Business Profile</label>
+                <select id="sc-gbp" class="form-select">
+                    <option value="">— Select —</option>
+                    <option value="2">Yes, fully optimised with photos and posts</option>
+                    <option value="1">Yes, but basic / incomplete</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="sc-reviews">Customer reviews (Google)</label>
+                <select id="sc-reviews" class="form-select">
+                    <option value="">— Select —</option>
+                    <option value="2">20+ reviews, 4.5 stars or above</option>
+                    <option value="1">Some reviews but under 20 or below 4.5</option>
+                    <option value="0">Fewer than 5 reviews</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="sc-website">Website with local keywords</label>
+                <select id="sc-website" class="form-select">
+                    <option value="">— Select —</option>
+                    <option value="2">Yes, pages mention my town/area and services</option>
+                    <option value="1">Website exists but no local content</option>
+                    <option value="0">No website</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="sc-citations">Business listed on directories (Yell, Yelp, Bing Places)</label>
+                <select id="sc-citations" class="form-select">
+                    <option value="">— Select —</option>
+                    <option value="2">Listed on 5+ directories, details consistent</option>
+                    <option value="1">Listed on 1–4, some inconsistencies</option>
+                    <option value="0">Not listed anywhere</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="sc-social">Active social media presence</label>
+                <select id="sc-social" class="form-select">
+                    <option value="">— Select —</option>
+                    <option value="1">Yes, posting regularly</option>
+                    <option value="0">No or rarely</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="sc-speed">Website loads fast on mobile</label>
+                <select id="sc-speed" class="form-select">
+                    <option value="">— Select —</option>
+                    <option value="1">Yes, loads in under 3 seconds</option>
+                    <option value="0">Slow or unsure</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="calcSeoScore()">Get My Score →</button>
+            <div id="sc-result" class="result-panel" role="status"></div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner">
+            <h2>Want Us to Do This For You?</h2>
+            <p>Our Local SEO retainer starts at £450/month. We handle everything — GBP optimization, citations, reviews, and content.</p>
+            <a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary">Book a Free Strategy Call →</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <img src="/SAL.png" alt="SAL Digital Logo" style="height: 40px;">
+                    </a>
+                    <p>Engineering high-converting websites and intelligent digital systems for modern businesses.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Systems</h4>
+                    <a href="/#services">Web Architecture</a>
+                    <a href="/#services">Local Dominance</a>
+                    <a href="/#services">Workflow Automation</a>
+                    <a href="/#services">Digital Assistants</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/blog.html">Blog</a>
+                    <a href="/tools.html">Free Tools</a>
+                    <a href="https://payhip.com/b/FAoCP" target="_blank">Digital Products</a>
+                    <a href="https://calendly.com/syedlatief-info/30min">Book an Audit</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px;">Follow our builds and digital strategies.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/im_sal1/" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/saldigital/" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+                        </a>
+                        <a href="https://x.com/imsal101" target="_blank" aria-label="X">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@imsal007" target="_blank" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/syedlatief/" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                        </a>
+                        <a href="https://uk.pinterest.com/imsal1/" target="_blank" aria-label="Pinterest">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAL Digital. Engineered for Growth. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+
+        /* =====================================================
+           TOOL 1: KEYWORD DIFFICULTY CHECKER
+        ===================================================== */
+        function checkKeywordDifficulty() {
+            const keyword = document.getElementById('kd-keyword').value.trim();
+            const btn = document.getElementById('kd-btn');
+            const resultDiv = document.getElementById('kd-result');
+            if (!keyword) { alert('Please enter a keyword first.'); return; }
+
+            btn.textContent = 'Checking...';
+            setTimeout(() => {
+                btn.textContent = 'Check Difficulty →';
+                const score = estimateKeywordDifficulty(keyword);
+                const { label, cls, barCls, tips } = getDifficultyBand(score);
+
+                resultDiv.innerHTML = `
+                    <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-secondary);margin-bottom:4px">Estimated Difficulty</p>
+                    <div class="result-score ${cls}">${score}<span style="font-size:1.5rem;font-weight:400">/100</span></div>
+                    <div class="result-label ${cls}">${label}</div>
+                    <div class="result-bar-wrap"><div class="result-bar ${barCls}" style="width:${score}%"></div></div>
+                    <div class="result-tips">${tips}</div>
+                    <p class="tool-note" style="margin-top:16px">This is a heuristic estimate. For precise data, <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">book a free call</a> for a proper keyword audit.</p>
+                `;
+                resultDiv.classList.add('visible');
+            }, 900);
+        }
+
+        function estimateKeywordDifficulty(kw) {
+            const words = kw.toLowerCase().split(/\s+/).filter(Boolean);
+            let score = 50;
+            if (words.length >= 4) score -= 18;
+            else if (words.length === 3) score -= 10;
+            else if (words.length === 1) score += 20;
+
+            const localWords = ['london','uk','near me','nearby','local','east','west','north','south','street','road','lane','village','town','city'];
+            if (words.some(w => localWords.some(l => kw.toLowerCase().includes(l)))) score -= 15;
+
+            const hardTerms = ['seo','marketing','insurance','loans','mortgage','solicitor','lawyer','accountant','dentist','doctor'];
+            if (hardTerms.some(t => kw.toLowerCase().includes(t))) score += 12;
+
+            const commercialWords = ['best','top','cheap','affordable','cheapest','buy','hire','find'];
+            if (commercialWords.some(w => words.includes(w))) score += 8;
+
+            const questionWords = ['how','what','why','when','where','which','can','does','is','are'];
+            if (questionWords.some(w => words[0] === w)) score -= 12;
+
+            if (/202[4-6]/.test(kw)) score -= 6;
+
+            return Math.max(5, Math.min(95, Math.round(score)));
+        }
+
+        function getDifficultyBand(score) {
+            if (score <= 30) return {
+                label: 'Easy — Good opportunity',
+                cls: 'difficulty-easy', barCls: 'bar-easy',
+                tips: `<strong>Great news!</strong> This keyword has relatively low competition. A well-optimised page with local SEO signals could rank within weeks.<br><br><strong>Top priorities:</strong> Create a dedicated page targeting this exact keyword. Add it to your Google Business Profile. Get 3–5 reviews mentioning this service. Build 2–3 local citations.`
+            };
+            if (score <= 55) return {
+                label: 'Medium — Achievable with effort',
+                cls: 'difficulty-med', barCls: 'bar-med',
+                tips: `<strong>Achievable.</strong> You can rank for this keyword but it will take consistent effort over 3–6 months.<br><br><strong>Top priorities:</strong> Create in-depth content (1,000+ words). Build local backlinks. Optimise your Google Business Profile fully. Aim for 15+ reviews with 4.5 stars or above.`
+            };
+            if (score <= 75) return {
+                label: 'Hard — Requires sustained SEO',
+                cls: 'difficulty-hard', barCls: 'bar-hard',
+                tips: `<strong>Competitive territory.</strong> Expect 6–12 months of consistent SEO work. Focus on long-tail variants first.<br><br><strong>Top priorities:</strong> Target 3–5 easier long-tail versions first. Build topical authority with a blog. Pursue guest posts and local PR links. <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">Book a free call</a> to discuss strategy.`
+            };
+            return {
+                label: 'Very Hard — Long-term play',
+                cls: 'difficulty-vhard', barCls: 'bar-vhard',
+                tips: `<strong>High competition.</strong> This keyword is likely dominated by large national sites.<br><br><strong>Recommended approach:</strong> Focus on hyper-local or long-tail variations. Build domain authority over 12–18 months. Consider paid search while organic grows. <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">Book a free strategy call</a>.`
+            };
+        }
+
+        /* =====================================================
+           TOOL 2: GOOGLE MAPS RANK CHECKER
+        ===================================================== */
+        function checkMapsRank() {
+            const business = document.getElementById('mr-business').value.trim();
+            const keyword  = document.getElementById('mr-keyword').value.trim();
+            const location = document.getElementById('mr-location').value.trim();
+            const gbp      = document.getElementById('mr-gbp').value;
+            const btn      = document.getElementById('mr-btn');
+            const result   = document.getElementById('mr-result');
+
+            if (!business || !keyword || !location) { alert('Please fill in all three fields.'); return; }
+
+            btn.textContent = 'Checking...';
+            setTimeout(() => {
+                btn.textContent = 'Check Rank Factors →';
+                const checks = getMapsChecklist(business, keyword, location, gbp);
+                const passing = checks.filter(c => c.pass).length;
+                const total = checks.length;
+                const pct = Math.round((passing / total) * 100);
+
+                let statusColor = pct >= 70 ? '#4ade80' : pct >= 40 ? '#facc15' : '#ef4444';
+                let statusLabel = pct >= 70 ? 'Good foundation' : pct >= 40 ? 'Needs work' : 'Significant gaps';
+
+                result.innerHTML = `
+                    <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-secondary);margin-bottom:4px">Maps Readiness Score for "${business}"</p>
+                    <div class="result-score" style="color:${statusColor}">${pct}<span style="font-size:1.5rem;font-weight:400">%</span></div>
+                    <div class="result-label" style="color:${statusColor}">${statusLabel}</div>
+                    <div class="result-bar-wrap"><div class="result-bar" style="width:${pct}%;background:${statusColor}"></div></div>
+                    <p style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:8px">Passing <strong style="color:var(--text-primary)">${passing}</strong> of <strong style="color:var(--text-primary)">${total}</strong> key ranking factors:</p>
+                    <div class="maps-checklist">
+                        ${checks.map(c => `
+                            <div class="maps-check-item">
+                                <span class="check-icon ${c.pass ? 'check-icon--yes' : 'check-icon--no'}">${c.pass ? '✓' : '✗'}</span>
+                                <span><strong style="color:var(--text-primary)">${c.title}:</strong> ${c.desc}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <p class="tool-note" style="margin-top:20px">Want a full Google Business Profile audit? <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">Book a free 30-minute call</a> — Local SEO setup starts from £400.</p>
+                `;
+                result.classList.add('visible');
+            }, 1000);
+        }
+
+        function getMapsChecklist(business, keyword, location, gbp) {
+            const hasGBP = gbp === 'yes_verified';
+            const hasGBPUnverified = gbp === 'yes_unverified';
+            const isLocal = /[a-z]+\s*(e|w|n|s|ec|wc|se|sw|nw|ne)[0-9]/i.test(location) || location.toLowerCase().includes('london') || location.split(' ').length >= 2;
+            const kwLower = keyword.toLowerCase();
+            const hasNearMe = kwLower.includes('near me') || kwLower.includes('nearby');
+
+            return [
+                { pass: hasGBP, title: 'Google Business Profile (verified)', desc: hasGBP ? 'Your profile is verified — this is the single most important ranking factor.' : hasGBPUnverified ? 'You have a profile but it needs verification. Complete this in Google Business Manager immediately.' : 'You don\'t have a GBP. Create and verify one at business.google.com — this is essential for Maps rankings.' },
+                { pass: hasGBP, title: 'Business category optimised', desc: hasGBP ? 'Ensure your primary category exactly matches what customers search for.' : 'Once your GBP is live, choose the most specific primary category available.' },
+                { pass: isLocal, title: 'Service area defined', desc: isLocal ? 'Your location looks specific — define your exact service area in GBP settings.' : 'Add a precise service area in your GBP. Vague locations hurt local pack rankings.' },
+                { pass: false, title: 'Review count and rating', desc: 'Aim for 20+ reviews with 4.5 stars or above. Send a review request to your last 10 customers this week.' },
+                { pass: hasNearMe || isLocal, title: 'Keyword relevance in listing', desc: 'Add your target keyword naturally in your GBP business description. Include it in your service descriptions too.' },
+                { pass: false, title: 'Google Posts (weekly updates)', desc: 'Publish a Google Post at least once per week — events, offers, or news. Active profiles rank higher.' },
+                { pass: false, title: 'Photos and Q&A populated', desc: 'Add at least 15 photos of your business, team, and work. Answer every question in the Q&A section yourself.' },
+                { pass: false, title: 'Citations on external directories', desc: 'List your business on Yell, Bing Places, Thomson Local, and Yelp UK with identical name, address, and phone number (NAP consistency).' }
+            ];
+        }
+
+        /* =====================================================
+           TOOL 3: LOCAL SEO SCORE CARD
+        ===================================================== */
+        function calcSeoScore() {
+            const fields = ['sc-gbp','sc-reviews','sc-website','sc-citations','sc-social','sc-speed'];
+            let total = 0;
+            const values = {};
+
+            for (const id of fields) {
+                const el = document.getElementById(id);
+                if (!el.value) { alert('Please answer all questions.'); el.focus(); return; }
+                const v = parseInt(el.value, 10);
+                values[id] = v;
+                total += v;
+            }
+
+            const maxPossible = 10;
+            const pct = Math.round((total / maxPossible) * 100);
+            let grade, gradeColor, gradeDesc;
+
+            if (pct >= 80) { grade = 'A'; gradeColor = '#4ade80'; gradeDesc = 'Strong local SEO foundation. Focus on maintaining and expanding.'; }
+            else if (pct >= 60) { grade = 'B'; gradeColor = '#a3e635'; gradeDesc = 'Good start. A few key gaps to close before you dominate locally.'; }
+            else if (pct >= 40) { grade = 'C'; gradeColor = '#facc15'; gradeDesc = 'Room for improvement. Fix the critical issues and you\'ll see quick wins.'; }
+            else { grade = 'D'; gradeColor = '#f97316'; gradeDesc = 'Significant gaps. Start with Google Business Profile — it\'s free and the biggest lever.'; }
+
+            const priorities = [];
+            if (values['sc-gbp'] < 2) priorities.push(values['sc-gbp'] === 0 ? '🔴 <strong>Create and verify your Google Business Profile</strong> — this is the single biggest thing you can do for free.' : '🟡 <strong>Complete and optimise your Google Business Profile</strong> — add photos, services, opening hours, and a keyword-rich description.');
+            if (values['sc-reviews'] < 2) priorities.push('🟡 <strong>Get more Google reviews</strong> — email your last 10 customers today asking for a review. Aim for 20+ at 4.5 stars.');
+            if (values['sc-website'] < 2) priorities.push(values['sc-website'] === 0 ? '🔴 <strong>Build a website with local keywords</strong> — even a simple 3-page site with your town name and services can transform your rankings.' : '🟡 <strong>Add local landing pages to your website</strong> — create a page targeting "[Service] in [Your Town]".');
+            if (values['sc-citations'] < 2) priorities.push('🟡 <strong>Build local citations</strong> — list your business on Yell, Bing Places, Thomson Local, and Yelp UK with identical NAP details.');
+            if (values['sc-social'] < 1) priorities.push('🟡 <strong>Start posting on social media</strong> — even 3 posts per week on Google Business Profile and Facebook signals activity to Google.');
+            if (values['sc-speed'] < 1) priorities.push('🟡 <strong>Improve mobile page speed</strong> — test your site on PageSpeed Insights and fix your top 3 issues.');
+
+            const topThree = priorities.slice(0, 3);
+            const resultDiv = document.getElementById('sc-result');
+            
+            resultDiv.innerHTML = `
+                <p style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-secondary);margin-bottom:4px">Your Local SEO Score</p>
+                <div class="result-score" style="color:${gradeColor}">${grade}<span style="font-size:1.5rem;font-weight:400"> · ${pct}%</span></div>
+                <div class="result-bar-wrap"><div class="result-bar" style="width:${pct}%;background:${gradeColor}"></div></div>
+                <p style="font-size:1rem;color:var(--text-secondary);margin-bottom:16px">${gradeDesc}</p>
+                ${topThree.length > 0 ? `
+                    <div class="result-tips">
+                        <strong>Your top ${topThree.length} priorities right now:</strong><br><br>
+                        ${topThree.map((p, i) => `<div style="margin-bottom:10px">${i + 1}. ${p}</div>`).join('')}
+                    </div>
+                ` : '<div class="result-tips"><strong>You\'re in great shape!</strong> Keep posting, collecting reviews, and building citations.</div>'}
+                <p class="tool-note" style="margin-top:16px">Want a full local SEO audit and done-for-you setup? <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">Book a free 30-minute call</a>.</p>
+            `;
+            resultDiv.classList.add('visible');
+        }
+    </script>
+</body>
+</html>
