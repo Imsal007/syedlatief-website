@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Get Your Free Digital Audit | SAL Digital</title>
+    <meta name="description" content="Contact SAL Digital for a free, no-obligation digital audit worth £500. Discover why you're not ranking on Google and how to fix it. Fast response guaranteed.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syedlatief.com/contact.html">
+    <meta property="og:title" content="Contact Us | Get Your Free Digital Audit | SAL Digital">
+    <meta property="og:description" content="Discover why you're losing customers to competitors and how to fix it. Free audit + custom action plan. Fast response.">
+    <meta property="og:image" content="https://syedlatief.com/SAL.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Preconnect for speed -->
+    <link rel="preconnect" href="https://formspree.io">
+    <link rel="dns-prefetch" href="https://formspree.io">
+    
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
+            --accent-red: #EF4444;
+            --border-color: #27272a;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background: linear-gradient(135deg, #09090b 0%, #1a1a2e 50%, #09090b 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(9, 9, 11, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo img { height: 40px; width: auto; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+            font-family: var(--font-main);
+        }
+        .btn-primary {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+        }
+
+        /* Hero Section */
+        .hero-lead {
+            padding: 160px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-lead::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
+            z-index: -1;
+        }
+        .urgency-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-red), #DC2626);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+        .hero-lead h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
+        .hero-lead .highlight {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-lead .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .value-prop {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* Pain Points Section */
+        .pain-points {
+            padding: 60px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .pain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-red);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: var(--transition);
+        }
+        .pain-card:hover {
+            transform: translateX(8px);
+            border-left-color: var(--accent-gold);
+        }
+        .pain-icon { font-size: 2rem; margin-bottom: 12px; }
+        .pain-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; }
+        .pain-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; }
+
+        /* Form Section */
+        .form-section {
+            padding: 60px 0 80px;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 48px;
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .form-header h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 8px; }
+        .form-header p { color: var(--text-secondary); font-size: 1rem; }
+        
+        .direct-contact {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .direct-contact p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 8px; }
+        .direct-contact a { color: var(--accent-gold); font-weight: 600; font-size: 1.1rem; }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .form-label .required { color: var(--accent-red); }
+        .form-input, .form-select, .form-textarea {
+            width: 100%; padding: 14px 16px; background: var(--bg-secondary);
+            border: 1px solid var(--border-color); border-radius: 8px;
+            color: var(--text-primary); font-family: var(--font-main); font-size: 1rem;
+            transition: var(--transition);
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none; border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+        }
+        .form-input::placeholder, .form-textarea::placeholder { color: var(--text-secondary); }
+        .form-textarea { resize: vertical; min-height: 100px; }
+        
+        .form-checkbox { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 24px; }
+        .form-checkbox input[type="checkbox"] {
+            width: 20px; height: 20px; accent-color: var(--accent-gold);
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .form-checkbox label { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+        .form-checkbox a { color: var(--accent-gold); text-decoration: underline; }
+        
+        .form-security {
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            margin-top: 20px; font-size: 0.8rem; color: var(--text-secondary);
+        }
+        .form-security svg { width: 16px; height: 16px; fill: var(--accent-neon); }
+        
+        .form-success { display: none; text-align: center; padding: 40px; }
+        .form-success.visible { display: block; animation: fadeIn 0.6s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .form-success h3 { font-size: 1.75rem; color: var(--accent-neon); margin-bottom: 12px; }
+        .form-success p { color: var(--text-secondary); font-size: 1.05rem; }
+
+        /* Calendly Section */
+        .calendly-section { padding: 60px 0 80px; }
+        .calendly-box { max-width: 900px; margin: 0 auto; text-align: center; }
+        .calendly-box h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 12px; }
+        .calendly-box p { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 24px; }
+        .calendly-wrapper {
+            min-height: 600px; background: var(--bg-card);
+            border: 1px solid var(--border-color); border-radius: var(--radius);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border-color); padding: 40px 0;
+            background: var(--bg-secondary); text-align: center;
+            color: var(--text-secondary); font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { 
+                display: none; position: absolute; top: 70px; left: 0; width: 100%;
+                background: var(--bg-primary); flex-direction: column; padding: 24px;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-container { padding: 32px 20px; }
+            .pain-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/SAL.png" alt="SAL Digital Logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/tools.html">Free Tools</a></li>
+                <li><a href="/products.html">Products</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html" class="active" style="color: var(--text-primary);">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-lead">
+        <div class="container">
+            <div class="urgency-badge">⚡ Limited Free Audits Available</div>
+            <h1>Get Your <span class="highlight">Free Digital Audit</span><br>Worth £500</h1>
+            <p class="subtitle">Discover exactly why your website isn't converting, why competitors rank higher on Google, and get a custom action plan to fix it.</p>
+            <div class="value-prop">
+                <span>✓ No Obligation &nbsp; • &nbsp; ✓ No Sales Pitch &nbsp; • &nbsp; ✓ 100% Free</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-points">
+        <div class="container">
+            <div class="section-header">
+                <h2>Is This You?</h2>
+                <p>If any of these sound familiar, you need this audit</p>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">😤</div>
+                    <h3>Frustrated with Google?</h3>
+                    <p>You've built a website but it's nowhere to be found. Competitors rank above you, and you're losing customers every day.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">💸</div>
+                    <h3>Wasting Money on Ads?</h3>
+                    <p>Spending hundreds on ads but getting few leads. Your cost per acquisition is too high and ROI is disappointing.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon"></div>
+                    <h3>Drowning in Manual Work?</h3>
+                    <p>Spending hours on repetitive tasks—responding to the same questions, sending follow-ups. There has to be a better way.</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-icon">📍</div>
+                    <h3>Invisible on Google Maps?</h3>
+                    <p>When people search locally, you don't show up. Your Google Business Profile is incomplete or unoptimized.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div id="formContainer">
+                    <div class="form-header">
+                        <h2>Claim Your Free Audit</h2>
+                        <p>Fill out the form below. We'll analyze your digital presence and send you a custom report within 48 hours.</p>
+                    </div>
+                    
+                    <div class="direct-contact">
+                        <p>Prefer to email directly?</p>
+                        <a href="mailto:info@syedlatief.com">info@syedlatief.com</a>
+                    </div>
+                    
+                    <form action="https://formspree.io/f/mojrllnn" method="POST" id="auditForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="email">Business Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="john@yourbusiness.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="07438 815 827">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="website">Current Website</label>
+                                <input type="url" id="website" name="website" class="form-input" placeholder="https://yourbusiness.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="business">Business Name <span class="required">*</span></label>
+                                <input type="text" id="business" name="business" class="form-input" placeholder="Your Business Ltd" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="industry">Industry <span class="required">*</span></label>
+                                <select id="industry" name="industry" class="form-select" required>
+                                    <option value="">— Select your industry —</option>
+                                    <option value="Retail">Retail & E-commerce</option>
+                                    <option value="Professional Services">Professional Services</option>
+                                    <option value="Healthcare">Healthcare & Wellness</option>
+                                    <option value="Hospitality">Hospitality & Tourism</option>
+                                    <option value="Construction">Construction & Trades</option>
+                                    <option value="Real Estate">Real Estate</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label class="form-label" for="challenge">Biggest Digital Challenge <span class="required">*</span></label>
+                                <textarea id="challenge" name="challenge" class="form-textarea" placeholder="What's your #1 frustration right now? (e.g., 'Not getting enough leads', 'Can't rank on Google Maps')" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">I agree to the <a href="/privacy.html">Privacy Policy</a> and consent to being contacted about my audit. No spam, ever.</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 1.1rem;" id="submitBtn">
+                            <span id="btnText"> Get My Free Audit Worth £500 →</span>
+                        </button>
+                        
+                        <div class="form-security">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <span>Protected by CAPTCHA and SSL encryption. We never share your data.</span>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="form-success" id="successMessage">
+                    <h3>🎉 Audit Request Received!</h3>
+                    <p>Thank you! We've received your request and will begin analyzing your digital presence immediately.</p>
+                    <p style="margin-top: 20px; font-size: 0.95rem;">Check your email for a confirmation message. You'll receive your custom report within 48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendly Section -->
+    <section class="calendly-section">
+        <div class="container">
+            <div class="calendly-box">
+                <h2>Or Book Your Strategy Call Directly</h2>
+                <p>Don't want to wait? Schedule your free 30-minute consultation now.</p>
+                <div class="calendly-wrapper" id="calendly-wrapper">
+                    <button onclick="loadCalendly()" class="btn btn-primary" id="calendly-trigger">
+                        📅 Load Scheduling Calendar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 SAL Digital. All rights reserved. | <a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms & Conditions</a> | <a href="/cookies.html">Cookie Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+
+        // Form Submission
+        const form = document.getElementById('auditForm');
+        const formContainer = document.getElementById('formContainer');
+        const successMessage = document.getElementById('successMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            btnText.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    formContainer.style.display = 'none';
+                    successMessage.classList.add('visible');
+                    form.reset();
+                } else {
+                    alert('Oops! There was a problem. Please email us directly at info@syedlatief.com');
+                    btnText.textContent = '🚀 Get My Free Audit Worth £500 →';
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                alert('Oops! There was a problem. Please email us directly at info@syedlatief.com');
+                btnText.textContent = '🚀 Get My Free Audit Worth £500 →';
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Lazy-load Calendly
+        function loadCalendly() {
+            const wrapper = document.getElementById('calendly-wrapper');
+            wrapper.innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/syedlatief-info/30min" style="min-width:320px;height:600px;"></div>';
+            const script = document.createElement('script');
+            script.src = 'https://assets.calendly.com/assets/external/widget.js';
+            script.async = true;
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
