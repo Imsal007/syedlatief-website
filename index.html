@@ -1,401 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syed Latief | AI and Digital Marketing Consultant | SAL Digital</title>
-  <meta name="description" content="AI and digital marketing consultancy for UK small businesses. Save 10+ hours a week with smart automation and marketing. Based in London.">
-  <link rel="stylesheet" href="sal-shared.css">
-  <style>
-    /* Page-specific styles only */
-    .hero { min-height: 90vh; }
-    .hero__text { padding: 60px 0; display: flex; flex-direction: column; justify-content: center; }
-    .hero__label { font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: var(--space-md); }
-    .hero__headline { font-family: var(--font-heading); font-size: clamp(2.125rem, 4vw, 3.25rem); font-weight: 600; line-height: 1.15; color: var(--text-primary); margin-bottom: var(--space-md); }
-    .hero__subtext { font-family: var(--font-body); font-size: 17px; color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-lg); max-width: 540px; }
-    .hero__buttons { display: flex; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-md); }
-    .hero__proof { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); }
-    .about-strip__left { display: flex; justify-content: center; }
-    .about-strip__right { display: flex; flex-direction: column; justify-content: center; }
-    .about-strip__text { font-family: var(--font-body); font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-md); }
-    .about-strip__link { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--gold); display: inline-flex; align-items: center; gap: 4px; transition: gap 0.2s ease; }
-    .about-strip__link:hover { gap: 8px; }
-    .about-strip__link::after { content: '→'; }
-    .testimonials { display: none; }
-    .contact__left { display: flex; flex-direction: column; }
-    .contact__right { display: flex; flex-direction: column; }
-    .contact__form-card { background-color: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 32px; }
-    .contact__form-title { font-family: var(--font-heading); font-size: 22px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-md); }
-    .contact__calendly { margin-bottom: var(--space-lg); }
-    .contact__info { margin-top: var(--space-lg); }
-    .contact__location { font-family: var(--font-body); font-size: 12px; color: var(--text-muted); margin-top: var(--space-sm); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAL Digital | Engineer Your Growth. Automate Your Operations.</title>
+    <meta name="description" content="We design high-converting websites and build intelligent digital systems that capture leads, streamline workflows, and scale your revenue.">
+    <meta name="keywords" content="AI automation, web development, local SEO, digital marketing, business automation, UK">
+    <meta name="author" content="SAL Digital">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syedlatief.com/">
+    <meta property="og:title" content="SAL Digital | Engineer Your Growth">
+    <meta property="og:description" content="High-converting websites and intelligent digital systems for modern businesses.">
+    <meta property="og:image" content="https://syedlatief.com/SAL.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://syedlatief.com/">
+    <meta property="twitter:title" content="SAL Digital | Engineer Your Growth">
+    <meta property="twitter:description" content="High-converting websites and intelligent digital systems for modern businesses.">
+    <meta property="twitter:image" content="https://syedlatief.com/SAL.png">
 
-    @media (max-width: 768px) {
-      .hero { min-height: auto; }
-      .hero__headline { font-size: 34px; }
-      .hero__buttons { flex-direction: column; }
-      .hero__buttons .btn { width: 100%; }
-    }
-  </style>
+    <!-- Preconnect for speed -->
+    <link rel="preconnect" href="https://assets.calendly.com">
+    <link rel="preconnect" href="https://formspree.io">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <style>
+        /* =========================================
+           CSS VARIABLES & RESET (Blotato Dark Theme)
+           ========================================= */
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
+            --border-color: #27272a;
+            --font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+
+        /* =========================================
+           UTILITIES & LAYOUT
+           ========================================= */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 100px 0; }
+        .section-label {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+        }
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* =========================================
+           BUTTONS
+           ========================================= */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* =========================================
+           NAVIGATION
+           ========================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, rgba(9, 9, 11, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        
+        .trust-bar {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+        .trust-bar p { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px;}
+        .trust-logos { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.6; }
+        .trust-logos span { font-size: 1.2rem; font-weight: 700; color: var(--text-secondary); }
+
+        /* =========================================
+           SERVICES & PRICING
+           ========================================= */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(251, 191, 36, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+        .service-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
+        
+        .pricing-block {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: auto;
+        }
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        .pricing-row:not(:last-child) { border-bottom: 1px solid var(--border-color); }
+        .pricing-label { color: var(--text-secondary); }
+        .pricing-value { font-weight: 700; color: var(--text-primary); }
+        .pricing-value.highlight { color: var(--accent-neon); }
+
+        /* =========================================
+           PORTFOLIO
+           ========================================= */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            aspect-ratio: 16/10;
+            background: var(--bg-card);
+            transition: var(--transition);
+        }
+        .portfolio-item:hover { border-color: var(--accent-gold); transform: scale(1.02); }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .portfolio-item:hover img { transform: scale(1.05); }
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+        }
+        .portfolio-overlay h4 { font-size: 1.1rem; font-weight: 600; }
+        .portfolio-overlay span { font-size: 0.85rem; color: var(--accent-gold); }
+
+        /* =========================================
+         LEAD MAGNET / CTA SECTION
+         ========================================= */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.05), rgba(52, 211, 153, 0.05));
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 80px 40px;
+            margin: 0 24px;
+            max-width: 1152px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; }
+        .cta-section p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px; font-size: 1.1rem; }
+
+        /* =========================================
+           CALENDLY EMBED
+           ========================================= */
+        .calendly-section { padding: 80px 0; }
+        .calendly-inline-widget {
+            min-width: 320px;
+            height: 700px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 30px;
+            background: var(--bg-secondary);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand p { color: var(--text-secondary); margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
+        .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; transition: var(--transition); }
+        .footer-col a:hover { color: var(--text-primary); }
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* =========================================
+           ANIMATIONS
+           ========================================= */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 768px) {
+            .nav-links { 
+                display: none; 
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 24px;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .section { padding: 60px 0; }
+            .cta-section { padding: 40px 20px; margin: 0 16px; }
+            .hero { padding-top: 140px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 1.75rem; }
+            .btn { width: 100%; }
+            .hero-ctas { flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" aria-label="SAL Digital Home">
-        <img src="SAL.png" alt="SAL Digital" class="header__logo">
-      </a>
-      <nav class="header__nav" aria-label="Main navigation">
-        <a href="index.html" class="header__nav-link header__nav-link--active">Home</a>
-        <a href="services.html" class="header__nav-link">Services</a>
-        <a href="products.html" class="header__nav-link">Digital Products</a>
-        <a href="portfolio.html" class="header__nav-link">Portfolio</a>
-        <a href="tools.html" class="header__nav-link">Tools</a>
-        <a href="blog.html" class="header__nav-link">Blog</a>
-        <a href="about.html" class="header__nav-link">About</a>
-        <a href="#contact" class="header__nav-link">Contact</a>
-      </nav>
-      <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="header__cta">Book a Free Call</a>
-      <button class="header__hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="header__mobile-nav" id="mobileNav">
-      <a href="index.html" class="header__mobile-nav-link header__mobile-nav-link--active">Home</a>
-      <a href="services.html" class="header__mobile-nav-link">Services</a>
-      <a href="products.html" class="header__mobile-nav-link">Digital Products</a>
-      <a href="portfolio.html" class="header__mobile-nav-link">Portfolio</a>
-      <a href="tools.html" class="header__mobile-nav-link">Tools</a>
-      <a href="blog.html" class="header__mobile-nav-link">Blog</a>
-      <a href="about.html" class="header__mobile-nav-link">About</a>
-      <a href="#contact" class="header__mobile-nav-link">Contact</a>
-      <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--primary header__mobile-cta">Book a Free Call</a>
-    </div>
-  </header>
+    <!-- =========================================
+         NAVIGATION
+         ========================================= -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/SAL.png" alt="SAL Digital Logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Systems</a></li>
+                <li><a href="#portfolio">Builds</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="/products.html">Resources</a></li>
+                <li><a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Book Audit</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+        </div>
+    </nav>
 
-  <main>
-    <!-- ===== SECTION 1: HERO ===== -->
+    <!-- =========================================
+         HERO SECTION
+         ========================================= -->
     <section class="hero">
-      <div class="container">
-        <div class="two-col two-col--45-55">
-          <div class="hero-image-col">
-            <div class="image-frame">
-              <div class="image-frame__bracket-tl"></div>
-              <div class="image-frame__bracket-br"></div>
-              <img src="syed-headshot.png" alt="Syed Latief, AI and Digital Marketing Consultant">
-            </div>
-          </div>
-          <div class="hero__text">
-            <p class="hero__label">AI and Digital Marketing Consultant · MBA · Heriot-Watt University</p>
-            <h1 class="hero__headline">I Help UK Small Businesses Save 10 Plus Hours a Week Using AI and Smart Digital Marketing</h1>
-            <p class="hero__subtext">From workflow automation to full digital transformation. Practical, no-fluff solutions that save time, cut costs, and grow revenue.</p>
-            <div class="hero__buttons">
-              <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--primary">Book a Free Discovery Call</a>
-              <a href="services.html" class="btn btn--secondary">View Services</a>
-            </div>
-            <p class="hero__proof">MBA · Heriot-Watt University · CPD Digital Marketing · Retail Operations Expert</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 2: HOOK STRIP ===== -->
-    <section class="hook-strip">
-      <div class="container">
-        <div class="hook-strip__grid">
-          <div class="hook-strip__item">
-            <span class="hook-strip__icon">⏱</span>
-            <h3 class="hook-strip__title">Save Time</h3>
-            <p class="hook-strip__desc">Automate repetitive tasks and get your evenings back.</p>
-          </div>
-          <div class="hook-strip__item">
-            <span class="hook-strip__icon">💷</span>
-            <h3 class="hook-strip__title">Cut Costs</h3>
-            <p class="hook-strip__desc">Replace expensive manual processes with lean AI systems.</p>
-          </div>
-          <div class="hook-strip__item">
-            <span class="hook-strip__icon">📈</span>
-            <h3 class="hook-strip__title">Grow Revenue</h3>
-            <p class="hook-strip__desc">More leads, better marketing, faster follow-up.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 3: SERVICES OVERVIEW ===== -->
-    <section class="section bg-primary">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-header__rule"></span>
-          <h2 class="section-header__title">What I Do</h2>
-          <p class="section-header__subtitle">Four areas. Fifteen services. One consultant who understands how small businesses actually work.</p>
-        </div>
-        <div class="grid-2">
-          <div class="service-card reveal">
-            <span class="service-card__icon">🤖</span>
-            <span class="service-card__badge">AI Automation</span>
-            <h3 class="service-card__title">AI Automation</h3>
-            <p class="service-card__desc">Chatbots, workflow audits, and full AI transformation packages built for your business.</p>
-            <p class="service-card__price">from £300</p>
-            <a href="services.html" class="service-card__link">Learn More</a>
-          </div>
-          <div class="service-card reveal">
-            <span class="service-card__icon">📢</span>
-            <span class="service-card__badge">Digital Marketing</span>
-            <h3 class="service-card__title">Digital Marketing</h3>
-            <p class="service-card__desc">Local SEO, email marketing, lead generation, and social media automation that brings in customers.</p>
-            <p class="service-card__price">from £200</p>
-            <a href="services.html" class="service-card__link">Learn More</a>
-          </div>
-          <div class="service-card reveal">
-            <span class="service-card__icon">💻</span>
-            <span class="service-card__badge">Web Development</span>
-            <h3 class="service-card__title">Web Development</h3>
-            <p class="service-card__desc">Fast, SEO-ready websites and e-commerce stores that turn visitors into buyers.</p>
-            <p class="service-card__price">from £1,200</p>
-            <a href="services.html" class="service-card__link">Learn More</a>
-          </div>
-          <div class="service-card reveal">
-            <span class="service-card__icon">🔒</span>
-            <span class="service-card__badge">Cybersecurity</span>
-            <h3 class="service-card__title">Cybersecurity and GDPR</h3>
-            <p class="service-card__desc">Security audits, GDPR health checks, and staff training to keep your business protected.</p>
-            <p class="service-card__price">from £500</p>
-            <a href="services.html" class="service-card__link">Learn More</a>
-          </div>
-        </div>
-        <div class="text-center" style="margin-top: var(--space-xl);">
-          <a href="services.html" class="btn btn--ghost">View All 15 Services</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 4: ABOUT STRIP ===== -->
-    <section class="section section--bordered bg-primary">
-      <div class="container">
-        <div class="two-col">
-          <div class="about-strip__left">
-            <div class="circle-portrait">
-              <img src="syed-headshot.png" alt="Syed Latief">
-            </div>
-          </div>
-          <div class="about-strip__right">
-            <span class="gold-rule"></span>
-            <h2 class="heading-md" style="margin-bottom: var(--space-md);">I understand how small businesses actually work.</h2>
-            <p class="about-strip__text">I am Syed Latief. MBA graduate, retail operations manager, now AI consultant. I have spent years watching small businesses waste hours on tasks AI can handle in minutes. That is why my solutions are practical, not theoretical.</p>
-            <a href="about.html" class="about-strip__link">Read my story</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 5: TESTIMONIALS (hidden) ===== -->
-    <!-- TESTIMONIALS hidden until real client reviews are collected. Remove display:none to activate. -->
-    <section class="section bg-primary testimonials" style="display:none;">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-header__rule"></span>
-          <h2 class="section-header__title">What Clients Say</h2>
-        </div>
-        <div class="grid-3">
-          <div class="card">
-            <p class="body-md" style="font-style: italic; margin-bottom: var(--space-md);">"Placeholder testimonial. This section will be activated once real client reviews are collected."</p>
-            <p class="body-sm text-primary" style="font-weight: 600;">Client Name</p>
-            <p class="body-sm">Business Name</p>
-          </div>
-          <div class="card">
-            <p class="body-md" style="font-style: italic; margin-bottom: var(--space-md);">"Placeholder testimonial. This section will be activated once real client reviews are collected."</p>
-            <p class="body-sm text-primary" style="font-weight: 600;">Client Name</p>
-            <p class="body-sm">Business Name</p>
-          </div>
-          <div class="card">
-            <p class="body-md" style="font-style: italic; margin-bottom: var(--space-md);">"Placeholder testimonial. This section will be activated once real client reviews are collected."</p>
-            <p class="body-sm text-primary" style="font-weight: 600;">Client Name</p>
-            <p class="body-sm">Business Name</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 6: FINAL CTA ===== -->
-    <section class="section bg-surface">
-      <div class="container">
-        <div class="cta-strip">
-          <h2 class="heading-lg" style="margin-bottom: var(--space-md);">Ready to Save Time and Grow Your Business?</h2>
-          <p class="body-lg" style="margin-bottom: var(--space-lg); max-width: 600px;">Book a free 30-minute call. No obligation. No jargon. Just practical advice about what AI can do for your business.</p>
-          <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--primary">Book Your Free Call</a>
-          <p class="body-sm" style="margin-top: var(--space-md);">Free consultation · No commitment · Reply within 24 hours</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SECTION 7: CONTACT ===== -->
-    <section class="section bg-primary" id="contact">
-      <div class="container">
-        <div class="two-col">
-          <div class="contact__left">
-            <h2 class="heading-md" style="margin-bottom: var(--space-sm);">Book a Free Discovery Call</h2>
-            <p class="body-md" style="margin-bottom: var(--space-lg);">Pick a time that works for you. I will call you and we will talk through what AI can do for your business.</p>
-            <div class="contact__calendly calendly-container">
-              <div class="calendly-inline-widget" data-url="https://calendly.com/syedlatief-info/30min" style="min-width:320px;height:700px;"></div>
-              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            </div>
-            <div class="contact__info">
-              <div class="contact-item">
-                <span class="contact-item__icon">
-                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </span>
-                <a href="mailto:info@syedlatief.com" class="contact-item__text">info@syedlatief.com</a>
-              </div>
-              <div class="contact-item">
-                <span class="contact-item__icon">
-                  <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                </span>
-                <a href="tel:07438815827" class="contact-item__text">07438 815 827</a>
-              </div>
-              <div class="contact-item">
-                <span class="contact-item__icon">
-                  <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </span>
-                <a href="https://www.linkedin.com/in/saldigital/" target="_blank" class="contact-item__text">linkedin.com/in/saldigital</a>
-              </div>
-              <p class="contact__location">Based in London, serving UK businesses nationwide</p>
-            </div>
-          </div>
-          <div class="contact__right">
-            <div class="contact__form-card">
-              <h3 class="contact__form-title">Send a Message</h3>
-              <form action="https://formspree.io/f/mojrllnn" method="POST">
-                <div class="form-group">
-                  <label class="form-label" for="name">Full Name</label>
-                  <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
+        <div class="container">
+            <div class="fade-in">
+                <span class="section-label">Digital Growth Architecture</span>
+                <h1>Engineer Your Growth.<br><span class="text-gradient">Automate Your Operations.</span></h1>
+                <p>We design high-converting websites and build intelligent digital systems that capture leads, streamline workflows, and scale your revenue—without the busywork.</p>
+                <div class="hero-ctas">
+                    <a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary">Claim Your Free Systems Audit →</a>
+                    <a href="#services" class="btn btn-secondary">Explore Our Systems</a>
                 </div>
-                <div class="form-group">
-                  <label class="form-label" for="business">Business Name</label>
-                  <input type="text" id="business" name="business" class="form-input" placeholder="Your business name" required>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="email">Email</label>
-                  <input type="email" id="email" name="email" class="form-input" placeholder="you@business.com" required>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="phone">Phone (optional)</label>
-                  <input type="tel" id="phone" name="phone" class="form-input" placeholder="07xxx xxx xxx">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="service">Service Interest</label>
-                  <select id="service" name="service" class="form-select" required>
-                    <option value="" disabled selected>Select a service</option>
-                    <option value="AI Workflow Audit">AI Workflow Audit</option>
-                    <option value="AI Chatbot Setup">AI Chatbot Setup</option>
-                    <option value="AI Content Pack 30-day">AI Content Pack 30-day</option>
-                    <option value="Digital Marketing Health Check">Digital Marketing Health Check</option>
-                    <option value="Google Business and Local SEO Setup">Google Business and Local SEO Setup</option>
-                    <option value="Email Marketing Setup">Email Marketing Setup</option>
-                    <option value="Lead Generation System Setup">Lead Generation System Setup</option>
-                    <option value="Social Media Automation Setup">Social Media Automation Setup</option>
-                    <option value="Cybersecurity and GDPR Health Check">Cybersecurity and GDPR Health Check</option>
-                    <option value="AI Business Transformation Package">AI Business Transformation Package</option>
-                    <option value="E-commerce Store Build">E-commerce Store Build</option>
-                    <option value="AI Staff Training Workshop">AI Staff Training Workshop</option>
-                    <option value="Brand Identity and AI Marketing Strategy">Brand Identity and AI Marketing Strategy</option>
-                    <option value="AI Marketing Management Retainer">AI Marketing Management Retainer</option>
-                    <option value="AI Automation Maintenance Retainer">AI Automation Maintenance Retainer</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="message">Message</label>
-                  <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Tell me about your business and what you need help with..." required></textarea>
-                </div>
-                <button type="submit" class="btn btn--primary btn--full">Send Message</button>
-              </form>
             </div>
-          </div>
+            
+            <div class="trust-bar fade-in">
+                <p>Trusted infrastructure for modern businesses</p>
+                <div class="trust-logos">
+                    <span>DecentVibe</span>
+                    <span>Nuri Atelier</span>
+                    <span>NAHS Empire</span>
+                    <span>East London Learners</span>
+                    <span>Bangladeshi in UK</span>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <img src="SAL.png" alt="SAL Digital" class="footer__brand-logo">
-          <p class="footer__tagline">AI-powered growth for modern businesses</p>
-          <p class="footer__location">Based in London, serving UK businesses nationwide</p>
-        </div>
-        <div>
-          <p class="footer__column-title">Quick Links</p>
-          <div class="footer__links">
-            <a href="index.html" class="footer__link">Home</a>
-            <a href="services.html" class="footer__link">Services</a>
-            <a href="products.html" class="footer__link">Digital Products</a>
-            <a href="portfolio.html" class="footer__link">Portfolio</a>
-            <a href="tools.html" class="footer__link">Tools</a>
-            <a href="blog.html" class="footer__link">Blog</a>
-            <a href="about.html" class="footer__link">About</a>
-            <a href="#contact" class="footer__link">Contact</a>
-          </div>
-        </div>
-        <div>
-          <p class="footer__column-title">Connect</p>
-          <div class="footer__socials">
-            <a href="https://www.linkedin.com/in/saldigital/" target="_blank" class="footer__social-link" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/syedlatief/" target="_blank" class="footer__social-link" aria-label="Facebook">
-              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/im_sal1/" target="_blank" class="footer__social-link" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@imsal007" target="_blank" class="footer__social-link" aria-label="TikTok">
-              <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-            </a>
-            <a href="https://uk.pinterest.com/imsal1/" target="_blank" class="footer__social-link" aria-label="Pinterest">
-              <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <div class="footer__bottom-row">
-          <p class="footer__bottom-text">© 2026 SAL Digital. All rights reserved.</p>
-          <p class="footer__bottom-text">info@syedlatief.com · 07438 815 827</p>
-        </div>
-        <div class="footer__bottom-row">
-          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
-          <span class="footer__legal-divider">·</span>
-          <a href="terms.html" class="footer__legal-link">Terms and Conditions</a>
-          <span class="footer__legal-divider">·</span>
-          <a href="cookies.html" class="footer__legal-link">Cookie Policy</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- =========================================
+         SERVICES & PRICING
+         ========================================= -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="fade-in" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-label">Our Systems</span>
+                <h2 class="section-title">Infrastructure Built for <span class="text-gradient">Conversion & Scale</span></h2>
+                <p class="section-subtitle" style="margin: 0 auto;">We don't just build websites; we engineer digital ecosystems. Choose the foundation that fits your current stage of growth.</p>
+            </div>
 
-  <script>
-    // Mobile nav toggle
-    function toggleMobileNav() {
-      const hamburger = document.querySelector('.header__hamburger');
-      const mobileNav = document.getElementById('mobileNav');
-      hamburger.classList.toggle('active');
-      mobileNav.classList.toggle('active');
-      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-    }
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚡</div>
+                    <h3>Conversion Web Architecture</h3>
+                    <p>High-performance websites engineered specifically to turn cold traffic into qualified leads and paying clients. Built for speed, designed for trust.</p>
+                    <div class="pricing-block">
+                        <div class="pricing-row">
+                            <span class="pricing-label">Foundation (One-off)</span>
+                            <span class="pricing-value">£1,500+</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="pricing-label">Growth Partnership</span>
+                            <span class="pricing-value highlight">£250/mo</span>
+                        </div>
+                    </div>
+                </div>
 
-    // Reveal on scroll
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+                <!-- Service 2 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">📍</div>
+                    <h3>Local Market Dominance</h3>
+                    <p>Complete Local SEO and Google Business Profile optimization. We engineer your digital presence to ensure you are the undeniable first choice in your area.</p>
+                    <div class="pricing-block">
+                        <div class="pricing-row">
+                            <span class="pricing-label">Setup & Optimization</span>
+                            <span class="pricing-value">£400</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="pricing-label">Ranking & Retention</span>
+                            <span class="pricing-value highlight">£450/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Workflow Automation Audit</h3>
+                    <p>We map your current operations, identify bottlenecks, and architect automated workflows that eliminate manual data entry and save 20+ hours weekly.</p>
+                    <div class="pricing-block">
+                        <div class="pricing-row">
+                            <span class="pricing-label">Deep-Dive Audit</span>
+                            <span class="pricing-value">£499</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="pricing-label">Continuous Optimization</span>
+                            <span class="pricing-value highlight">£150/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">🤖</div>
+                    <h3>Custom Digital Assistants</h3>
+                    <p>Deploy intelligent, custom-trained digital staff for your business. Handle customer inquiries, book appointments, and qualify leads 24/7 without human intervention.</p>
+                    <div class="pricing-block">
+                        <div class="pricing-row">
+                            <span class="pricing-label">Custom Build & Training</span>
+                            <span class="pricing-value">£1,200</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="pricing-label">Hosting & Upkeep</span>
+                            <span class="pricing-value highlight">£200/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏢</div>
+                    <h3>Corporate Copilot Integration</h3>
+                    <p>Enterprise-grade intelligent systems integrated directly into your team's existing software. Automate reporting, drafting, and internal communications securely.</p>
+                    <div class="pricing-block">
+                        <div class="pricing-row">
+                            <span class="pricing-label">System Architecture</span>
+                            <span class="pricing-value">£2,500</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="pricing-label">Team Training & Support</span>
+                            <span class="pricing-value highlight">£600/mo</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lead Magnet Card -->
+                <div class="service-card fade-in" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(52, 211, 153, 0.05)); border-color: var(--accent-gold);">
+                    <div class="service-icon" style="background: rgba(52, 211, 153, 0.1);">🎁</div>
+                    <h3>Not sure where to start?</h3>
+                    <p>Book a complimentary 30-minute Systems Audit. We'll analyze your current digital infrastructure and provide a custom roadmap for growth—zero obligation.</p>
+                    <a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="margin-top: auto; width: 100%;">Book Free Audit →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         PORTFOLIO
+         ========================================= -->
+    <section class="section" id="portfolio" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="fade-in" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-label">Recent Builds</span>
+                <h2 class="section-title">Systems We've <span class="text-gradient">Engineered</span></h2>
+                <p class="section-subtitle" style="margin: 0 auto;">A selection of digital ecosystems designed to capture attention, drive conversions, and scale operations.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Portfolio 1: DecentVibe -->
+                <a href="https://decentvibe.com/" target="_blank" class="portfolio-item fade-in">
+                    <img src="/decentvibe.png" alt="DecentVibe - Streetwear Brand" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>DecentVibe</h4>
+                        <span>E-Commerce & Brand Experience</span>
+                    </div>
+                </a>
+                
+                <!-- Portfolio 2: Nuri Atelier -->
+                <a href="https://nuriatelier.com/" target="_blank" class="portfolio-item fade-in">
+                    <img src="/nuriatelier.png" alt="Nuri Atelier - Skincare Brand" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Nuri Atelier</h4>
+                        <span>Luxury Fashion & Catalog</span>
+                    </div>
+                </a>
+                
+                <!-- Portfolio 3: NAHS Empire -->
+                <a href="https://nahsempire.net/" target="_blank" class="portfolio-item fade-in">
+                    <img src="/nahsempire.png" alt="NAHS Empire - Community Platform" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>NAHS Empire</h4>
+                        <span>Community & Directory Platform</span>
+                    </div>
+                </a>
+                
+                <!-- Portfolio 4: East London Learners -->
+                <a href="https://eastlondonlearners.co.uk/" target="_blank" class="portfolio-item fade-in">
+                    <img src="/eastlondonlearners.png" alt="East London Learners - Driving School" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>East London Learners</h4>
+                        <span>Lead Gen & Booking System</span>
+                    </div>
+                </a>
+                
+                <!-- Portfolio 5: Bangladeshi in UK -->
+                <a href="https://bangladeshisinuk.co.uk/" target="_blank" class="portfolio-item fade-in">
+                    <img src="/bangladeshisinuk.png" alt="Bangladeshi in UK - Community Directory" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Bangladeshi in UK</h4>
+                        <span>Media & Engagement Portal</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         PROCESS / HOW IT WORKS
+         ========================================= -->
+    <section class="section" id="process">
+        <div class="container">
+            <div class="fade-in" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-label">The Blueprint</span>
+                <h2 class="section-title">How We Engineer <span class="text-gradient">Your Growth</span></h2>
+            </div>
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="service-card fade-in" style="text-align: center;">
+                    <div class="service-icon" style="margin: 0 auto 20px; background: rgba(52, 211, 153, 0.1);">1</div>
+                    <h3>Diagnose & Architect</h3>
+                    <p>We audit your current operations and design a custom digital blueprint tailored to your specific revenue goals.</p>
+                </div>
+                <div class="service-card fade-in" style="text-align: center;">
+                    <div class="service-icon" style="margin: 0 auto 20px; background: rgba(52, 211, 153, 0.1);">2</div>
+                    <h3>Build & Integrate</h3>
+                    <p>Our team engineers your website, automations, and digital assistants, integrating them seamlessly into your workflow.</p>
+                </div>
+                <div class="service-card fade-in" style="text-align: center;">
+                    <div class="service-icon" style="margin: 0 auto 20px; background: rgba(52, 211, 153, 0.1);">3</div>
+                    <h3>Optimize & Scale</h3>
+                    <p>We monitor performance, refine conversions, and continuously upgrade your systems as your business expands.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         CALENDLY BOOKING SECTION
+         ========================================= -->
+    <section class="calendly-section" id="contact">
+        <div class="container">
+            <div class="fade-in" style="text-align: center; margin-bottom: 40px;">
+                <span class="section-label">Let's Build</span>
+                <h2 class="section-title">Ready to <span class="text-gradient">Automate Your Growth?</span></h2>
+                <p class="section-subtitle" style="margin: 0 auto;">Select a time below for your complimentary Systems Audit. We'll map out exactly how to save you time and increase your conversions.</p>
+            </div>
+            <div class="fade-in">
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/syedlatief-info/30min" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <img src="/SAL.png" alt="SAL Digital Logo" style="height: 40px;">
+                    </a>
+                    <p>Engineering high-converting websites and intelligent digital systems for modern businesses. Stop managing tasks, start scaling systems.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Systems</h4>
+                    <a href="#services">Web Architecture</a>
+                    <a href="#services">Local Dominance</a>
+                    <a href="#services">Workflow Automation</a>
+                    <a href="#services">Digital Assistants</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="/blog-google-maps-rank.html">Local SEO Guide</a>
+                    <a href="/blog-ai-marketing-tools.html">Marketing Systems</a>
+                    <a href="/products.html">Digital Products</a>
+                    <a href="https://calendly.com/syedlatief-info/30min">Book an Audit</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAL Digital. Engineered for Growth. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================
+         JAVASCRIPT (Lightning Fast Vanilla JS)
+         ========================================= -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
         }
-      });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-  </script>
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.textContent = '☰';
+            });
+        });
+
+        // Scroll Fade-In Animation (IntersectionObserver for performance)
+        const observerOptions = { 
+            threshold: 0.1, 
+            rootMargin: '0px 0px -50px 0px' 
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
