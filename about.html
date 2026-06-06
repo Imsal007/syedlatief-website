@@ -1,239 +1,644 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Syed Latief — AI and Digital Marketing Consultant | SAL Digital</title>
-  <meta name="description" content="MBA graduate, retail operations manager, now AI consultant. I help UK small businesses save time and grow revenue with practical AI solutions.">
-  <link rel="stylesheet" href="sal-shared.css">
-  <style>
-    .about-hero { position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .about-hero__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.4; }
-    .about-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.6), var(--bg-primary)); }
-    .about-hero__content { position: relative; z-index: 2; text-align: center; padding: 60px 20px; }
-    .about-hero__title { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 3.25rem); font-weight: 600; color: var(--text-primary); margin-bottom: 20px; }
-    .credentials-strip { padding: 40px 0; border-bottom: 1px solid var(--border-subtle); }
-    .credentials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .credential-item { display: flex; align-items: center; gap: 12px; }
-    .credential-item__icon { width: 32px; height: 32px; color: var(--gold); flex-shrink: 0; }
-    .credential-item__icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.5; }
-    .credential-item__text { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--text-secondary); }
-    .story-section { padding: 80px 0; }
-    .story-image { width: 100%; border-radius: 6px; overflow: hidden; }
-    .story-image img { width: 100%; height: 100%; object-fit: cover; }
-    .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 40px 0 80px; }
-    .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | SAL Digital - Digital Marketing Consultant & AI Automation Expert</title>
+    <meta name="description" content="Meet Syed Latief, founder of SAL Digital. MBA Marketing, CPD certified, with 10+ years in retail operations and digital marketing. UK-based consultant.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syedlatief.com/about">
+    <meta property="og:title" content="About | SAL Digital - Digital Marketing Consultant">
+    <meta property="og:description" content="MBA Marketing, CPD certified digital marketing consultant specializing in AI automation and local SEO for UK businesses.">
+    <meta property="og:image" content="https://syedlatief.com/syed-headshot.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
+            --border-color: #27272a;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    @media (max-width: 768px) {
-      .credentials-grid { grid-template-columns: repeat(2, 1fr); }
-      .principles-grid { grid-template-columns: 1fr; }
-      .cta-row { flex-direction: column; }
-      .cta-row .btn { width: 100%; }
-    }
-  </style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo img { height: 40px; width: auto; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+            font-family: var(--font-main);
+        }
+        .btn-primary {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 160px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
+            z-index: -1;
+        }
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Content */
+        .about-section {
+            padding: 80px 0;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 64px;
+            align-items: start;
+        }
+        .about-image {
+            position: sticky;
+            top: 120px;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .about-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+        .about-content p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .about-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Credentials/Certifications */
+        .credentials-section {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .credential-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 32px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: var(--transition);
+        }
+        .credential-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+        }
+        .credential-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(251, 191, 36, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .credential-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-gold);
+            fill: none;
+            stroke-width: 2;
+        }
+        .credential-content h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+        .credential-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 80px 0;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .value-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .value-card:hover {
+            border-color: var(--accent-neon);
+        }
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .value-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.05), rgba(52, 211, 153, 0.05));
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .cta-box {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius);
+            padding: 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cta-box h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .cta-box p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 30px;
+            background: var(--bg-secondary);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand p { color: var(--text-secondary); margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
+        .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; }
+        .footer-col a:hover { color: var(--text-primary); }
+        .social-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+        .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { 
+                display: none; 
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 24px;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-image { position: relative; top: 0; max-width: 400px; margin: 0 auto; }
+            .credentials-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .cta-box { padding: 40px 24px; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" aria-label="SAL Digital Home">
-        <img src="SAL.png" alt="SAL Digital" class="header__logo">
-      </a>
-      <nav class="header__nav" aria-label="Main navigation">
-        <a href="index.html" class="header__nav-link">Home</a>
-        <a href="services.html" class="header__nav-link">Services</a>
-        <a href="products.html" class="header__nav-link">Digital Products</a>
-        <a href="portfolio.html" class="header__nav-link">Portfolio</a>
-        <a href="tools.html" class="header__nav-link">Tools</a>
-        <a href="blog.html" class="header__nav-link">Blog</a>
-        <a href="about.html" class="header__nav-link header__nav-link--active">About</a>
-        <a href="index.html#contact" class="header__nav-link">Contact</a>
-      </nav>
-      <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="header__cta">Book a Free Call</a>
-      <button class="header__hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="header__mobile-nav" id="mobileNav">
-      <a href="index.html" class="header__mobile-nav-link">Home</a>
-      <a href="services.html" class="header__mobile-nav-link">Services</a>
-      <a href="products.html" class="header__mobile-nav-link">Digital Products</a>
-      <a href="portfolio.html" class="header__mobile-nav-link">Portfolio</a>
-      <a href="tools.html" class="header__mobile-nav-link">Tools</a>
-      <a href="blog.html" class="header__mobile-nav-link">Blog</a>
-      <a href="about.html" class="header__mobile-nav-link header__mobile-nav-link--active">About</a>
-      <a href="index.html#contact" class="header__mobile-nav-link">Contact</a>
-      <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--primary header__mobile-cta">Book a Free Call</a>
-    </div>
-  </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/SAL.png" alt="SAL Digital Logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/about" class="active">About</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/tools.html">Free Tools</a></li>
+                <li><a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Book Audit</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+        </div>
+    </nav>
 
-  <main>
-    <!-- ===== HERO ===== -->
-    <section class="about-hero">
-      <img src="syed-headshot.png" alt="Syed Latief" class="about-hero__image">
-      <div class="about-hero__overlay"></div>
-      <div class="about-hero__content">
-        <h1 class="about-hero__title">I Turn Small Businesses Into Smart Businesses.</h1>
-      </div>
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <span class="section-label">About Me</span>
+            <h1>Hi, I'm <span class="text-gradient">Syed Latief</span></h1>
+            <p>Digital Marketing Consultant & AI Automation Specialist helping UK small businesses save time and grow revenue through intelligent systems.</p>
+        </div>
+    </header>
+
+    <!-- About Content -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <img src="/syed-headshot.png" alt="Syed Latief - Digital Marketing Consultant">
+                </div>
+                <div class="about-content fade-in">
+                    <h2>Transforming Businesses Through Digital Innovation</h2>
+                    <p>
+                        I'm the founder of <strong>SAL Digital</strong>, where I combine strategic marketing expertise with cutting-edge AI automation to help small businesses across the UK work smarter, not harder.
+                    </p>
+                    <p>
+                        With an <strong>MBA in Marketing</strong> from Heriot-Watt University and over a decade of experience in retail operations and digital marketing, I've developed a unique approach that bridges the gap between traditional business strategy and modern digital solutions.
+                    </p>
+                    <p>
+                        My mission is simple: <strong>help busy business owners reclaim 20+ hours per week</strong> through intelligent automation while simultaneously increasing their online visibility and customer acquisition.
+                    </p>
+                    <p>
+                        Whether it's building high-converting websites, dominating local search results, or implementing AI-powered workflows, I focus on delivering <strong>tangible results that impact your bottom line</strong>—not just vanity metrics.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- ===== CREDENTIALS ===== -->
-    <section class="credentials-strip">
-      <div class="container">
-        <div class="credentials-grid">
-          <div class="credential-item">
-            <span class="credential-item__icon">
-              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/></svg>
-            </span>
-            <span class="credential-item__text">MBA Marketing · Heriot-Watt University</span>
-          </div>
-          <div class="credential-item">
-            <span class="credential-item__icon">
-              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-            </span>
-            <span class="credential-item__text">CPD Digital Marketing</span>
-          </div>
-          <div class="credential-item">
-            <span class="credential-item__icon">
-              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-            </span>
-            <span class="credential-item__text">Retail Operations Management</span>
-          </div>
-          <div class="credential-item">
-            <span class="credential-item__icon">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </span>
-            <span class="credential-item__text">AI and Cybersecurity Consultant</span>
-          </div>
+    <!-- Credentials Section -->
+    <section class="credentials-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Credentials</span>
+                <h2>Education & Certifications</h2>
+                <p>Combining formal education with continuous learning to deliver expert-level digital marketing solutions.</p>
+            </div>
+            <div class="credentials-grid">
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <div class="credential-content">
+                        <h3>MBA Marketing</h3>
+                        <p>Heriot-Watt University<br>Strategic marketing expertise with focus on digital transformation</p>
+                    </div>
+                </div>
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div class="credential-content">
+                        <h3>CPD Digital Marketing</h3>
+                        <p>Certified Professional Development<br>Continuous learning in latest digital marketing strategies</p>
+                    </div>
+                </div>
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+                    </div>
+                    <div class="credential-content">
+                        <h3>Retail Operations Management</h3>
+                        <p>10+ years experience<br>Deep understanding of small business operations and challenges</p>
+                    </div>
+                </div>
+                <div class="credential-card fade-in">
+                    <div class="credential-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="credential-content">
+                        <h3>Digital Marketing Consultant</h3>
+                        <p>Specialized expertise<br>AI automation, local SEO, and conversion optimization</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- ===== STORY ===== -->
-    <section class="story-section">
-      <div class="container">
-        <div class="two-col">
-          <div class="story-image reveal">
-            <img src="syed-headshot.png" alt="Syed Latief portrait">
-          </div>
-          <div>
-            <span class="gold-rule"></span>
-            <h2 class="heading-md" style="margin-bottom: var(--space-md);">Why I started SAL Digital.</h2>
-            <p class="body-md" style="margin-bottom: var(--space-md);">I spent years managing retail operations. Every week I watched businesses lose hours to tasks that should have been automated. Answering the same emails. Manually posting on social media. Chasing leads by hand.</p>
-            <p class="body-md" style="margin-bottom: var(--space-md);">When AI tools became powerful enough to fix those problems, I built SAL Digital to help small businesses use them. Not just the big companies with huge budgets. The restaurant owner, the beauty salon, the local solicitor.</p>
-            <p class="body-md">I hold an MBA from Heriot-Watt University and a CPD in Digital Marketing. I understand operations, marketing, and technology. More importantly, I understand what it actually feels like to run a small business.</p>
-          </div>
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">My Approach</span>
+                <h2>Why Work With Me?</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">🎯</div>
+                    <h3>Results-Driven</h3>
+                    <p>I don't just build websites—I create systems that generate leads, save time, and increase revenue. Every project has measurable outcomes.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">🤝</div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees, no surprises. Clear pricing upfront with detailed breakdowns of what's included. Your investment is always protected.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">⚡</div>
+                    <h3>Fast Turnaround</h3>
+                    <p>Most websites delivered in 3-4 weeks. Quick response times and regular updates. I respect your time and deadlines.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon"></div>
+                    <h3>UK-Based Expertise</h3>
+                    <p>Based in London, serving businesses nationwide. Deep understanding of UK market dynamics, local SEO, and British consumer behavior.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">🚀</div>
+                    <h3>Future-Proof Solutions</h3>
+                    <p>I don't just solve today's problems—I build systems that scale with your business and adapt to emerging technologies.</p>
+                </div>
+                <div class="value-card fade-in">
+                    <div class="value-icon">💡</div>
+                    <h3>Strategic Thinking</h3>
+                    <p>Every recommendation is backed by strategy. I explain the "why" behind every decision so you understand the value.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- ===== PRINCIPLES ===== -->
-    <section class="section section--bordered bg-primary">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-header__rule"></span>
-          <h2 class="section-header__title">How I Work</h2>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box fade-in">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's discuss how I can help you save time, increase visibility, and grow revenue through intelligent digital systems.</p>
+                <a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary">Book Your Free Consultation →</a>
+            </div>
         </div>
-        <div class="principles-grid">
-          <div class="principle-card reveal">
-            <h3 class="principle-card__title">Practical over theoretical</h3>
-            <p class="body-md">Every solution I build solves a real problem you face today. No buzzwords. No fluff. Just tools that work.</p>
-          </div>
-          <div class="principle-card reveal">
-            <h3 class="principle-card__title">Results over reports</h3>
-            <p class="body-md">You do not need another 50-page document. You need systems that save hours and bring in customers. That is what I deliver.</p>
-          </div>
-          <div class="principle-card reveal">
-            <h3 class="principle-card__title">Your time is money</h3>
-            <p class="body-md">Every hour you spend on admin is an hour not spent growing your business. My job is to give you those hours back.</p>
-          </div>
-        </div>
-        <div class="cta-row" style="justify-content: center; padding-bottom: 40px;">
-          <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn--primary">Let's Work Together</a>
-          <a href="https://www.linkedin.com/in/saldigital/" target="_blank" class="btn btn--secondary">Connect on LinkedIn</a>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <img src="SAL.png" alt="SAL Digital" class="footer__brand-logo">
-          <p class="footer__tagline">AI-powered growth for modern businesses</p>
-          <p class="footer__location">Based in London, serving UK businesses nationwide</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <img src="/SAL.png" alt="SAL Digital Logo" style="height: 40px;">
+                    </a>
+                    <p>Engineering high-converting websites and intelligent digital systems for modern businesses.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="https://www.instagram.com/im_sal1/" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/saldigital/" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+                        </a>
+                        <a href="https://x.com/imsal101" target="_blank" aria-label="X">
+                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@imsal007" target="_blank" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/syedlatief/" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                        </a>
+                        <a href="https://uk.pinterest.com/imsal1/" target="_blank" aria-label="Pinterest">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="/">Home</a>
+                    <a href="/services">Services</a>
+                    <a href="/about">About</a>
+                    <a href="/#portfolio">Portfolio</a>
+                    <a href="/blog.html">Blog</a>
+                    <a href="/tools.html">Free Tools</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="https://payhip.com/b/FAoCP" target="_blank">Digital Products</a>
+                    <a href="https://calendly.com/syedlatief-info/30min">Book a Call</a>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms & Conditions</a>
+                    <a href="/cookies.html">Cookie Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 8px;">Based in London, UK</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 8px;">Serving businesses nationwide</p>
+                    <a href="mailto:info@syedlatief.com" style="color: var(--accent-gold); margin-top: 12px; display: inline-block;">info@syedlatief.com</a>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">07438 815 827</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAL Digital. Engineered for Growth. All Rights Reserved.</p>
+            </div>
         </div>
-        <div>
-          <p class="footer__column-title">Quick Links</p>
-          <div class="footer__links">
-            <a href="index.html" class="footer__link">Home</a>
-            <a href="services.html" class="footer__link">Services</a>
-            <a href="products.html" class="footer__link">Digital Products</a>
-            <a href="portfolio.html" class="footer__link">Portfolio</a>
-            <a href="tools.html" class="footer__link">Tools</a>
-            <a href="blog.html" class="footer__link">Blog</a>
-            <a href="about.html" class="footer__link">About</a>
-            <a href="index.html#contact" class="footer__link">Contact</a>
-          </div>
-        </div>
-        <div>
-          <p class="footer__column-title">Connect</p>
-          <div class="footer__socials">
-            <a href="https://www.linkedin.com/in/saldigital/" target="_blank" class="footer__social-link" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/syedlatief/" target="_blank" class="footer__social-link" aria-label="Facebook">
-              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/im_sal1/" target="_blank" class="footer__social-link" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@imsal007" target="_blank" class="footer__social-link" aria-label="TikTok">
-              <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-            </a>
-            <a href="https://uk.pinterest.com/imsal1/" target="_blank" class="footer__social-link" aria-label="Pinterest">
-              <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <div class="footer__bottom-row">
-          <p class="footer__bottom-text">© 2026 SAL Digital. All rights reserved.</p>
-          <p class="footer__bottom-text">info@syedlatief.com · 07438 815 827</p>
-        </div>
-        <div class="footer__bottom-row">
-          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
-          <span class="footer__legal-divider">·</span>
-          <a href="terms.html" class="footer__legal-link">Terms and Conditions</a>
-          <span class="footer__legal-divider">·</span>
-          <a href="cookies.html" class="footer__legal-link">Cookie Policy</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script>
-    function toggleMobileNav() {
-      const hamburger = document.querySelector('.header__hamburger');
-      const mobileNav = document.getElementById('mobileNav');
-      hamburger.classList.toggle('active');
-      mobileNav.classList.toggle('active');
-      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-    }
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
         }
-      });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-  </script>
+        // Scroll Animation
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
