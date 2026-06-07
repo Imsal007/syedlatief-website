@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | SAL Digital</title>
-    <meta name="description" content="Privacy policy for SAL Digital. We protect your data and never share it with third parties.">
+    <title>Privacy Policy | SAL Digital - How We Protect Your Data</title>
+    <meta name="description" content="Privacy policy for SAL Digital. We protect your data and never share it with third parties. GDPR compliant.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syedlatief.com/privacy.html">
+    <meta property="og:title" content="Privacy Policy | SAL Digital">
+    <meta property="og:description" content="Privacy policy for SAL Digital. We protect your data and never share it with third parties.">
+    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="./favicon_io/site.webmanifest">
     
     <style>
         :root {
@@ -14,22 +26,30 @@
             --text-primary: #fafafa;
             --text-secondary: #a1a1aa;
             --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
             --border-color: #27272a;
             --font-main: 'Inter', system-ui, -apple-system, sans-serif;
             --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-main);
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        a { text-decoration: none; color: inherit; }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
 
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -48,28 +68,195 @@
             margin: 0 auto;
             padding: 0 24px;
         }
-        .logo { font-size: 1.5rem; font-weight: 900; color: var(--text-primary); }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        .page-header { padding: 160px 0 60px; text-align: center; }
-        .page-header h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 16px; }
-        .page-header p { color: var(--text-secondary); }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+            font-family: var(--font-main);
+        }
+        .btn-primary {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+        }
 
-        .content { padding: 60px 0 100px; }
-        .content h2 { font-size: 1.75rem; margin: 40px 0 20px; color: var(--accent-gold); }
-        .content p { margin-bottom: 16px; color: var(--text-secondary); }
-        .content ul { margin: 16px 0 16px 24px; color: var(--text-secondary); }
-        .content li { margin-bottom: 8px; }
+        /* Page Header */
+        .page-header {
+            padding: 160px 0 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
 
-        .footer { border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; color: var(--text-secondary); background: var(--bg-secondary); }
+        /* Content */
+        .content {
+            padding: 60px 0 100px;
+        }
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 48px;
+        }
+        .content h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 48px 0 20px;
+            color: var(--accent-gold);
+            letter-spacing: -0.01em;
+        }
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        .content p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .content ul {
+            margin: 16px 0 16px 24px;
+            color: var(--text-secondary);
+        }
+        .content li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+            list-style: disc;
+        }
+        .content a {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+        .content a:hover {
+            color: var(--accent-neon);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 30px;
+            background: var(--bg-secondary);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand p { color: var(--text-secondary); margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
+        .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; }
+        .footer-col a:hover { color: var(--text-primary); }
+        .social-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+        .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { 
+                display: none; 
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 24px;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .content-wrapper { padding: 32px 24px; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo">SAL DIGITAL</a>
+            <a href="./index.html" class="logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./portfolio.html">Portfolio</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./tools.html">Free Tools</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Book Audit</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
         </div>
     </nav>
 
+    <!-- Page Header -->
     <header class="page-header">
         <div class="container">
             <h1>Privacy Policy</h1>
@@ -77,41 +264,96 @@
         </div>
     </header>
 
+    <!-- Content -->
     <main class="content">
         <div class="container">
-            <h2>1. Information We Collect</h2>
-            <p>We collect information you provide directly to us, including your name, email address, phone number, and business information when you fill out our contact forms or book a consultation.</p>
+            <div class="content-wrapper">
+                <h2>1. Information We Collect</h2>
+                <p>We collect information you provide directly to us, including your name, email address, phone number, and business information when you fill out our contact forms or book a consultation.</p>
 
-            <h2>2. How We Use Your Information</h2>
-            <p>We use the information we collect to:</p>
-            <ul>
-                <li>Provide, maintain, and improve our services</li>
-                <li>Respond to your comments, questions, and requests</li>
-                <li>Send you technical notices and support messages</li>
-                <li>Communicate with you about products, services, and events</li>
-            </ul>
+                <h2>2. How We Use Your Information</h2>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Provide, maintain, and improve our services</li>
+                    <li>Respond to your comments, questions, and requests</li>
+                    <li>Send you technical notices and support messages</li>
+                    <li>Communicate with you about products, services, and events</li>
+                </ul>
 
-            <h2>3. Data Security</h2>
-            <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                <h2>3. Data Security</h2>
+                <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
 
-            <h2>4. Third-Party Services</h2>
-            <p>We use trusted third-party services (Formspree for contact forms, Calendly for scheduling) that comply with GDPR and data protection regulations. We never sell your data to third parties.</p>
+                <h2>4. Third-Party Services</h2>
+                <p>We use trusted third-party services (Formspree for contact forms, Calendly for scheduling) that comply with GDPR and data protection regulations. We never sell your data to third parties.</p>
 
-            <h2>5. Your Rights</h2>
-            <p>You have the right to access, correct, or delete your personal information. Contact us at info@syedlatief.com for any data-related requests.</p>
+                <h2>5. Your Rights</h2>
+                <p>You have the right to access, correct, or delete your personal information. Contact us at <a href="mailto:info@syedlatief.com">info@syedlatief.com</a> for any data-related requests.</p>
 
-            <h2>6. Cookies</h2>
-            <p>We use essential cookies to ensure our website functions properly. See our <a href="/cookies.html" style="color: var(--accent-gold); text-decoration: underline;">Cookie Policy</a> for details.</p>
+                <h2>6. Cookies</h2>
+                <p>We use essential cookies to ensure our website functions properly. See our <a href="./cookies.html">Cookie Policy</a> for details.</p>
 
-            <h2>7. Contact Us</h2>
-            <p>If you have questions about this Privacy Policy, please contact us at info@syedlatief.com or 07438 815 827.</p>
+                <h2>7. Contact Us</h2>
+                <p>If you have questions about this Privacy Policy, please contact us at <a href="mailto:info@syedlatief.com">info@syedlatief.com</a> or 07438 815 827.</p>
+            </div>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 SAL Digital. All rights reserved. | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/cookies.html">Cookies</a></p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+                    </a>
+                    <p>Engineering high-converting websites and intelligent digital systems for modern businesses.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="https://www.instagram.com/im_sal1/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="https://www.linkedin.com/in/saldigital/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
+                        <a href="https://x.com/imsal101" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./tools.html">Free Tools</a>
+                    <a href="./products.html">Products</a>
+                    <a href="./about.html">About</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="https://payhip.com/b/FAoCP" target="_blank">Digital Products</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Book a Call</a>
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms & Conditions</a>
+                    <a href="./cookies.html">Cookie Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 8px;">Based in London, UK</p>
+                    <a href="mailto:info@syedlatief.com" style="color: var(--accent-gold); margin-top: 12px; display: inline-block;">info@syedlatief.com</a>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">07438 815 827</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAL Digital. Engineered for Growth. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+    </script>
 </body>
 </html>
