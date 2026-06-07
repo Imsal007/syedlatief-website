@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Products | SAL Digital - Ready-Made Marketing Resources</title>
-    <meta name="description" content="Ready-made digital products to accelerate your business growth. Templates, checklists, and tools for small businesses. Instant download.">
+    <title>Digital Products | SAL Digital - Ready-Made Marketing Resources for UK Businesses</title>
+    <meta name="description" content="Ready-made digital products to accelerate your business growth. Local SEO blueprints, AI prompts, automation guides, and social media systems. Instant download.">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://syedlatief.com/products.html">
     <meta property="og:title" content="Digital Products | SAL Digital">
-    <meta property="og:description" content="Ready-made digital products to accelerate your business growth. Templates, checklists, and tools.">
-    <meta property="og:image" content="https://syedlatief.com/SAL.png">
+    <meta property="og:description" content="Ready-made digital products to accelerate your business growth. Local SEO, AI prompts, automation guides, and templates.">
+    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="./favicon_io/site.webmanifest">
     
     <style>
         :root {
@@ -33,10 +38,10 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-main);
-            background-color: var(--bg-primary);
+            background: linear-gradient(135deg, #09090b 0%, #1a1a2e 50%, #09090b 100%);
+            background-attachment: fixed;
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         a { text-decoration: none; color: inherit; transition: var(--transition); }
@@ -73,8 +78,7 @@
             align-items: center;
             gap: 8px;
         }
-        .logo img { height: 40px; width: auto; }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
         .nav-links a {
             font-size: 0.95rem;
             color: var(--text-secondary);
@@ -161,7 +165,7 @@
         }
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 32px;
         }
         .product-card {
@@ -180,9 +184,19 @@
         }
         .product-image {
             width: 100%;
-            height: 240px;
+            height: 280px;
             object-fit: cover;
-            background: linear-gradient(135deg, #1f1f23, #2d2d3a);
+            position: relative;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
         }
         .product-badge {
             position: absolute;
@@ -195,6 +209,7 @@
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
+            z-index: 2;
         }
         .product-content {
             padding: 28px;
@@ -211,7 +226,7 @@
             margin-bottom: 8px;
         }
         .product-title {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 800;
             margin-bottom: 12px;
             letter-spacing: -0.01em;
@@ -251,9 +266,10 @@
             align-items: center;
             padding-top: 20px;
             border-top: 1px solid var(--border-color);
+            margin-top: auto;
         }
         .product-price {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 900;
             color: var(--accent-gold);
         }
@@ -367,16 +383,18 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo">
-                <img src="/SAL.png" alt="SAL Digital Logo">
+            <a href="./index.html" class="logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/portfolio.html">Portfolio</a></li>
-                <li><a href="/blog.html">Blog</a></li>
-                <li><a href="/tools.html">Free Tools</a></li>
-                <li><a href="/products.html" class="active">Products</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./portfolio.html">Portfolio</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./tools.html">Free Tools</a></li>
+                <li><a href="./products.html" class="active">Products</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
                 <li><a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Book Audit</a></li>
             </ul>
             <button class="mobile-toggle" id="mobileToggle">☰</button>
@@ -388,7 +406,7 @@
         <div class="container">
             <span class="section-label">Digital Products</span>
             <h1>Ready-Made <span class="text-gradient">Marketing Resources</span></h1>
-            <p>Instant-download templates, checklists, and tools to accelerate your business growth. No fluff—just proven systems that work.</p>
+            <p>Instant-download templates, guides, and AI prompts to accelerate your business growth. No fluff—just proven systems that work.</p>
         </div>
     </header>
 
@@ -397,114 +415,149 @@
         <div class="container">
             <div class="products-grid">
                 
-                <!-- Product 1 -->
+                <!-- Product 1: East London Local SEO Blueprint -->
                 <div class="product-card fade-in">
                     <div style="position: relative;">
-                        <div class="product-image" style="background: linear-gradient(135deg, #FBBF24, #F59E0B); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #000;">📊</div>
-                        <span class="product-badge">Best Seller</span>
+                        <div class="product-image" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; color: var(--accent-gold);">EAST LONDON</div>
+                                <div style="font-size: 1.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 8px;">LOCAL SEO<br>BLUEPRINT</div>
+                                <div style="font-size: 0.7rem; opacity: 0.8;">Rank on Google & Google Maps</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="product-content">
-                        <div class="product-category">SEO & Marketing</div>
-                        <h3 class="product-title">Local SEO Mastery Bundle</h3>
-                        <p class="product-description">Complete toolkit to dominate local search results. Includes checklists, templates, and step-by-step guides.</p>
+                        <div class="product-category">Local SEO</div>
+                        <h3 class="product-title">East London Local SEO Blueprint: Rank on Google & Google Maps</h3>
+                        <p class="product-description">The complete step-by-step blueprint to dominate local search results. Built specifically for UK small businesses who want to rank higher on Google Maps and attract more local customers.</p>
                         <ul class="product-features">
                             <li>Google Business Profile optimization checklist</li>
-                            <li>Local citation building tracker</li>
+                            <li>Local citation building strategy</li>
                             <li>Review generation templates</li>
-                            <li>Local content strategy guide</li>
+                            <li>Keyword research for local markets</li>
+                            <li>Monthly action plan</li>
                         </ul>
                         <div class="product-footer">
-                            <div class="product-price">£29 <small>one-time</small></div>
-                            <a href="https://payhip.com/b/FAoCP" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Access →</a>
+                            <div class="product-price">£17 <small>one-time</small></div>
+                            <a href="https://payhip.com/b/FAoCP" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Instant Access →</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2 -->
+                <!-- Product 2: Social Media Content Calendar -->
                 <div class="product-card fade-in">
                     <div style="position: relative;">
-                        <div class="product-image" style="background: linear-gradient(135deg, #34D399, #10B981); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #000;">🤖</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">AI & Automation</div>
-                        <h3 class="product-title">AI Workflow Automation Kit</h3>
-                        <p class="product-description">Save 20+ hours per week with proven automation workflows. Ready-to-use Zapier and Make templates.</p>
-                        <ul class="product-features">
-                            <li>10 high-impact automation templates</li>
-                            <li>Email marketing automation setup</li>
-                            <li>Social media scheduling workflows</li>
-                            <li>Lead capture & CRM integration</li>
-                        </ul>
-                        <div class="product-footer">
-                            <div class="product-price">£49 <small>one-time</small></div>
-                            <a href="https://payhip.com/b/RM10V" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Access →</a>
+                        <div class="product-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; color: #fbbf24;">90-DAY SYSTEM</div>
+                                <div style="font-size: 1.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 8px;">SOCIAL MEDIA<br>CONTENT CALENDAR</div>
+                                <div style="font-size: 0.7rem; opacity: 0.8;">For UK Businesses</div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-card fade-in">
-                    <div style="position: relative;">
-                        <div class="product-image" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #fff;">📝</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">Content & Copywriting</div>
-                        <h3 class="product-title">High-Converting Website Templates</h3>
-                        <p class="product-description">Professionally designed website templates optimized for conversions. Includes copy frameworks.</p>
-                        <ul class="product-features">
-                            <li>5 conversion-optimized page templates</li>
-                            <li>Headline & CTA swipe file</li>
-                            <li>Landing page copy frameworks</li>
-                            <li>A/B testing guide</li>
-                        </ul>
-                        <div class="product-footer">
-                            <div class="product-price">£39 <small>one-time</small></div>
-                            <a href="https://payhip.com/b/0UjF2" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Access →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card fade-in">
-                    <div style="position: relative;">
-                        <div class="product-image" style="background: linear-gradient(135deg, #EC4899, #DB2777); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #fff;">📱</div>
                     </div>
                     <div class="product-content">
                         <div class="product-category">Social Media</div>
-                        <h3 class="product-title">Social Media Content Calendar</h3>
-                        <p class="product-description">12-month content calendar with post templates, hashtag strategies, and engagement tactics.</p>
+                        <h3 class="product-title">Social Media Content Calendar: 90-Day System for UK Businesses</h3>
+                        <p class="product-description">Stop wasting hours on social media. This proven 90-day system lets you plan an entire quarter of content in advance. Includes templates, calendars, and posting strategies for all major platforms.</p>
                         <ul class="product-features">
-                            <li>365 post ideas & templates</li>
-                            <li>Platform-specific strategies</li>
-                            <li>Hashtag research guide</li>
-                            <li>Engagement boosting tactics</li>
+                            <li>90-day content calendar template</li>
+                            <li>Platform-specific posting guides</li>
+                            <li>Hashtag research strategy</li>
+                            <li>Engagement-boosting tactics</li>
+                            <li>Content repurposing framework</li>
                         </ul>
                         <div class="product-footer">
-                            <div class="product-price">£24 <small>one-time</small></div>
-                            <a href="https://payhip.com/b/Lcxnw" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Access →</a>
+                            <div class="product-price">£19 <small>one-time</small></div>
+                            <a href="https://payhip.com/b/RM10V" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Instant Access →</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 5 -->
+                <!-- Product 3: Google Ads Starter Kit -->
                 <div class="product-card fade-in">
                     <div style="position: relative;">
-                        <div class="product-image" style="background: linear-gradient(135deg, #F97316, #EA580C); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #fff;">🎯</div>
-                        <span class="product-badge">New</span>
+                        <div class="product-image" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; color: #fbbf24;">STARTER KIT UK</div>
+                                <div style="font-size: 1.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 8px;">GOOGLE ADS<br>STARTER KIT</div>
+                                <div style="font-size: 0.7rem; opacity: 0.8;">Run Your First Campaign Without Wasting Money</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="product-content">
-                        <div class="product-category">Business Growth</div>
-                        <h3 class="product-title">Lead Generation Playbook</h3>
-                        <p class="product-description">Complete system to generate qualified leads consistently. Includes funnels, email sequences, and tracking.</p>
+                        <div class="product-category">Paid Advertising</div>
+                        <h3 class="product-title">Google Ads Starter Kit UK: Run Your First Campaign Without Wasting Money</h3>
+                        <p class="product-description">Launch your first profitable Google Ads campaign without wasting money. This beginner-friendly kit walks you through setup, targeting, and optimization with real UK business examples.</p>
                         <ul class="product-features">
-                            <li>5 proven lead magnet templates</li>
-                            <li>Email nurture sequences</li>
-                            <li>Landing page optimization guide</li>
-                            <li>Lead scoring & qualification framework</li>
+                            <li>Step-by-step campaign setup guide</li>
+                            <li>Keyword research templates</li>
+                            <li>Ad copy writing formulas</li>
+                            <li>Budget optimization strategies</li>
+                            <li>Conversion tracking setup</li>
                         </ul>
                         <div class="product-footer">
-                            <div class="product-price">£39 <small>one-time</small></div>
-                            <a href="https://payhip.com/b/iL6lA" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Access →</a>
+                            <div class="product-price">£27 <small>one-time</small></div>
+                            <a href="https://payhip.com/b/0UjF2" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Instant Access →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: 150 AI Prompts -->
+                <div class="product-card fade-in">
+                    <div style="position: relative;">
+                        <div class="product-image" style="background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: 8px;">150</div>
+                                <div style="font-size: 1rem; font-weight: 700; line-height: 1.2; margin-bottom: 8px;">AI PROMPTS FOR<br>UK SMALL BUSINESS<br>MARKETING</div>
+                                <div style="font-size: 0.7rem; opacity: 0.8;">ChatGPT & Claude Templates</div>
+                            </div>
+                        </div>
+                        <span class="product-badge">Best Seller</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">AI & Marketing</div>
+                        <h3 class="product-title">150 AI Prompts for UK Small Business Marketing: ChatGPT & Claude Templates</h3>
+                        <p class="product-description">Stop staring at a blank screen. Get professional marketing copy in seconds with copy-paste AI prompts built for UK businesses. Works with ChatGPT and Claude.</p>
+                        <ul class="product-features">
+                            <li>Social Media — Instagram, Facebook, LinkedIn</li>
+                            <li>Email marketing campaigns</li>
+                            <li>Website copy & landing pages</li>
+                            <li>Blog posts & articles</li>
+                            <li>British English tone</li>
+                        </ul>
+                        <div class="product-footer">
+                            <div class="product-price">£19 <small>one-time</small></div>
+                            <a href="https://payhip.com/b/Lcxnw" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Instant Access →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: AI Marketing Automation Guide -->
+                <div class="product-card fade-in">
+                    <div style="position: relative;">
+                        <div class="product-image" style="background: linear-gradient(135deg, #d97706 0%, #78350f 100%); display: flex; align-items: center; justify-content: center; padding: 20px;">
+                            <div style="text-align: center; color: white;">
+                                <div style="font-size: 2rem; font-weight: 900; line-height: 1; margin-bottom: 8px;">AI</div>
+                                <div style="font-size: 1.2rem; font-weight: 700; line-height: 1.2; margin-bottom: 8px;">Marketing<br>Automation</div>
+                                <div style="font-size: 0.8rem; font-weight: 500; margin-bottom: 8px;">for Non-tech<br>Business Owners</div>
+                                <div style="font-size: 0.7rem; opacity: 0.9;">Save 10+ hours a week<br>using free AI tools</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Automation</div>
+                        <h3 class="product-title">AI Marketing Automation Guide: No-Code Tools for UK Small Businesses</h3>
+                        <p class="product-description">Stop doing marketing tasks that a machine can handle. Reclaim 10+ hours every week with practical AI automation — no coding, no technical background, no big budget.</p>
+                        <ul class="product-features">
+                            <li>Step-by-step automation setups</li>
+                            <li>Free & low-cost tools (under £25/mo)</li>
+                            <li>Email automation workflows</li>
+                            <li>Social media scheduling</li>
+                            <li>Plain English instructions</li>
+                        </ul>
+                        <div class="product-footer">
+                            <div class="product-price">£29 <small>one-time</small></div>
+                            <a href="https://payhip.com/b/iL6lA" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get Instant Access →</a>
                         </div>
                     </div>
                 </div>
@@ -519,7 +572,7 @@
             <div class="cta-box fade-in">
                 <h2>Need Custom Solutions?</h2>
                 <p>Our digital products give you the foundation, but sometimes you need hands-on expertise. Book a free consultation to discuss your specific needs.</p>
-                <a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary">Book Free Strategy Call →</a>
+                <a href="./contact.html" class="btn btn-primary">Book Free Strategy Call →</a>
             </div>
         </div>
     </section>
@@ -529,32 +582,37 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo">
-                        <img src="/SAL.png" alt="SAL Digital Logo" style="height: 40px;">
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
                     </a>
                     <p>Engineering high-converting websites and intelligent digital systems for modern businesses.</p>
                     <div class="social-links" style="margin-top: 20px;">
                         <a href="https://www.instagram.com/im_sal1/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
                         <a href="https://www.linkedin.com/in/saldigital/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
                         <a href="https://x.com/imsal101" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="https://www.tiktok.com/@imsal007" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg></a>
+                        <a href="https://www.facebook.com/syedlatief/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                        <a href="https://uk.pinterest.com/imsal1/" target="_blank" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
-                    <a href="/">Home</a>
-                    <a href="/services">Services</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/tools.html">Free Tools</a>
-                    <a href="/products.html">Products</a>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./tools.html">Free Tools</a>
+                    <a href="./products.html">Products</a>
+                    <a href="./about.html">About</a>
+                    <a href="./contact.html">Contact</a>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
-                    <a href="/about.html">About</a>
-                    <a href="/contact.html">Contact</a>
-                    <a href="/privacy.html">Privacy Policy</a>
-                    <a href="/terms.html">Terms & Conditions</a>
-                    <a href="/cookies.html">Cookie Policy</a>
+                    <a href="https://payhip.com/b/FAoCP" target="_blank">All Digital Products</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Book a Call</a>
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms & Conditions</a>
+                    <a href="./cookies.html">Cookie Policy</a>
                 </div>
                 <div class="footer-col">
                     <h4>Contact</h4>
@@ -576,7 +634,7 @@
         if (mobileToggle) {
             mobileToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
-                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '' : '☰';
             });
         }
 
