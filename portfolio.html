@@ -11,8 +11,13 @@
     <meta property="og:url" content="https://syedlatief.com/portfolio.html">
     <meta property="og:title" content="Portfolio | SAL Digital">
     <meta property="og:description" content="See the websites and digital systems we've built for UK businesses.">
-    <meta property="og:image" content="https://syedlatief.com/SAL.png">
+    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="./favicon_io/site.webmanifest">
     
     <style>
         :root {
@@ -33,10 +38,10 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-main);
-            background-color: var(--bg-primary);
+            background: linear-gradient(135deg, #09090b 0%, #1a1a2e 50%, #09090b 100%);
+            background-attachment: fixed;
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         a { text-decoration: none; color: inherit; transition: var(--transition); }
@@ -73,8 +78,7 @@
             align-items: center;
             gap: 8px;
         }
-        .logo img { height: 40px; width: auto; }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
         .nav-links a {
             font-size: 0.95rem;
             color: var(--text-secondary);
@@ -156,13 +160,16 @@
         }
 
         /* Portfolio Grid */
-        .portfolio-section {
-            padding: 80px 0;
-        }
+        .portfolio-section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 16px; }
+        .section-header p { font-size: 1.125rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+        
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 32px;
+            margin-bottom: 80px;
         }
         .portfolio-item {
             background: var(--bg-card);
@@ -170,6 +177,8 @@
             border-radius: var(--radius);
             overflow: hidden;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
         .portfolio-item:hover {
             border-color: var(--accent-gold);
@@ -178,12 +187,42 @@
         }
         .portfolio-thumbnail {
             width: 100%;
-            height: 280px;
+            height: 240px;
             object-fit: cover;
             background: linear-gradient(135deg, #1f1f23, #2d2d3a);
+            position: relative;
+            overflow: hidden;
+        }
+        .portfolio-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .portfolio-item:hover .portfolio-thumbnail img {
+            transform: scale(1.05);
+        }
+        .portfolio-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--accent-gold);
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        .portfolio-badge.demo {
+            background: var(--accent-neon);
         }
         .portfolio-content {
             padding: 28px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         .portfolio-category {
             font-size: 0.75rem;
@@ -198,12 +237,40 @@
             font-weight: 800;
             margin-bottom: 12px;
             letter-spacing: -0.01em;
+            line-height: 1.3;
         }
         .portfolio-description {
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .portfolio-problem {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid var(--accent-red);
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+        .portfolio-problem strong {
+            color: var(--accent-red);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.85rem;
+        }
+        .portfolio-solution {
+            background: rgba(52, 211, 153, 0.1);
+            border-left: 3px solid var(--accent-neon);
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        .portfolio-solution strong {
+            color: var(--accent-neon);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.85rem;
         }
         .portfolio-tags {
             display: flex;
@@ -217,6 +284,14 @@
             border-radius: 6px;
             font-size: 0.8rem;
             color: var(--text-secondary);
+        }
+        .portfolio-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
         }
         .portfolio-link {
             display: inline-flex;
@@ -333,16 +408,18 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo">
-                <img src="/SAL.png" alt="SAL Digital Logo">
+            <a href="./index.html" class="logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="/blog.html">Blog</a></li>
-                <li><a href="/tools.html">Free Tools</a></li>
-                <li><a href="/products.html">Products</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./tools.html">Free Tools</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
                 <li><a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Book Audit</a></li>
             </ul>
             <button class="mobile-toggle" id="mobileToggle">☰</button>
@@ -361,11 +438,20 @@
     <!-- Portfolio -->
     <section class="portfolio-section">
         <div class="container">
+            
+            <!-- Live Websites Section -->
+            <div class="section-header fade-in">
+                <h2>Live Client Websites</h2>
+                <p>These websites are live and actively serving customers</p>
+            </div>
+            
             <div class="portfolio-grid">
-                
-                <!-- Project 1 -->
+                <!-- Project 1: DecentVibe -->
                 <div class="portfolio-item fade-in">
-                    <img src="/decentvibe.png" alt="DecentVibe - Streetwear Brand" class="portfolio-thumbnail" loading="lazy">
+                    <div class="portfolio-thumbnail">
+                        <img src="./decentvibe.png" alt="DecentVibe - Streetwear Brand" loading="lazy">
+                        <span class="portfolio-badge">Live Site</span>
+                    </div>
                     <div class="portfolio-content">
                         <div class="portfolio-category">E-Commerce</div>
                         <h3 class="portfolio-title">DecentVibe</h3>
@@ -375,13 +461,18 @@
                             <span class="portfolio-tag">E-Commerce</span>
                             <span class="portfolio-tag">Brand Design</span>
                         </div>
-                        <a href="https://decentvibe.com/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        <div class="portfolio-footer">
+                            <a href="https://decentvibe.com/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 2: Nuri Atelier -->
                 <div class="portfolio-item fade-in">
-                    <img src="/nuriatelier.png" alt="Nuri Atelier - Skincare Brand" class="portfolio-thumbnail" loading="lazy">
+                    <div class="portfolio-thumbnail">
+                        <img src="./nuriatelier.png" alt="Nuri Atelier - Skincare Brand" loading="lazy">
+                        <span class="portfolio-badge">Live Site</span>
+                    </div>
                     <div class="portfolio-content">
                         <div class="portfolio-category">Beauty & Wellness</div>
                         <h3 class="portfolio-title">Nuri Atelier</h3>
@@ -391,13 +482,18 @@
                             <span class="portfolio-tag">Content Strategy</span>
                             <span class="portfolio-tag">SEO</span>
                         </div>
-                        <a href="https://nuriatelier.com/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        <div class="portfolio-footer">
+                            <a href="https://nuriatelier.com/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Project 3: NAHS Empire -->
                 <div class="portfolio-item fade-in">
-                    <img src="/nahsempire.png" alt="NAHS Empire - Community Platform" class="portfolio-thumbnail" loading="lazy">
+                    <div class="portfolio-thumbnail">
+                        <img src="./nahsempire.png" alt="NAHS Empire - Community Platform" loading="lazy">
+                        <span class="portfolio-badge">Live Site</span>
+                    </div>
                     <div class="portfolio-content">
                         <div class="portfolio-category">Community Platform</div>
                         <h3 class="portfolio-title">NAHS Empire</h3>
@@ -407,13 +503,18 @@
                             <span class="portfolio-tag">Community</span>
                             <span class="portfolio-tag">Database</span>
                         </div>
-                        <a href="https://nahsempire.net/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        <div class="portfolio-footer">
+                            <a href="https://nahsempire.net/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 4 -->
+                <!-- Project 4: East London Learners -->
                 <div class="portfolio-item fade-in">
-                    <img src="/eastlondonlearners.png" alt="East London Learners - Driving School" class="portfolio-thumbnail" loading="lazy">
+                    <div class="portfolio-thumbnail">
+                        <img src="./eastlondonlearners.png" alt="East London Learners - Driving School" loading="lazy">
+                        <span class="portfolio-badge">Live Site</span>
+                    </div>
                     <div class="portfolio-content">
                         <div class="portfolio-category">Local Services</div>
                         <h3 class="portfolio-title">East London Learners</h3>
@@ -423,13 +524,18 @@
                             <span class="portfolio-tag">Local SEO</span>
                             <span class="portfolio-tag">Booking System</span>
                         </div>
-                        <a href="https://eastlondonlearners.co.uk/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        <div class="portfolio-footer">
+                            <a href="https://eastlondonlearners.co.uk/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 5 -->
+                <!-- Project 5: Bangladeshi in UK -->
                 <div class="portfolio-item fade-in">
-                    <img src="/bangladeshisinuk.png" alt="Bangladeshi in UK - Community Directory" class="portfolio-thumbnail" loading="lazy">
+                    <div class="portfolio-thumbnail">
+                        <img src="./bangladeshisinuk.png" alt="Bangladeshi in UK - Community Directory" loading="lazy">
+                        <span class="portfolio-badge">Live Site</span>
+                    </div>
                     <div class="portfolio-content">
                         <div class="portfolio-category">Directory & Listings</div>
                         <h3 class="portfolio-title">Bangladeshi in UK</h3>
@@ -439,23 +545,197 @@
                             <span class="portfolio-tag">Directory</span>
                             <span class="portfolio-tag">Local SEO</span>
                         </div>
-                        <a href="https://bangladeshisinuk.co.uk/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        <div class="portfolio-footer">
+                            <a href="https://bangladeshisinuk.co.uk/" target="_blank" class="portfolio-link">Visit Website →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industry Demos Section -->
+            <div class="section-header fade-in" style="margin-top: 100px;">
+                <h2>Industry-Specific Demos</h2>
+                <p>See how we solve specific problems for different industries</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Demo 1: Builder/Tradesperson -->
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-thumbnail" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 3rem; margin-bottom: 8px;">🏗️</div>
+                            <div style="font-size: 1.5rem; font-weight: 900;">Apex Builders</div>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">London</div>
+                        </div>
+                        <span class="portfolio-badge demo">Demo</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Builder & Tradesperson</div>
+                        <h3 class="portfolio-title">Apex Builders London</h3>
+                        <div class="portfolio-problem">
+                            <strong>Problem:</strong> Missed 40% of enquiries while on site
+                        </div>
+                        <div class="portfolio-solution">
+                            <strong>Solution:</strong> AI-powered instant quote forms & automated lead capture
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Instant Quotes</span>
+                            <span class="portfolio-tag">Lead Capture</span>
+                            <span class="portfolio-tag">Project Gallery</span>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="./builder-tradesperson-demo.html" class="portfolio-link">View Demo →</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 6 -->
+                <!-- Demo 2: Solicitors/Legal -->
                 <div class="portfolio-item fade-in">
-                    <div style="background: linear-gradient(135deg, #FBBF24, #F59E0B); width: 100%; height: 280px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #000;">🤖</div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-category">AI Automation</div>
-                        <h3 class="portfolio-title">Custom AI Assistant</h3>
-                        <p class="portfolio-description">Intelligent chatbot for customer service automation, lead qualification, and 24/7 support with natural language processing.</p>
-                        <div class="portfolio-tags">
-                            <span class="portfolio-tag">AI Development</span>
-                            <span class="portfolio-tag">Automation</span>
-                            <span class="portfolio-tag">Customer Service</span>
+                    <div class="portfolio-thumbnail" style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 3rem; margin-bottom: 8px;">⚖️</div>
+                            <div style="font-size: 1.5rem; font-weight: 900;">Meridian Solicitors</div>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">Legal Services</div>
                         </div>
-                        <a href="/services" class="portfolio-link">Learn More →</a>
+                        <span class="portfolio-badge demo">Demo</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Legal Services</div>
+                        <h3 class="portfolio-title">Meridian Solicitors</h3>
+                        <div class="portfolio-problem">
+                            <strong>Problem:</strong> 4+ hours admin per new client intake
+                        </div>
+                        <div class="portfolio-solution">
+                            <strong>Solution:</strong> Online booking, GDPR-compliant forms, fee calculator
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Online Booking</span>
+                            <span class="portfolio-tag">GDPR Forms</span>
+                            <span class="portfolio-tag">Fee Calculator</span>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="./solicitors-firm-demo.html" class="portfolio-link">View Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo 3: Driving Instructor -->
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-thumbnail" style="background: linear-gradient(135deg, #065f46 0%, #064e3b 100%); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 3rem; margin-bottom: 8px;">🚗</div>
+                            <div style="font-size: 1.5rem; font-weight: 900;">PassFirst</div>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">Driving School</div>
+                        </div>
+                        <span class="portfolio-badge demo">Demo</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Driving School</div>
+                        <h3 class="portfolio-title">PassFirst Driving School</h3>
+                        <div class="portfolio-problem">
+                            <strong>Problem:</strong> 6+ hours/week on WhatsApp scheduling
+                        </div>
+                        <div class="portfolio-solution">
+                            <strong>Solution:</strong> Student portal with DVSA progress tracker & automated reminders
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Student Portal</span>
+                            <span class="portfolio-tag">Progress Tracker</span>
+                            <span class="portfolio-tag">Auto Reminders</span>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="./driving-instructor-demo.html" class="portfolio-link">View Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo 4: Student Admissions -->
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-thumbnail" style="background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 3rem; margin-bottom: 8px;">🎓</div>
+                            <div style="font-size: 1.5rem; font-weight: 900;">BrightPath Academy</div>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">Educational</div>
+                        </div>
+                        <span class="portfolio-badge demo">Demo</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Educational Academy</div>
+                        <h3 class="portfolio-title">BrightPath Academy</h3>
+                        <div class="portfolio-problem">
+                            <strong>Problem:</strong> 200+ emails per intake for forms & documents
+                        </div>
+                        <div class="portfolio-solution">
+                            <strong>Solution:</strong> Full admissions portal with secure document upload
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Admissions Portal</span>
+                            <span class="portfolio-tag">Document Upload</span>
+                            <span class="portfolio-tag">GDPR Compliant</span>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="./student-admissions-demo.html" class="portfolio-link">View Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo 5: Beauty Salon -->
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-thumbnail" style="background: linear-gradient(135deg, #db2777 0%, #9d174d 100%); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 3rem; margin-bottom: 8px;">💅</div>
+                            <div style="font-size: 1.5rem; font-weight: 900;">Gloss & Glow</div>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">Beauty Salon</div>
+                        </div>
+                        <span class="portfolio-badge demo">Demo</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Beauty Salon</div>
+                        <h3 class="portfolio-title">Gloss & Glow Beauty</h3>
+                        <div class="portfolio-problem">
+                            <strong>Problem:</strong> Lost £2,000/month to no-show appointments
+                        </div>
+                        <div class="portfolio-solution">
+                            <strong>Solution:</strong> Smart booking with automated SMS reminders
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Online Booking</span>
+                            <span class="portfolio-tag">SMS Reminders</span>
+                            <span class="portfolio-tag">Review Collection</span>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="./beauty-salon-demo.html" class="portfolio-link">View Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo 6: Personal Trainer -->
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-thumbnail" style="background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 3rem; margin-bottom: 8px;">💪</div>
+                            <div style="font-size: 1.5rem; font-weight: 900;">EliteForm PT</div>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">Personal Training</div>
+                        </div>
+                        <span class="portfolio-badge demo">Demo</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Personal Trainer</div>
+                        <h3 class="portfolio-title">EliteForm PT</h3>
+                        <div class="portfolio-problem">
+                            <strong>Problem:</strong> 3 hours/day on WhatsApp managing bookings
+                        </div>
+                        <div class="portfolio-solution">
+                            <strong>Solution:</strong> AI booking system with BMI calculator & class management
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Class Booking</span>
+                            <span class="portfolio-tag">BMI Calculator</span>
+                            <span class="portfolio-tag">Progress Tracking</span>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="./personal-trainer-demo.html" class="portfolio-link">View Demo →</a>
+                        </div>
                     </div>
                 </div>
 
@@ -469,7 +749,7 @@
             <div class="cta-box fade-in">
                 <h2>Ready to Build Your Website?</h2>
                 <p>Let's create a high-converting website that drives results for your business. Book a free consultation to discuss your project.</p>
-                <a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary">Book Free Consultation →</a>
+                <a href="./contact.html" class="btn btn-primary">Book Free Consultation →</a>
             </div>
         </div>
     </section>
@@ -479,8 +759,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo">
-                        <img src="/SAL.png" alt="SAL Digital Logo" style="height: 40px;">
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
                     </a>
                     <p>Engineering high-converting websites and intelligent digital systems for modern businesses.</p>
                     <div class="social-links" style="margin-top: 20px;">
@@ -491,20 +771,22 @@
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
-                    <a href="/">Home</a>
-                    <a href="/services">Services</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/tools.html">Free Tools</a>
-                    <a href="/products.html">Products</a>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./tools.html">Free Tools</a>
+                    <a href="./products.html">Products</a>
+                    <a href="./about.html">About</a>
+                    <a href="./contact.html">Contact</a>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
-                    <a href="/about.html">About</a>
-                    <a href="/contact.html">Contact</a>
-                    <a href="/privacy.html">Privacy Policy</a>
-                    <a href="/terms.html">Terms & Conditions</a>
-                    <a href="/cookies.html">Cookie Policy</a>
+                    <a href="https://payhip.com/b/FAoCP" target="_blank">Digital Products</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Book a Call</a>
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms & Conditions</a>
+                    <a href="./cookies.html">Cookie Policy</a>
                 </div>
                 <div class="footer-col">
                     <h4>Contact</h4>
@@ -520,7 +802,6 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
         if (mobileToggle) {
@@ -529,8 +810,6 @@
                 mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
             });
         }
-
-        // Scroll Animation
         const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -540,7 +819,6 @@
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
