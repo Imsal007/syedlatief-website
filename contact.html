@@ -6,7 +6,6 @@
     <title>Contact Us | Get Your Free Digital Audit | SAL Digital</title>
     <meta name="description" content="Contact SAL Digital for a free, no-obligation digital audit worth £500. Discover why you're not ranking on Google and how to fix it. Fast response guaranteed.">
     
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://syedlatief.com/contact.html">
     <meta property="og:title" content="Contact Us | Get Your Free Digital Audit | SAL Digital">
@@ -14,13 +13,11 @@
     <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
     <meta name="twitter:card" content="summary_large_image">
     
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
     <link rel="manifest" href="./favicon_io/site.webmanifest">
     
-    <!-- Preconnect for speed -->
     <link rel="preconnect" href="https://formspree.io">
     <link rel="dns-prefetch" href="https://formspree.io">
     
@@ -39,148 +36,30 @@
             --radius: 12px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-main);
-            background: linear-gradient(135deg, #09090b 0%, #1a1a2e 50%, #09090b 100%);
-            background-attachment: fixed;
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
+        body { font-family: var(--font-main); background: linear-gradient(135deg, #09090b 0%, #1a1a2e 50%, #09090b 100%); background-attachment: fixed; color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: var(--transition); }
         img { max-width: 100%; display: block; }
         ul { list-style: none; }
-
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(9, 9, 11, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 16px 0;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .logo img { height: 40px; width: auto; }
+        .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(9, 9, 11, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 16px 0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
         .nav-links { display: flex; gap: 24px; align-items: center; }
-        .nav-links a {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
+        .nav-links a { font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; }
         .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
         .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            gap: 8px;
-            font-family: var(--font-main);
-        }
-        .btn-primary {
-            background: var(--accent-gold);
-            color: #000;
-            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
-        }
-
-        /* Hero Section */
-        .hero-lead {
-            padding: 160px 0 60px;
-            text-align: center;
-            position: relative;
-        }
-        .hero-lead::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 1000px;
-            height: 1000px;
-            background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
-            z-index: -1;
-        }
-        .urgency-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-red), #DC2626);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-        }
-        .hero-lead h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -0.03em;
-        }
-        .hero-lead .highlight {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-neon));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-lead .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 800px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-        .value-prop {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        /* Pain Points Section */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: var(--transition); cursor: pointer; border: none; gap: 8px; font-family: var(--font-main); }
+        .btn-primary { background: var(--accent-gold); color: #000; box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(251, 191, 36, 0.5); }
+        .hero-lead { padding: 160px 0 60px; text-align: center; position: relative; }
+        .hero-lead::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%); z-index: -1; }
+        .urgency-badge { display: inline-block; background: linear-gradient(135deg, var(--accent-red), #DC2626); color: white; padding: 8px 20px; border-radius: 50px; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; }
+        .hero-lead h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.03em; }
+        .hero-lead .highlight { background: linear-gradient(135deg, var(--accent-gold), var(--accent-neon)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-lead .subtitle { font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 30px; line-height: 1.6; }
+        .value-prop { display: inline-flex; align-items: center; gap: 12px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 12px 24px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; }
         .pain-points { padding: 60px 0; }
         .section-header { text-align: center; margin-bottom: 40px; }
         .section-header h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 900; margin-bottom: 12px; }
@@ -191,8 +70,6 @@
         .pain-icon { font-size: 2rem; margin-bottom: 12px; }
         .pain-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; }
         .pain-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; }
-
-        /* Form Section */
         .form-section { padding: 60px 0 80px; }
         .form-container { max-width: 800px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 48px; }
         .form-header { text-align: center; margin-bottom: 32px; }
@@ -221,18 +98,22 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .form-success h3 { font-size: 1.75rem; color: var(--accent-neon); margin-bottom: 12px; }
         .form-success p { color: var(--text-secondary); font-size: 1.05rem; }
-
-        /* Calendly Section */
         .calendly-section { padding: 60px 0 80px; }
         .calendly-box { max-width: 900px; margin: 0 auto; text-align: center; }
         .calendly-box h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 12px; }
         .calendly-box p { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 24px; }
         .calendly-wrapper { min-height: 600px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
-
-        /* Footer */
-        .footer { border-top: 1px solid var(--border-color); padding: 40px 0; background: var(--bg-secondary); text-align: center; color: var(--text-secondary); font-size: 0.875rem; }
-
-        /* Responsive */
+        .footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; background: var(--bg-secondary); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 48px; }
+        .footer-brand p { color: var(--text-secondary); margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
+        .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; }
+        .footer-col a:hover { color: var(--text-primary); }
+        .social-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .social-links a { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-secondary); transition: var(--transition); }
+        .social-links a:hover { color: var(--accent-gold); border-color: var(--accent-gold); transform: translateY(-2px); }
+        .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center; color: var(--text-secondary); font-size: 0.875rem; }
         @media (max-width: 768px) {
             .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-primary); flex-direction: column; padding: 24px; border-bottom: 1px solid var(--border-color); }
             .nav-links.active { display: flex; }
@@ -240,16 +121,16 @@
             .form-grid { grid-template-columns: 1fr; }
             .form-container { padding: 32px 20px; }
             .pain-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="./index.html" class="logo">
-                <img src="./SAL-Digital-Logo.png" alt="SAL Digital Logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="./index.html">Home</a></li>
@@ -266,10 +147,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-lead">
         <div class="container">
-            <div class="urgency-badge"> Limited Free Audits Available</div>
+            <div class="urgency-badge">⚡ Limited Free Audits Available</div>
             <h1>Get Your <span class="highlight">Free Digital Audit</span><br>Worth £500</h1>
             <p class="subtitle">Discover exactly why your website isn't converting, why competitors rank higher on Google, and get a custom action plan to fix it.</p>
             <div class="value-prop">
@@ -278,7 +158,6 @@
         </div>
     </section>
 
-    <!-- Pain Points -->
     <section class="pain-points">
         <div class="container">
             <div class="section-header">
@@ -310,7 +189,6 @@
         </div>
     </section>
 
-    <!-- Form Section -->
     <section class="form-section">
         <div class="container">
             <div class="form-container">
@@ -370,7 +248,7 @@
                             <label for="privacy">I agree to the <a href="./privacy.html">Privacy Policy</a> and consent to being contacted about my audit. No spam, ever.</label>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 1.1rem;" id="submitBtn">
-                            <span id="btnText"> Get My Free Audit Worth £500 →</span>
+                            <span id="btnText">🚀 Get My Free Audit Worth £500 →</span>
                         </button>
                         <div class="form-security">
                             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -379,7 +257,7 @@
                     </form>
                 </div>
                 <div class="form-success" id="successMessage">
-                    <h3> Audit Request Received!</h3>
+                    <h3>🎉 Audit Request Received!</h3>
                     <p>Thank you! We've received your request and will begin analyzing your digital presence immediately.</p>
                     <p style="margin-top: 20px; font-size: 0.95rem;">Check your email for a confirmation message. You'll receive your custom report within 48 hours.</p>
                 </div>
@@ -387,23 +265,65 @@
         </div>
     </section>
 
-    <!-- Calendly Section -->
     <section class="calendly-section">
         <div class="container">
             <div class="calendly-box">
                 <h2>Or Book Your Strategy Call Directly</h2>
                 <p>Don't want to wait? Schedule your free 30-minute consultation now.</p>
                 <div class="calendly-wrapper" id="calendly-wrapper">
-                    <button onclick="loadCalendly()" class="btn btn-primary">📅 Load Scheduling Calendar</button>
+                    <button onclick="loadCalendly()" class="btn btn-primary" style="padding: 20px 40px; font-size: 1.1rem;">📅 Load Scheduling Calendar</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 SAL Digital. All rights reserved. | <a href="./privacy.html">Privacy Policy</a> | <a href="./terms.html">Terms & Conditions</a> | <a href="./cookies.html">Cookie Policy</a></p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+                    </a>
+                    <p>Engineering high-converting websites and intelligent digital systems for modern businesses.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="https://www.instagram.com/im_sal1/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="https://www.linkedin.com/in/saldigital/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
+                        <a href="https://x.com/imsal101" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="https://www.tiktok.com/@imsal007" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg></a>
+                        <a href="https://www.facebook.com/syedlatief/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                        <a href="https://uk.pinterest.com/imsal1/" target="_blank" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./tools.html">Free Tools</a>
+                    <a href="./products.html">Products</a>
+                    <a href="./about.html">About</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="https://payhip.com/b/FAoCP" target="_blank">Digital Products</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Book a Call</a>
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms & Conditions</a>
+                    <a href="./cookies.html">Cookie Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 8px;">Based in London, UK</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 8px;">Serving businesses nationwide</p>
+                    <a href="mailto:info@syedlatief.com" style="color: var(--accent-gold); margin-top: 12px; display: inline-block;">info@syedlatief.com</a>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">07438 815 827</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAL Digital. Engineered for Growth. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -416,25 +336,21 @@
                 mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
             });
         }
-
         const form = document.getElementById('auditForm');
         const formContainer = document.getElementById('formContainer');
         const successMessage = document.getElementById('successMessage');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
-
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             btnText.textContent = 'Submitting...';
             submitBtn.disabled = true;
-
             try {
                 const response = await fetch(form.action, {
                     method: form.method,
                     body: new FormData(form),
                     headers: { 'Accept': 'application/json' }
                 });
-
                 if (response.ok) {
                     formContainer.style.display = 'none';
                     successMessage.classList.add('visible');
@@ -450,7 +366,6 @@
                 submitBtn.disabled = false;
             }
         });
-
         function loadCalendly() {
             const wrapper = document.getElementById('calendly-wrapper');
             wrapper.innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/syedlatief-info/30min" style="min-width:320px;height:600px;"></div>';
