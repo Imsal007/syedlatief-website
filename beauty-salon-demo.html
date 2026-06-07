@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gloss & Glow Beauty | AI-Powered Salon Booking Demo</title>
+    <meta name="description" content="Demo website for beauty salons. AI-powered booking, automated reminders, review collection. Built by SAL Digital.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syedlatief.com/beauty-salon-demo.html">
+    <meta property="og:title" content="Gloss & Glow Beauty | Salon Demo">
+    <meta property="og:description" content="AI-powered salon booking with automated reminders and review collection.">
+    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
+            --accent-pink: #EC4899;
+            --accent-rose: #F43F5E;
+            --border-color: #27272a;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: var(--font-main); 
+            background: var(--bg-primary); 
+            color: var(--text-primary); 
+            line-height: 1.6; 
+            overflow-x: hidden;
+        }
+        
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(135deg, var(--accent-pink), #BE185D);
+            color: #fff;
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .demo-banner a { color: #fff; text-decoration: underline; font-weight: 700; }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(9, 9, 11, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.5rem; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem;
+            transition: var(--transition); cursor: pointer; border: none; gap: 8px; font-family: var(--font-main);
+        }
+        .btn-primary { background: var(--accent-pink); color: #fff; box-shadow: 0 0 20px rgba(236, 72, 153, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(236, 72, 153, 0.5); }
+        
+        /* Hero */
+        .hero { 
+            padding: 180px 0 80px; 
+            text-align: center; 
+            background: linear-gradient(135deg, #1a0a1f 0%, #2d1b3d 50%, #1a0a1f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
+            z-index: 0;
+        }
+        .hero > .container { position: relative; z-index: 1; }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 900; 
+            margin-bottom: 20px; 
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #fff 0%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px; }
+        .hero-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin: 40px 0; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--accent-pink); display: block; }
+        .stat-label { font-size: 0.9rem; color: var(--text-secondary); }
+        
+        /* Pain Point Callout */
+        .pain-callout {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.1), rgba(236, 72, 153, 0.05));
+            border: 1px solid var(--accent-rose);
+            border-radius: var(--radius);
+            padding: 32px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        .pain-callout .before { color: var(--accent-rose); font-weight: 700; margin-bottom: 8px; }
+        .pain-callout .after { color: var(--accent-neon); font-weight: 700; margin-top: 16px; }
+        
+        /* Booking Form */
+        .booking-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .form-input, .form-select {
+            width: 100%; padding: 14px 16px; background: var(--bg-secondary);
+            border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);
+            font-family: var(--font-main); font-size: 1rem; transition: var(--transition);
+        }
+        .form-input:focus, .form-select:focus { outline: none; border-color: var(--accent-pink); box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1); }
+        
+        /* Automation Features */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .feature-card:hover { border-color: var(--accent-neon); }
+        .feature-icon { font-size: 3rem; margin-bottom: 16px; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .feature-stat { 
+            display: inline-block; 
+            background: rgba(52, 211, 153, 0.1); 
+            color: var(--accent-neon); 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.875rem; 
+            font-weight: 700; 
+            margin-top: 12px; 
+        }
+        
+        /* CTA Section */
+        .cta-section { padding: 80px 0; background: var(--bg-secondary); }
+        .cta-box {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-pink);
+            border-radius: var(--radius);
+            padding: 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cta-box h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+        .cta-box p { font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 32px; }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid var(--accent-neon);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .success-message.visible { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .success-message h3 { color: var(--accent-neon); font-size: 1.75rem; margin-bottom: 16px; }
+        .success-steps { text-align: left; max-width: 500px; margin: 24px auto; }
+        .success-step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+        .success-step-icon { color: var(--accent-neon); font-size: 1.2rem; flex-shrink: 0; }
+        
+        /* Footer */
+        .footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; background: var(--bg-secondary); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+        .footer-brand p { color: var(--text-secondary); margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
+        .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; }
+        .footer-col a:hover { color: var(--text-primary); }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center; color: var(--text-secondary); font-size: 0.875rem; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-primary); flex-direction: column; padding: 24px; border-bottom: 1px solid var(--border-color); }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .booking-card, .cta-box { padding: 28px 20px; }
+            .hero-stats { flex-direction: column; gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        ✦ This is a live demo built by SAL Digital · 
+        <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Get this for your salon →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./portfolio.html">Portfolio</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get This Demo</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Gloss & Glow Beauty</h1>
+            <p>East London's Favourite Beauty Salon<br>Nails, lashes, facials and more. Our smart booking system sends automatic reminders so you never miss your appointment.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">73%</span>
+                    <span class="stat-label">fewer no-shows</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">£2k</span>
+                    <span class="stat-label">recovered per month</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.9★</span>
+                    <span class="stat-label">Google rating</span>
+                </div>
+            </div>
+            <div class="pain-callout">
+                <div class="before">❌ Before AI automation: This salon lost £2,000+ every month to no-show appointments. Now it's solved. Here's how ↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">Book Your Appointment</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 40px;">Instant confirmation · Auto-reminders · Easy rescheduling</p>
+            
+            <div class="booking-card" id="bookingForm">
+                <form onsubmit="handleBooking(event)">
+                    <div class="form-group">
+                        <label class="form-label">Service</label>
+                        <select class="form-select" required>
+                            <option value="">Choose a service…</option>
+                            <option>Gel Manicure — £35</option>
+                            <option>Classic Lash Set — £55</option>
+                            <option>Volume Lashes — £75</option>
+                            <option>Facial (60 min) — £65</option>
+                            <option>Brow Lamination — £40</option>
+                            <option>Full Set Acrylic — £50</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Available Times</label>
+                        <select class="form-select" required>
+                            <option value="">Select a time…</option>
+                            <option>9:00am</option>
+                            <option>10:00am</option>
+                            <option>11:00am</option>
+                            <option>12:00pm</option>
+                            <option>1:00pm</option>
+                            <option>2:00pm</option>
+                            <option>3:00pm</option>
+                            <option>4:00pm</option>
+                            <option>5:00pm</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" class="form-input" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mobile Number</label>
+                        <input type="tel" class="form-input" placeholder="07438 815 827" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Confirm Booking
+                    </button>
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); text-align: center; margin-top: 16px; padding: 16px; background: rgba(52, 211, 153, 0.1); border-radius: 8px;">
+                        🔔 <strong>Automatic reminders included:</strong><br>
+                        You'll receive a confirmation by text, then a reminder 48 hours before, and another 2 hours before your appointment.
+                    </p>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <h3>✅ You're booked in!</h3>
+                <p>Your appointment has been confirmed. Here's what happens next:</p>
+                <div class="success-steps">
+                    <div class="success-step">
+                        <span class="success-step-icon">📩</span>
+                        <span>Confirmation text sent now</span>
+                    </div>
+                    <div class="success-step">
+                        <span class="success-step-icon">🔔</span>
+                        <span>Reminder in 48 hours</span>
+                    </div>
+                    <div class="success-step">
+                        <span class="success-step-icon">⏰</span>
+                        <span>Reminder 2 hours before</span>
+                    </div>
+                    <div class="success-step">
+                        <span class="success-step-icon">⭐</span>
+                        <span>Review request after your visit</span>
+                    </div>
+                </div>
+                <button onclick="resetForm()" class="btn btn-secondary" style="margin-top: 24px;">Book Another</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation Features -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 16px;">Why our clients never miss an appointment</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 40px;">Our AI booking system handles everything — from scheduling to reminders to rescheduling — so our team focuses on making you look amazing.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Smart SMS Reminders</h3>
+                    <p>Clients receive 3 automated reminder texts. No-shows dropped from 18% to under 5% in the first month.</p>
+                    <div class="feature-stat">73% fewer no-shows</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Easy Rescheduling</h3>
+                    <p>One tap to reschedule fills the slot automatically from a waiting list — no phone tag, no lost revenue.</p>
+                    <div class="feature-stat">Zero lost slots</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Post-Visit Follow-Up</h3>
+                    <p>Automated "How was your visit?" texts collect Google reviews on autopilot. We went from 12 to 147 reviews in 4 months.</p>
+                    <div class="feature-stat">147 Google reviews</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Real-Time Availability</h3>
+                    <p>Clients book online 24/7. No more missed calls or back-and-forth messages to schedule appointments.</p>
+                    <div class="feature-stat">24/7 booking</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Want This for Your Salon?</h2>
+                <p>This exact system — online booking, automated reminders, review collection — can be live for your business within 2 weeks. No-shows cost the average UK salon over £18,000 a year. Let's fix that.</p>
+                <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn-primary">Get This For My Salon — Free Call →</a>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 20px;">AI Automation packages from £300 · Setup in under 2 weeks · No contracts</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+                    </a>
+                    <p>This is a demo website built by SAL Digital. Want a similar website for your beauty salon?</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:info@syedlatief.com">info@syedlatief.com</a>
+                    <a href="tel:07438815827">07438 815 827</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank" style="color: var(--accent-pink); margin-top: 12px; display: inline-block;">Book a Free Call →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAL Digital. All rights reserved. | This is a demo site</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+
+        // Booking Form Handler
+        function handleBooking(e) {
+            e.preventDefault();
+            
+            // Hide form and show success message
+            document.getElementById('bookingForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('visible');
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Reset Form
+        function resetForm() {
+            document.getElementById('bookingForm').style.display = 'block';
+            document.getElementById('successMessage').classList.remove('visible');
+            document.querySelector('form').reset();
+            document.querySelector('.booking-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Set minimum date to today
+        const dateInput = document.querySelector('input[type="date"]');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+    </script>
+</body>
+</html>
