@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free SEO Tools | SAL Digital - Keyword Checker & Local SEO Audit</title>
+    <title>Free SEO Tools | SAL Digital - Keyword Checker, Local SEO Audit & More</title>
     <meta name="description" content="Free SEO tools for UK small businesses. Keyword difficulty checker, Google Maps rank checker, and Local SEO score card. No signup needed.">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://syedlatief.com/tools.html">
-    <meta property="og:title" content="Free SEO Tools for UK Small Businesses | SAL Digital">
+    <meta property="og:title" content="Free SEO Tools | SAL Digital">
     <meta property="og:description" content="Free keyword difficulty checker, Google Maps rank checker, and Local SEO score card. No signup needed.">
-    <meta property="og:image" content="https://syedlatief.com/SAL.png">
+    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="./favicon_io/site.webmanifest">
     
     <style>
         :root {
@@ -33,10 +39,10 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-main);
-            background-color: var(--bg-primary);
+            background: linear-gradient(135deg, #09090b 0%, #1a1a2e 50%, #09090b 100%);
+            background-attachment: fixed;
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         a { text-decoration: none; color: inherit; transition: var(--transition); }
@@ -45,7 +51,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* Navigation - Same as homepage */
+        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -73,8 +79,7 @@
             align-items: center;
             gap: 8px;
         }
-        .logo img { height: 40px; width: auto; }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
         .nav-links a {
             font-size: 0.95rem;
             color: var(--text-secondary);
@@ -83,7 +88,6 @@
         .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
         .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -120,8 +124,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
+            width: 800px;
+            height: 800px;
             background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
             z-index: -1;
         }
@@ -321,7 +325,7 @@
             margin-right: auto;
         }
 
-        /* Footer - Same as homepage */
+        /* Footer */
         .footer {
             border-top: 1px solid var(--border-color);
             padding: 60px 0 30px;
@@ -391,15 +395,18 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo">
-                <img src="/SAL.png" alt="SAL Digital Logo">
+            <a href="./index.html" class="logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/#services">Systems</a></li>
-                <li><a href="/#portfolio">Builds</a></li>
-                <li><a href="/blog.html">Blog</a></li>
-                <li><a href="/tools.html" class="active">Free Tools</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./portfolio.html">Portfolio</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./tools.html" class="active">Free Tools</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
                 <li><a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Book Audit</a></li>
             </ul>
             <button class="mobile-toggle" id="mobileToggle">☰</button>
@@ -524,7 +531,7 @@
         <div class="cta-banner">
             <h2>Want Us to Do This For You?</h2>
             <p>Our Local SEO retainer starts at £450/month. We handle everything — GBP optimization, citations, reviews, and content.</p>
-            <a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary">Book a Free Strategy Call →</a>
+            <a href="./contact.html" class="btn btn-primary">Book a Free Strategy Call →</a>
         </div>
 
     </main>
@@ -534,48 +541,43 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo">
-                        <img src="/SAL.png" alt="SAL Digital Logo" style="height: 40px;">
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
                     </a>
                     <p>Engineering high-converting websites and intelligent digital systems for modern businesses.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="https://www.instagram.com/im_sal1/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="https://www.linkedin.com/in/saldigital/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
+                        <a href="https://x.com/imsal101" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="https://www.tiktok.com/@imsal007" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg></a>
+                        <a href="https://www.facebook.com/syedlatief/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                        <a href="https://uk.pinterest.com/imsal1/" target="_blank" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
+                    </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Systems</h4>
-                    <a href="/#services">Web Architecture</a>
-                    <a href="/#services">Local Dominance</a>
-                    <a href="/#services">Workflow Automation</a>
-                    <a href="/#services">Digital Assistants</a>
+                    <h4>Quick Links</h4>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./tools.html">Free Tools</a>
+                    <a href="./products.html">Products</a>
+                    <a href="./about.html">About</a>
+                    <a href="./contact.html">Contact</a>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
-                    <a href="/blog.html">Blog</a>
-                    <a href="/tools.html">Free Tools</a>
                     <a href="https://payhip.com/b/FAoCP" target="_blank">Digital Products</a>
-                    <a href="https://calendly.com/syedlatief-info/30min">Book an Audit</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Book a Call</a>
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms & Conditions</a>
+                    <a href="./cookies.html">Cookie Policy</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Connect With Us</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px;">Follow our builds and digital strategies.</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/im_sal1/" target="_blank" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/saldigital/" target="_blank" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
-                        </a>
-                        <a href="https://x.com/imsal101" target="_blank" aria-label="X">
-                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </a>
-                        <a href="https://www.tiktok.com/@imsal007" target="_blank" aria-label="TikTok">
-                            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
-                        </a>
-                        <a href="https://www.facebook.com/syedlatief/" target="_blank" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                        </a>
-                        <a href="https://uk.pinterest.com/imsal1/" target="_blank" aria-label="Pinterest">
-                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
-                        </a>
-                    </div>
+                    <h4>Contact</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 8px;">Based in London, UK</p>
+                    <a href="mailto:info@syedlatief.com" style="color: var(--accent-gold); margin-top: 12px; display: inline-block;">info@syedlatief.com</a>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">07438 815 827</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -616,7 +618,7 @@
                     <div class="result-label ${cls}">${label}</div>
                     <div class="result-bar-wrap"><div class="result-bar ${barCls}" style="width:${score}%"></div></div>
                     <div class="result-tips">${tips}</div>
-                    <p class="tool-note" style="margin-top:16px">This is a heuristic estimate. For precise data, <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">book a free call</a> for a proper keyword audit.</p>
+                    <p class="tool-note" style="margin-top:16px">This is a heuristic estimate. For precise data, <a href="./contact.html" style="color:var(--accent-gold)">book a free call</a> for a proper keyword audit.</p>
                 `;
                 resultDiv.classList.add('visible');
             }, 900);
@@ -660,12 +662,12 @@
             if (score <= 75) return {
                 label: 'Hard — Requires sustained SEO',
                 cls: 'difficulty-hard', barCls: 'bar-hard',
-                tips: `<strong>Competitive territory.</strong> Expect 6–12 months of consistent SEO work. Focus on long-tail variants first.<br><br><strong>Top priorities:</strong> Target 3–5 easier long-tail versions first. Build topical authority with a blog. Pursue guest posts and local PR links. <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">Book a free call</a> to discuss strategy.`
+                tips: `<strong>Competitive territory.</strong> Expect 6–12 months of consistent SEO work. Focus on long-tail variants first.<br><br><strong>Top priorities:</strong> Target 3–5 easier long-tail versions first. Build topical authority with a blog. Pursue guest posts and local PR links. <a href="./contact.html" style="color:var(--accent-gold)">Book a free call</a> to discuss strategy.`
             };
             return {
                 label: 'Very Hard — Long-term play',
                 cls: 'difficulty-vhard', barCls: 'bar-vhard',
-                tips: `<strong>High competition.</strong> This keyword is likely dominated by large national sites.<br><br><strong>Recommended approach:</strong> Focus on hyper-local or long-tail variations. Build domain authority over 12–18 months. Consider paid search while organic grows. <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">Book a free strategy call</a>.`
+                tips: `<strong>High competition.</strong> This keyword is likely dominated by large national sites.<br><br><strong>Recommended approach:</strong> Focus on hyper-local or long-tail variations. Build domain authority over 12–18 months. Consider paid search while organic grows. <a href="./contact.html" style="color:var(--accent-gold)">Book a free strategy call</a>.`
             };
         }
 
@@ -707,7 +709,7 @@
                             </div>
                         `).join('')}
                     </div>
-                    <p class="tool-note" style="margin-top:20px">Want a full Google Business Profile audit? <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">Book a free 30-minute call</a> — Local SEO setup starts from £400.</p>
+                    <p class="tool-note" style="margin-top:20px">Want a full Google Business Profile audit? <a href="./contact.html" style="color:var(--accent-gold)">Book a free 30-minute call</a> — Local SEO setup starts from £400.</p>
                 `;
                 result.classList.add('visible');
             }, 1000);
@@ -779,7 +781,7 @@
                         ${topThree.map((p, i) => `<div style="margin-bottom:10px">${i + 1}. ${p}</div>`).join('')}
                     </div>
                 ` : '<div class="result-tips"><strong>You\'re in great shape!</strong> Keep posting, collecting reviews, and building citations.</div>'}
-                <p class="tool-note" style="margin-top:16px">Want a full local SEO audit and done-for-you setup? <a href="https://calendly.com/syedlatief-info/30min" style="color:var(--accent-gold)">Book a free 30-minute call</a>.</p>
+                <p class="tool-note" style="margin-top:16px">Want a full local SEO audit and done-for-you setup? <a href="./contact.html" style="color:var(--accent-gold)">Book a free 30-minute call</a>.</p>
             `;
             resultDiv.classList.add('visible');
         }
