@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Builders London | AI Trade Website Demo | SAL Digital</title>
+    <meta name="description" content="Demo website for builders and tradespeople. AI-powered instant quotes, project gallery, and automated lead capture. Built by SAL Digital.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syedlatief.com/builder-tradesperson-demo.html">
+    <meta property="og:title" content="Apex Builders London | Builder Demo">
+    <meta property="og:description" content="AI-powered builder website with instant quotes and automated lead capture.">
+    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
+            --accent-red: #EF4444;
+            --border-color: #27272a;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: var(--font-main); 
+            background: var(--bg-primary); 
+            color: var(--text-primary); 
+            line-height: 1.6; 
+            overflow-x: hidden;
+            padding-bottom: 80px; /* Space for sticky mobile bar */
+        }
+        @media (min-width: 769px) { body { padding-bottom: 0; } }
+        
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Demo Banner */
+        .demo-banner {
+            background: linear-gradient(135deg, var(--accent-gold), #F59E0B);
+            color: #000;
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1001;
+        }
+        .demo-banner a { color: #000; text-decoration: underline; font-weight: 700; }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(9, 9, 11, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.5rem; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem;
+            transition: var(--transition); cursor: pointer; border: none; gap: 8px; font-family: var(--font-main);
+        }
+        .btn-primary { background: var(--accent-gold); color: #000; box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(251, 191, 36, 0.5); }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border-color); }
+        .btn-secondary:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+        
+        /* Hero */
+        .hero { padding: 180px 0 80px; text-align: center; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); position: relative; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin-bottom: 20px; letter-spacing: -0.03em; }
+        .hero p { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px; }
+        .hero-badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+        .hero-badge { display: flex; align-items: center; gap: 8px; color: var(--text-primary); font-weight: 600; }
+        .hero-badge .check { color: var(--accent-neon); }
+        
+        /* Sections */
+        .section { padding: 80px 0; }
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; text-align: center; }
+        .section-subtitle { text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; }
+        
+        /* Calculator */
+        .calculator-card {
+            background: linear-gradient(135deg, #1f1f23 0%, #111 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius);
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 0 40px rgba(251, 191, 36, 0.1);
+        }
+        .calc-step { display: none; }
+        .calc-step.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .calc-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 20px; }
+        .calc-option {
+            background: var(--bg-secondary); border: 2px solid var(--border-color); padding: 20px;
+            border-radius: 8px; text-align: center; cursor: pointer; transition: var(--transition); font-weight: 600;
+        }
+        .calc-option:hover, .calc-option.selected { border-color: var(--accent-gold); background: rgba(251, 191, 36, 0.1); color: var(--accent-gold); }
+        .calc-result {
+            text-align: center; padding: 24px; background: rgba(52, 211, 153, 0.1);
+            border: 1px solid var(--accent-neon); border-radius: 8px; margin-top: 20px;
+        }
+        .calc-result h3 { color: var(--accent-neon); font-size: 2.5rem; margin-bottom: 8px; font-weight: 900; }
+        
+        /* Quote Form */
+        .form-card {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius);
+            padding: 40px; max-width: 600px; margin: 0 auto;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+        .form-input, .form-select {
+            width: 100%; padding: 14px 16px; background: var(--bg-secondary);
+            border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);
+            font-family: var(--font-main); font-size: 1rem; transition: var(--transition);
+        }
+        .form-input:focus, .form-select:focus { outline: none; border-color: var(--accent-gold); box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1); }
+        
+        /* Projects Grid */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+        .project-card {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius);
+            padding: 24px; transition: var(--transition);
+        }
+        .project-card:hover { border-color: var(--accent-gold); transform: translateY(-4px); }
+        .project-icon { font-size: 2rem; margin-bottom: 12px; }
+        .project-card h3 { font-size: 1.25rem; margin-bottom: 8px; }
+        .project-meta { color: var(--text-secondary); font-size: 0.9rem; }
+        
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+        .service-card {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius);
+            padding: 32px; text-align: center; transition: var(--transition);
+        }
+        .service-card:hover { border-color: var(--accent-neon); }
+        .service-icon { font-size: 2.5rem; margin-bottom: 16px; }
+        .service-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+        .service-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* CTA Section */
+        .cta-section { padding: 80px 0; background: var(--bg-secondary); }
+        .cta-box {
+            background: var(--bg-card); border: 1px solid var(--accent-gold); border-radius: var(--radius);
+            padding: 60px; text-align: center; max-width: 800px; margin: 0 auto;
+        }
+        .cta-box h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+        .cta-box p { font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 32px; }
+        
+        /* Sticky Mobile Bar */
+        .sticky-mobile-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: var(--bg-card); border-top: 2px solid var(--accent-gold);
+            display: flex; justify-content: space-around; padding: 12px;
+            z-index: 999; box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+        }
+        .sticky-btn {
+            flex: 1; margin: 0 4px; padding: 12px; border-radius: 8px;
+            text-align: center; font-weight: 700; font-size: 0.9rem;
+            text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;
+            transition: var(--transition);
+        }
+        .sticky-btn svg { width: 18px; height: 18px; fill: currentColor; }
+        .sticky-btn.call { background: var(--accent-gold); color: #000; }
+        .sticky-btn.whatsapp { background: #25D366; color: #fff; }
+        .sticky-btn.book { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border-color); }
+        .sticky-btn:hover { transform: translateY(-2px); }
+        @media (min-width: 769px) { .sticky-mobile-bar { display: none; } }
+        
+        /* Footer */
+        .footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; background: var(--bg-secondary); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+        .footer-brand p { color: var(--text-secondary); margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
+        .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; }
+        .footer-col a:hover { color: var(--text-primary); }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center; color: var(--text-secondary); font-size: 0.875rem; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-primary); flex-direction: column; padding: 24px; border-bottom: 1px solid var(--border-color); }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .form-card, .calculator-card, .cta-box { padding: 28px 20px; }
+            .calc-options { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        ✦ SAL Digital Demo — <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Get this for your trade business →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./portfolio.html">Portfolio</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get This Demo</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Apex Builders London</h1>
+            <p>Quality Building Work. Quotes in 24 Hours.<br>Extensions, loft conversions, kitchen fits, bathroom refurbs. Professional builders with AI-powered quoting.</p>
+            <div class="hero-badges">
+                <div class="hero-badge"><span class="check">✓</span> Fully Insured</div>
+                <div class="hero-badge"><span class="check">★</span> Gas Safe Registered</div>
+                <div class="hero-badge"><span class="check">★</span> Which? Trusted Trader</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ballpark Calculator Section -->
+    <section class="section" id="calculator">
+        <div class="container">
+            <h2 class="section-title">Get a Ballpark Price in 60 Seconds</h2>
+            <p class="section-subtitle">Don't waste time on site surveys for jobs outside your budget. Use our instant calculator to get a realistic price range.</p>
+            
+            <div class="calculator-card">
+                <!-- Step 1 -->
+                <div class="calc-step active" id="step1">
+                    <h3 style="margin-bottom: 20px;">1. What type of work do you need?</h3>
+                    <div class="calc-options">
+                        <div class="calc-option" onclick="selectOption(this, 'Extension')">🏗️ Extension</div>
+                        <div class="calc-option" onclick="selectOption(this, 'Loft Conversion')">🏠 Loft Conversion</div>
+                        <div class="calc-option" onclick="selectOption(this, 'Kitchen')"> Kitchen</div>
+                        <div class="calc-option" onclick="selectOption(this, 'Bathroom')">🛁 Bathroom</div>
+                        <div class="calc-option" onclick="selectOption(this, 'General')">🔧 General</div>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 30px;" onclick="nextStep(2)">Next: Project Size →</button>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="calc-step" id="step2">
+                    <h3 style="margin-bottom: 20px;">2. What is the approximate size/scope?</h3>
+                    <div class="calc-options">
+                        <div class="calc-option" onclick="selectOption(this, 'Small')">Small (e.g. single room)</div>
+                        <div class="calc-option" onclick="selectOption(this, 'Medium')">Medium (e.g. standard extension)</div>
+                        <div class="calc-option" onclick="selectOption(this, 'Large')">Large (e.g. full wrap-around)</div>
+                        <div class="calc-option" onclick="selectOption(this, 'Luxury')">Luxury / High Spec</div>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 30px;" onclick="nextStep(3)">Get My Estimate →</button>
+                </div>
+
+                <!-- Step 3: Result -->
+                <div class="calc-step" id="step3">
+                    <div class="calc-result">
+                        <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary);">Estimated Price Range</p>
+                        <h3 id="priceRange">£15,000 – £25,000</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">*Based on average London rates. Final price depends on materials and site access.</p>
+                    </div>
+                    <div style="margin-top: 30px; text-align: center;">
+                        <h4 style="margin-bottom: 12px;">Want the exact fixed price?</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Book a free 30-min site survey. We'll measure up and give you a fixed quote within 24 hours.</p>
+                        <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn-primary" style="width: 100%;">📅 Book Free Site Survey</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Form Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title">Get Your Free Detailed Quote</h2>
+            <p class="section-subtitle">Fill in the form — we'll call you within 2 hours (Mon–Sat)</p>
+            <div class="form-card">
+                <form onsubmit="event.preventDefault(); alert('Demo form submitted! In a real site, this would send an SMS to the builder.');">
+                    <div class="form-group">
+                        <label class="form-label">Type of work</label>
+                        <select class="form-select">
+                            <option>Select...</option>
+                            <option>Extension (single storey)</option>
+                            <option>Extension (double storey)</option>
+                            <option>Loft conversion</option>
+                            <option>Kitchen installation</option>
+                            <option>Bathroom refurbishment</option>
+                            <option>General maintenance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Approximate budget</label>
+                        <select class="form-select">
+                            <option>Select...</option>
+                            <option>Under £5,000</option>
+                            <option>£5,000 – £15,000</option>
+                            <option>£15,000 – £30,000</option>
+                            <option>£30,000 – £60,000</option>
+                            <option>£60,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your name</label>
+                        <input type="text" class="form-input" placeholder="John Smith">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Postcode</label>
+                        <input type="text" class="form-input" placeholder="E1 6AN">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone number</label>
+                        <input type="tel" class="form-input" placeholder="07438 815 827">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Request Free Quote →</button>
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); text-align: center; margin-top: 16px;">No obligation · We call within 2 hours · Site survey at no charge</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Projects -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <p class="section-subtitle">Over 200 completed projects across East London.</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">🏗️</div>
+                    <h3>Single Storey Extension</h3>
+                    <p class="project-meta">Hackney · £28,500 · 8 weeks · Planning obtained</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🛁</div>
+                    <h3>Full Bathroom Refurb</h3>
+                    <p class="project-meta">Stratford · £7,200 · 12 days · Zero snags</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🍳</div>
+                    <h3>Open-Plan Kitchen</h3>
+                    <p class="project-meta">Bow · £14,800 · 3 weeks · RSJ installed</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🏠</div>
+                    <h3>Loft Conversion</h3>
+                    <p class="project-meta">Walthamstow · £42,000 · 10 weeks · Added 2 bedrooms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title">Everything You Need Under One Roof</h2>
+            <p class="section-subtitle">No subcontracting. Our employed team handles the full project.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Extensions</h3>
+                    <p>Single and double storey. Full planning support included.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Loft Conversions</h3>
+                    <p>Dormer, hip-to-gable, Velux. Loft surveys before quoting.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"></div>
+                    <h3>Kitchen Fitting</h3>
+                    <p>Supply and fit, or fit-only. Electrics and plumbing included.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛁</div>
+                    <h3>Bathroom Refurb</h3>
+                    <p>Full strip out and rebuild. Tiling, plumbing, electrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Want This for Your Trade Business?</h2>
+                <p>This exact website — instant quote forms, project gallery, emergency call-out button, automated lead capture — can be live for your business in 2–3 weeks. Stop missing jobs while you're on site.</p>
+                <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn-primary">Get This For My Business — Free Call →</a>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 20px;">Trade websites from £1,200 · AI automation from £300 · No contracts</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Mobile Bar -->
+    <div class="sticky-mobile-bar">
+        <a href="tel:07438815827" class="sticky-btn call">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Now
+        </a>
+        <a href="https://wa.me/447438815827" class="sticky-btn whatsapp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp
+        </a>
+        <a href="#calculator" class="sticky-btn book">
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+            Book Survey
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+                    </a>
+                    <p>This is a demo website built by SAL Digital. Want a similar website for your trade business?</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:info@syedlatief.com">info@syedlatief.com</a>
+                    <a href="tel:07438815827">07438 815 827</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank" style="color: var(--accent-gold); margin-top: 12px; display: inline-block;">Book a Free Call →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAL Digital. All rights reserved. | This is a demo site</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+
+        // Calculator Logic
+        let selectedType = '';
+        let selectedSize = '';
+
+        function selectOption(element, value) {
+            let siblings = element.parentElement.children;
+            for(let i=0; i<siblings.length; i++) siblings[i].classList.remove('selected');
+            element.classList.add('selected');
+            
+            if(element.parentElement.parentElement.id === 'step1') selectedType = value;
+            if(element.parentElement.parentElement.id === 'step2') selectedSize = value;
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.calc-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+
+            if(step === 3) {
+                let base = 5000;
+                if(selectedType === 'Extension') base = 20000;
+                if(selectedType === 'Loft Conversion') base = 35000;
+                if(selectedType === 'Kitchen') base = 12000;
+                if(selectedType === 'Bathroom') base = 8000;
+                
+                let multiplier = 1;
+                if(selectedSize === 'Medium') multiplier = 1.5;
+                if(selectedSize === 'Large') multiplier = 2.5;
+                if(selectedSize === 'Luxury') multiplier = 3.5;
+
+                let min = Math.round((base * multiplier) / 1000) * 1000;
+                let max = Math.round((base * multiplier * 1.4) / 1000) * 1000;
+                
+                document.getElementById('priceRange').innerText = '£' + min.toLocaleString() + ' – £' + max.toLocaleString();
+            }
+        }
+    </script>
+</body>
+</html>
