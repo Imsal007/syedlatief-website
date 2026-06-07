@@ -11,9 +11,14 @@
     <meta property="og:url" content="https://syedlatief.com/blog.html">
     <meta property="og:title" content="SAL Digital Blog - Digital Growth & AI Automation Insights">
     <meta property="og:description" content="Expert insights on web development, local SEO, AI automation, and digital growth strategies.">
-    <meta property="og:image" content="https://syedlatief.com/SAL.png">
-    <meta property="twitter:card" content="summary_large_image">
-
+    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="./favicon_io/site.webmanifest">
+    
     <style>
         :root {
             --bg-primary: #09090b;
@@ -25,7 +30,7 @@
             --accent-neon: #34D399;
             --accent-pink: #EC4899;
             --border-color: #27272a;
-            --font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
             --radius: 12px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -71,9 +76,11 @@
             font-weight: 900;
             letter-spacing: -0.03em;
             color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .logo span { color: var(--accent-gold); }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
         .nav-links a {
             font-size: 0.95rem;
             color: var(--text-secondary);
@@ -81,6 +88,30 @@
         }
         .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
         .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+            font-family: var(--font-main);
+        }
+        .btn-primary {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+        }
 
         /* Page Header */
         .page-header {
@@ -213,17 +244,12 @@
             font-size: 0.875rem;
             color: var(--text-secondary);
         }
-        .blog-meta time {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
         .blog-title {
             font-size: 1.35rem;
             font-weight: 800;
-            line-height: 1.3;
             margin-bottom: 12px;
             letter-spacing: -0.01em;
+            line-height: 1.3;
         }
         .blog-excerpt {
             color: var(--text-secondary);
@@ -252,7 +278,7 @@
         }
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
             gap: 48px;
             margin-bottom: 48px;
         }
@@ -260,6 +286,25 @@
         .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
         .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; }
         .footer-col a:hover { color: var(--text-primary); }
+        .social-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+        .social-links svg { width: 18px; height: 18px; fill: currentColor; }
         .footer-bottom {
             border-top: 1px solid var(--border-color);
             padding-top: 24px;
@@ -304,14 +349,19 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo">SAL<span>.</span>DIGITAL</a>
+            <a href="./index.html" class="logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+            </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/#services">Services</a></li>
-                <li><a href="/#portfolio">Portfolio</a></li>
-                <li><a href="/products.html">Resources</a></li>
-                <li><a href="/blog.html" class="active">Blog</a></li>
-                <li><a href="https://calendly.com/syedlatief-info/30min" style="color: var(--accent-gold); font-weight: 700;">Book Audit</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./portfolio.html">Portfolio</a></li>
+                <li><a href="./blog.html" class="active">Blog</a></li>
+                <li><a href="./tools.html">Free Tools</a></li>
+                <li><a href="./products.html">Products</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Book Audit</a></li>
             </ul>
             <button class="mobile-toggle" id="mobileToggle">☰</button>
         </div>
@@ -346,7 +396,7 @@
             <!-- Blog Post 1: Local SEO Google Maps -->
             <article class="blog-card fade-in" data-category="local-seo">
                 <div class="blog-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1569012372810-7f6444164279?w=800&h=600&fit=crop" alt="Google Maps Ranking">
+                    <img src="https://images.unsplash.com/photo-1569012372810-7f6444164279?w=800&h=600&fit=crop" alt="Google Maps Ranking" loading="lazy">
                     <span class="blog-category-badge">Local SEO</span>
                 </div>
                 <div class="blog-content">
@@ -356,14 +406,14 @@
                     </div>
                     <h2 class="blog-title">How to Rank #1 on Google Maps in 2026: Complete Local SEO Guide</h2>
                     <p class="blog-excerpt">Master the proven strategies to dominate local search results. Learn how to optimize your Google Business Profile, build local citations, and outrank competitors in your area.</p>
-                    <a href="/blog-google-maps-rank.html" class="read-more">Read Article →</a>
+                    <a href="./blog-google-maps-rank.html" class="read-more">Read Article →</a>
                 </div>
             </article>
 
             <!-- Blog Post 2: AI Marketing Tools -->
             <article class="blog-card fade-in" data-category="ai-automation">
                 <div class="blog-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop" alt="AI Marketing Tools">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop" alt="AI Marketing Tools" loading="lazy">
                     <span class="blog-category-badge">AI Automation</span>
                 </div>
                 <div class="blog-content">
@@ -373,14 +423,14 @@
                     </div>
                     <h2 class="blog-title">15 AI Marketing Tools That Will Transform Your Business in 2026</h2>
                     <p class="blog-excerpt">Discover the most powerful AI tools for content creation, automation, and customer engagement. From ChatGPT to custom GPTs, learn which tools deliver real ROI.</p>
-                    <a href="/blog-ai-marketing-tools.html" class="read-more">Read Article →</a>
+                    <a href="./blog-ai-marketing-tools.html" class="read-more">Read Article →</a>
                 </div>
             </article>
 
             <!-- Blog Post 3: Local SEO Checklist -->
             <article class="blog-card fade-in" data-category="local-seo">
                 <div class="blog-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Local SEO Checklist">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Local SEO Checklist" loading="lazy">
                     <span class="blog-category-badge">Local SEO</span>
                 </div>
                 <div class="blog-content">
@@ -390,14 +440,14 @@
                     </div>
                     <h2 class="blog-title">The Ultimate Local SEO Checklist: 27 Steps to Dominate Your Market</h2>
                     <p class="blog-excerpt">A comprehensive step-by-step checklist to optimize your local presence. From GBP optimization to review management, ensure you're covering every ranking factor.</p>
-                    <a href="/blog-local-seo-checklist.html" class="read-more">Read Article →</a>
+                    <a href="./blog-local-seo-checklist.html" class="read-more">Read Article →</a>
                 </div>
             </article>
 
             <!-- Blog Post 4: Conversion-Focused Web Design -->
             <article class="blog-card fade-in" data-category="web-dev">
                 <div class="blog-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Conversion Web Design">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Conversion Web Design" loading="lazy">
                     <span class="blog-category-badge">Web Development</span>
                 </div>
                 <div class="blog-content">
@@ -407,14 +457,14 @@
                     </div>
                     <h2 class="blog-title">Conversion-Focused Web Design: 12 Principles That Double Your Leads</h2>
                     <p class="blog-excerpt">Stop losing visitors. Learn the psychology-backed design principles that turn browsers into buyers. Includes real case studies and A/B testing results.</p>
-                    <a href="/blog-conversion-web-design.html" class="read-more">Read Article →</a>
+                    <a href="./blog-conversion-web-design.html" class="read-more">Read Article →</a>
                 </div>
             </article>
 
             <!-- Blog Post 5: Workflow Automation -->
             <article class="blog-card fade-in" data-category="ai-automation">
                 <div class="blog-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop" alt="Workflow Automation">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop" alt="Workflow Automation" loading="lazy">
                     <span class="blog-category-badge">AI Automation</span>
                 </div>
                 <div class="blog-content">
@@ -424,14 +474,14 @@
                     </div>
                     <h2 class="blog-title">Workflow Automation for Small Business: Save 20+ Hours Per Week</h2>
                     <p class="blog-excerpt">Eliminate repetitive tasks with smart automation. Learn how to automate email marketing, social media posting, lead capture, and customer follow-ups.</p>
-                    <a href="/blog-workflow-automation.html" class="read-more">Read Article →</a>
+                    <a href="./blog-workflow-automation.html" class="read-more">Read Article →</a>
                 </div>
             </article>
 
             <!-- Blog Post 6: Custom GPT Assistants -->
             <article class="blog-card fade-in" data-category="business-growth">
                 <div class="blog-thumbnail">
-                    <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?w=800&h=600&fit=crop" alt="Custom GPT Assistants">
+                    <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?w=800&h=600&fit=crop" alt="Custom GPT Assistants" loading="lazy">
                     <span class="blog-category-badge">Business Growth</span>
                 </div>
                 <div class="blog-content">
@@ -441,7 +491,7 @@
                     </div>
                     <h2 class="blog-title">Building Custom GPT Assistants: A Complete Guide for Business Owners</h2>
                     <p class="blog-excerpt">Create AI-powered customer service agents, sales assistants, and internal tools. Step-by-step guide to building, training, and deploying custom GPTs.</p>
-                    <a href="/blog-custom-gpt-assistants.html" class="read-more">Read Article →</a>
+                    <a href="./blog-custom-gpt-assistants.html" class="read-more">Read Article →</a>
                 </div>
             </article>
 
@@ -453,25 +503,47 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo">SAL<span>.</span>DIGITAL</a>
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+                    </a>
                     <p>Engineering high-converting websites and intelligent digital systems for modern businesses.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="https://www.instagram.com/im_sal1/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="https://www.linkedin.com/in/saldigital/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
+                        <a href="https://x.com/imsal101" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="https://www.tiktok.com/@imsal007" target="_blank" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg></a>
+                        <a href="https://www.facebook.com/syedlatief/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                        <a href="https://uk.pinterest.com/imsal1/" target="_blank" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
+                    </div>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
-                    <a href="/#services">Services</a>
-                    <a href="/#portfolio">Portfolio</a>
-                    <a href="/products.html">Digital Products</a>
-                    <a href="/blog.html">Blog</a>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./tools.html">Free Tools</a>
+                    <a href="./products.html">Products</a>
+                    <a href="./about.html">About</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="https://payhip.com/b/FAoCP" target="_blank">Digital Products</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Book a Call</a>
+                    <a href="./privacy.html">Privacy Policy</a>
+                    <a href="./terms.html">Terms & Conditions</a>
+                    <a href="./cookies.html">Cookie Policy</a>
                 </div>
                 <div class="footer-col">
                     <h4>Contact</h4>
-                    <a href="https://calendly.com/syedlatief-info/30min">Book a Call</a>
-                    <a href="mailto:info@syedlatief.com">info@syedlatief.com</a>
-                    <a href="/#contact">Get in Touch</a>
+                    <p style="color: var(--text-secondary); margin-bottom: 8px;">Based in London, UK</p>
+                    <a href="mailto:info@syedlatief.com" style="color: var(--accent-gold); margin-top: 12px; display: inline-block;">info@syedlatief.com</a>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">07438 815 827</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 SAL Digital. All Rights Reserved.</p>
+                <p>&copy; 2026 SAL Digital. Engineered for Growth. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -480,7 +552,6 @@
         // Mobile Menu Toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
-        
         if (mobileToggle) {
             mobileToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
