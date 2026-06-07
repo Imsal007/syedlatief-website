@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteForm PT | AI Personal Trainer Demo | SAL Digital</title>
+    <meta name="description" content="Demo website for personal trainers. AI-powered booking, automated payments, and 24/7 client accountability. Built by SAL Digital.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syedlatief.com/personal-trainer-demo.html">
+    <meta property="og:title" content="EliteForm PT | Personal Trainer Demo">
+    <meta property="og:description" content="AI-powered PT business system. Stop chasing payments and admin. Focus on training.">
+    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
+            --accent-blue: #3B82F6;
+            --accent-orange: #F97316;
+            --border-color: #27272a;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        .demo-banner { background: linear-gradient(135deg, var(--accent-orange), #EA580C); color: #fff; padding: 12px 24px; text-align: center; font-size: 0.9rem; font-weight: 600; }
+        .demo-banner a { color: #fff; text-decoration: underline; font-weight: 700; }
+        
+        .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(9, 9, 11, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 16px 0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.5rem; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: var(--transition); cursor: pointer; border: none; gap: 8px; font-family: var(--font-main); }
+        .btn-primary { background: var(--accent-orange); color: #fff; box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(249, 115, 22, 0.5); }
+        
+        .hero { padding: 180px 0 80px; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin-bottom: 20px; letter-spacing: -0.03em; background: linear-gradient(135deg, #fff 0%, #FDBA74 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px; }
+        .hero-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin: 40px 0; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--accent-orange); display: block; }
+        .stat-label { font-size: 0.9rem; color: var(--text-secondary); }
+        
+        .pain-callout { background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(234, 88, 12, 0.05)); border: 1px solid var(--accent-orange); border-radius: var(--radius); padding: 32px; max-width: 900px; margin: 0 auto 60px; text-align: center; }
+        .pain-callout .before { color: #F87171; font-weight: 700; margin-bottom: 8px; }
+        .pain-callout .after { color: var(--accent-neon); font-weight: 700; margin-top: 16px; }
+
+        .section { padding: 80px 0; }
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; text-align: center; }
+        .section-subtitle { text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; }
+
+        /* Interactive Scenario Tabs */
+        .scenario-selector { max-width: 900px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 40px; }
+        .scenario-tabs { display: flex; gap: 16px; margin-bottom: 32px; }
+        .scenario-tab { flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: center; transition: var(--transition); }
+        .scenario-tab:hover { border-color: var(--accent-orange); }
+        .scenario-tab.active { border-color: var(--accent-orange); background: rgba(249, 115, 22, 0.1); }
+        .scenario-tab h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .scenario-tab p { font-size: 0.85rem; color: var(--text-secondary); }
+        
+        .scenario-content { display: none; animation: fadeIn 0.4s ease; }
+        .scenario-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .chat-flow { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+        .chat-bubble { padding: 16px; border-radius: 12px; max-width: 80%; font-size: 0.95rem; }
+        .chat-bubble.client { background: var(--bg-secondary); border-bottom-left-radius: 2px; align-self: flex-start; border: 1px solid var(--border-color); }
+        .chat-bubble.ai { background: rgba(249, 115, 22, 0.15); border: 1px solid var(--accent-orange); border-bottom-right-radius: 2px; align-self: flex-end; color: var(--text-primary); }
+        .chat-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; display: block; }
+        .chat-label.client { color: var(--text-secondary); }
+        .chat-label.ai { color: var(--accent-orange); text-align: right; }
+
+        /* Features Grid */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 32px; text-align: center; transition: var(--transition); }
+        .feature-card:hover { border-color: var(--accent-neon); transform: translateY(-4px); }
+        .feature-icon { font-size: 3rem; margin-bottom: 16px; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .feature-stat { display: inline-block; background: rgba(52, 211, 153, 0.1); color: var(--accent-neon); padding: 4px 12px; border-radius: 20px; font-size: 0.875rem; font-weight: 700; margin-top: 12px; }
+
+        .cta-section { padding: 80px 0; background: var(--bg-secondary); }
+        .cta-box { background: var(--bg-card); border: 1px solid var(--accent-orange); border-radius: var(--radius); padding: 60px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .cta-box h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+        .cta-box p { font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 32px; }
+        
+        .footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; background: var(--bg-secondary); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+        .footer-brand p { color: var(--text-secondary); margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
+        .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; }
+        .footer-col a:hover { color: var(--text-primary); }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center; color: var(--text-secondary); font-size: 0.875rem; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-primary); flex-direction: column; padding: 24px; border-bottom: 1px solid var(--border-color); }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .scenario-tabs { flex-direction: column; }
+            .cta-box, .scenario-selector { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="demo-banner">
+        ✦ SAL Digital Demo — <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Get this for your PT business →</a>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./portfolio.html">Portfolio</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get This Demo</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>EliteForm PT</h1>
+            <p>Transform Your Clients' Bodies. Automate Your Business.<br>Stop spending 3 hours a day on WhatsApp. Let AI handle scheduling, payments, check-ins, and nutrition questions while you focus on training.</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">30%</span><span class="stat-label">more clients taken on</span></div>
+                <div class="stat"><span class="stat-number">£800</span><span class="stat-label">recovered from no-shows</span></div>
+                <div class="stat"><span class="stat-number">3 hrs</span><span class="stat-label">saved daily on admin</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="pain-callout">
+                <div class="before"> Before automation: Chasing £55 session fees, writing meal plans at midnight, and losing income when clients cancel 2 hours before a session.</div>
+                <div class="after">✅ Now: Auto-charges for late cancels, AI answers 80% of client nutrition questions instantly, and automated check-ins keep clients accountable.</div>
+            </div>
+
+            <h2 class="section-title">See How AI Solves Your Daily Headaches</h2>
+            <p class="section-subtitle">Click a scenario below to see exactly how the system handles the most annoying parts of being a PT.</p>
+            
+            <div class="scenario-selector">
+                <div class="scenario-tabs">
+                    <div class="scenario-tab active" onclick="showScenario('cancel')">
+                        <h3>🚫 The Late Cancel</h3>
+                        <p>Client cancels 1 hour before the session.</p>
+                    </div>
+                    <div class="scenario-tab" onclick="showScenario('nutrition')">
+                        <h3>🍕 The 10 PM Question</h3>
+                        <p>Client asks "Can I eat this pizza?" at night.</p>
+                    </div>
+                    <div class="scenario-tab" onclick="showScenario('checkin')">
+                        <h3>📉 The Ghosting Client</h3>
+                        <p>Client hasn't logged a workout in 4 days.</p>
+                    </div>
+                </div>
+
+                <div id="cancel-scenario" class="scenario-content active">
+                    <h3 style="margin-bottom: 16px; color: var(--accent-orange);">Scenario: Client cancels 1 hour before your 6 AM session</h3>
+                    <div class="chat-flow">
+                        <div class="chat-bubble client">
+                            <span class="chat-label client">Client (5:00 AM)</span>
+                            "Hey, feeling really sick today, can we cancel our 6 AM session?"
+                        </div>
+                        <div class="chat-bubble ai">
+                            <span class="chat-label ai">EliteForm AI (Instant)</span>
+                            "So sorry to hear you're unwell! Because this is within our 12-hour cancellation window, our automated system will process the £55 late-cancel fee to the card on file. I've marked you as absent today. Rest up and let's crush it Thursday! 💪"
+                        </div>
+                        <div class="chat-bubble ai">
+                            <span class="chat-label ai">System Action</span>
+                            ✅ £55 automatically charged.<br>
+                            ✅ 6 AM slot instantly offered to the waiting list via SMS.<br>
+                            ✅ PT gets a notification: "Session canceled, fee collected, slot refilled."
+                        </div>
+                    </div>
+                </div>
+
+                <div id="nutrition-scenario" class="scenario-content">
+                    <h3 style="margin-bottom: 16px; color: var(--accent-orange);">Scenario: Client asks a nutrition question at 10 PM</h3>
+                    <div class="chat-flow">
+                        <div class="chat-bubble client">
+                            <span class="chat-label client">Client (10:15 PM)</span>
+                            "Hey, I'm at a restaurant and they have this creamy pasta. Is it okay for my cut? Or should I get the chicken?"
+                        </div>
+                        <div class="chat-bubble ai">
+                            <span class="chat-label ai">EliteForm AI (Instant)</span>
+                            "Hey! Since we're focusing on leaning out this month, the creamy pasta will likely put you over your daily fat target. The grilled chicken with steamed veggies is a much better choice! If you really want the pasta, try to keep the portion to half a cup. Let me know what you pick! "
+                        </div>
+                        <div class="chat-bubble ai">
+                            <span class="chat-label ai">System Action</span>
+                            ✅ Answers instantly based on the client's specific macro goals.<br>
+                            ✅ PT doesn't have to wake up or break their evening routine.<br>
+                            ✅ Client feels supported 24/7 without bothering the PT.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="checkin-scenario" class="scenario-content">
+                    <h3 style="margin-bottom: 16px; color: var(--accent-orange);">Scenario: Client hasn't logged a workout in 4 days</h3>
+                    <div class="chat-flow">
+                        <div class="chat-bubble ai">
+                            <span class="chat-label ai">System (Day 4 of inactivity)</span>
+                            "Hey Marcus! 👋 Noticed you haven't logged a session since Monday. Everything okay? Remember, consistency beats perfection. Even a 20-minute walk today counts. Want me to send you a quick 15-min home workout you can do right now?"
+                        </div>
+                        <div class="chat-bubble client">
+                            <span class="chat-label client">Client</span>
+                            "Yeah been super busy at work. Yeah send the 15 min one please."
+                        </div>
+                        <div class="chat-bubble ai">
+                            <span class="chat-label ai">EliteForm AI</span>
+                            "Sent! It's just bodyweight squats, pushups, and planks. No equipment needed. You got this! 🔥"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title">The 4 Pillars of an Automated PT Business</h2>
+            <p class="section-subtitle">Stop being a glorified admin assistant. Let the system run the business side while you run the training side.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Auto-Payments & Late Fees</h3>
+                    <p>Clients add a card on file. Sessions are auto-charged. Late cancellations and no-shows are automatically billed. No more awkward "can you Venmo me" texts.</p>
+                    <div class="feature-stat">Zero unpaid sessions</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>24/7 AI Nutrition Assistant</h3>
+                    <p>Trained on your specific coaching philosophy. Answers client questions about macros, meals, and supplements instantly, day or night.</p>
+                    <div class="feature-stat">80% fewer client texts</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Automated Accountability</h3>
+                    <p>If a client misses a workout or doesn't log their food, the AI sends a personalized nudge. Keeps clients on track without you lifting a finger.</p>
+                    <div class="feature-stat">3x better adherence</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Smart Waitlist Booking</h3>
+                    <p>When a client cancels, the system instantly texts the next 3 people on your waitlist to fill the slot. Your calendar stays full automatically.</p>
+                    <div class="feature-stat">98% calendar utilization</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Want This for Your PT Business?</h2>
+                <p>This exact system — auto-payments, AI check-ins, late-cancel protection, and a 24/7 client assistant — can be live for your business in under 2 weeks. Stop trading your time for admin.</p>
+                <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn-primary">Get This For My PT Business — Free Call →</a>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 20px;">AI Automation packages from £300 · Setup in under 2 weeks · No contracts</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+                    </a>
+                    <p>This is a demo website built by SAL Digital. Want a similar system for your personal training business?</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:info@syedlatief.com">info@syedlatief.com</a>
+                    <a href="tel:07438815827">07438 815 827</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank" style="color: var(--accent-orange); margin-top: 12px; display: inline-block;">Book a Free Call →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAL Digital. All rights reserved. | This is a demo site</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+
+        function showScenario(type) {
+            document.querySelectorAll('.scenario-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.scenario-content').forEach(content => content.classList.remove('active'));
+            
+            if(type === 'cancel') {
+                document.querySelectorAll('.scenario-tab')[0].classList.add('active');
+                document.getElementById('cancel-scenario').classList.add('active');
+            } else if(type === 'nutrition') {
+                document.querySelectorAll('.scenario-tab')[1].classList.add('active');
+                document.getElementById('nutrition-scenario').classList.add('active');
+            } else {
+                document.querySelectorAll('.scenario-tab')[2].classList.add('active');
+                document.getElementById('checkin-scenario').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
