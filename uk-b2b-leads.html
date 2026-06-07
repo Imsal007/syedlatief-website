@@ -1028,7 +1028,7 @@
             
             try {
                 // Build API URL
-                let apiUrl = `${WORKER_URL}/api/leads?sic=${sicCode}&limit=5`;
+                let apiUrl = `${WORKER_URL}/api/preview?sic=${sicCode}&limit=5`;
                 if (postcode) {
                     apiUrl += `&postcode=${encodeURIComponent(postcode)}`;
                 }
