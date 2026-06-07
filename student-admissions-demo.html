@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightPath UK Admissions | Agency Portal Demo | SAL Digital</title>
+    <meta name="description" content="Demo website for UK student admission agencies. Automated home student funding & international visa workflows. Built by SAL Digital.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syedlatief.com/student-admissions-demo.html">
+    <meta property="og:title" content="BrightPath UK Admissions | Agency Demo">
+    <meta property="og:description" content="Automated admission portal for Home and International students across the UK.">
+    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-card: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
+            --accent-blue: #3B82F6;
+            --accent-purple: #8B5CF6;
+            --border-color: #27272a;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        .demo-banner { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: #fff; padding: 12px 24px; text-align: center; font-size: 0.9rem; font-weight: 600; }
+        .demo-banner a { color: #fff; text-decoration: underline; font-weight: 700; }
+        
+        .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(9, 9, 11, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 16px 0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.5rem; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: var(--transition); cursor: pointer; border: none; gap: 8px; font-family: var(--font-main); }
+        .btn-primary { background: var(--accent-blue); color: #fff; box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+        
+        .hero { padding: 180px 0 80px; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin-bottom: 20px; letter-spacing: -0.03em; background: linear-gradient(135deg, #fff 0%, #60A5FA 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero p { font-size: 1.25rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px; }
+        .hero-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin: 40px 0; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--accent-blue); display: block; }
+        .stat-label { font-size: 0.9rem; color: var(--text-secondary); }
+        
+        .pain-callout { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.05)); border: 1px solid var(--accent-blue); border-radius: var(--radius); padding: 32px; max-width: 900px; margin: 0 auto 60px; text-align: center; }
+        .pain-callout .before { color: #F87171; font-weight: 700; margin-bottom: 8px; }
+        .pain-callout .after { color: var(--accent-neon); font-weight: 700; margin-top: 16px; }
+
+        .section { padding: 80px 0; }
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; text-align: center; }
+        .section-subtitle { text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; }
+
+        /* Interactive Path Selector */
+        .path-selector { max-width: 900px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 40px; }
+        .path-tabs { display: flex; gap: 16px; margin-bottom: 32px; }
+        .path-tab { flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--border-color); border-radius: 8px; cursor: pointer; text-align: center; transition: var(--transition); }
+        .path-tab:hover { border-color: var(--accent-blue); }
+        .path-tab.active { border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.1); }
+        .path-tab h3 { font-size: 1.25rem; margin-bottom: 8px; }
+        .path-tab p { font-size: 0.9rem; color: var(--text-secondary); }
+        
+        .path-content { display: none; animation: fadeIn 0.4s ease; }
+        .path-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .workflow-steps { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+        .workflow-step { display: flex; align-items: flex-start; gap: 16px; padding: 20px; background: var(--bg-secondary); border-radius: 8px; border-left: 4px solid var(--accent-blue); }
+        .workflow-step.intl { border-left-color: var(--accent-purple); }
+        .step-icon { font-size: 1.5rem; flex-shrink: 0; }
+        .step-content h4 { font-size: 1.1rem; margin-bottom: 4px; }
+        .step-content p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* Features Grid */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 32px; text-align: center; transition: var(--transition); }
+        .feature-card:hover { border-color: var(--accent-neon); transform: translateY(-4px); }
+        .feature-icon { font-size: 3rem; margin-bottom: 16px; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .feature-stat { display: inline-block; background: rgba(52, 211, 153, 0.1); color: var(--accent-neon); padding: 4px 12px; border-radius: 20px; font-size: 0.875rem; font-weight: 700; margin-top: 12px; }
+
+        .cta-section { padding: 80px 0; background: var(--bg-secondary); }
+        .cta-box { background: var(--bg-card); border: 1px solid var(--accent-blue); border-radius: var(--radius); padding: 60px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .cta-box h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+        .cta-box p { font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 32px; }
+        
+        .footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; background: var(--bg-secondary); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+        .footer-brand p { color: var(--text-secondary); margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-gold); }
+        .footer-col a { display: block; color: var(--text-secondary); margin-bottom: 10px; }
+        .footer-col a:hover { color: var(--text-primary); }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center; color: var(--text-secondary); font-size: 0.875rem; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-primary); flex-direction: column; padding: 24px; border-bottom: 1px solid var(--border-color); }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .path-tabs { flex-direction: column; }
+            .cta-box, .path-selector { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="demo-banner">
+        ✦ SAL Digital Demo — <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Get this for your education agency →</a>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">
+                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./portfolio.html">Portfolio</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Get This Demo</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle"></button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>BrightPath UK Admissions</h1>
+            <p>Helping Home & International Students Get Accepted into Top UK Universities & Colleges. Fully funded study options, visa guidance, and end-to-end application management — all automated.</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">98%</span><span class="stat-label">Success Rate</span></div>
+                <div class="stat"><span class="stat-number">£5M+</span><span class="stat-label">Funding Secured</span></div>
+                <div class="stat"><span class="stat-number">50+</span><span class="stat-label">Partner Institutions</span></div>
+                <div class="stat"><span class="stat-number">1,200+</span><span class="stat-label">Students Placed</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="pain-callout">
+                <div class="before">❌ Before automation: Agents spent 15+ hours a week chasing transcripts, explaining Student Finance rules, and answering "what's my visa status?" emails.</div>
+                <div class="after">✅ Now: The portal automatically checks eligibility, chases missing documents, and updates students on funding/visa status — 24/7.</div>
+            </div>
+
+            <h2 class="section-title">How We Handle Both Student Types Automatically</h2>
+            <p class="section-subtitle">Click a track below to see exactly how our system automates the unique workflow for each student type.</p>
+            
+            <div class="path-selector">
+                <div class="path-tabs">
+                    <div class="path-tab active" onclick="showPath('home')">
+                        <h3>🇬🇧 Home Students</h3>
+                        <p>Funded Study · Student Finance · UCAS</p>
+                    </div>
+                    <div class="path-tab" onclick="showPath('intl')">
+                        <h3>🌍 International Students</h3>
+                        <p>Visas · CAS Letters · Overseas Fees</p>
+                    </div>
+                </div>
+
+                <div id="home-path" class="path-content active">
+                    <h3 style="margin-bottom: 16px; color: var(--accent-blue);">Automated Workflow: Home Students (Funded Study)</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">For UK residents applying for government-funded courses, Advanced Learner Loans, or university degrees.</p>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon"></div>
+                            <div class="step-content">
+                                <h4>1. Instant Eligibility Check</h4>
+                                <p>Student enters postcode and course interest. System instantly checks if they qualify for full funding, partial loans, or bursaries.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">📄</div>
+                            <div class="step-content">
+                                <h4>2. Automated Document Chasing</h4>
+                                <p>System requests GCSE/A-Level transcripts and ID. If a document is missing 3 days before the deadline, it automatically texts the student and their parent/guardian.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon">💷</div>
+                            <div class="step-content">
+                                <h4>3. Student Finance Integration</h4>
+                                <p>Auto-generates the correct SFE/SLC application forms pre-filled with student data. Sends step-by-step video guides on how to link their account.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-icon"></div>
+                            <div class="step-content">
+                                <h4>4. Offer & Enrollment Automation</h4>
+                                <p>When the university sends an offer, the portal instantly notifies the student, auto-accepts conditional offers, and triggers the enrollment checklist.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="intl-path" class="path-content">
+                    <h3 style="margin-bottom: 16px; color: var(--accent-purple);">Automated Workflow: International Students</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">For overseas students requiring CAS letters, Tier 4/Student Visas, and international fee processing.</p>
+                    <div class="workflow-steps">
+                        <div class="workflow-step intl">
+                            <div class="step-icon">🛂</div>
+                            <div class="step-content">
+                                <h4>1. Visa & English Requirement Check</h4>
+                                <p>Student selects their home country. System instantly shows exact visa requirements, English language scores needed (IELTS/PTE), and financial maintenance thresholds.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step intl">
+                            <div class="step-icon">🔒</div>
+                            <div class="step-content">
+                                <h4>2. Secure Passport & Bank Statement Upload</h4>
+                                <p>GDPR-compliant encrypted portal for sensitive documents. Auto-translates foreign transcripts and verifies bank statement dates for visa compliance.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step intl">
+                            <div class="step-icon">📜</div>
+                            <div class="step-content">
+                                <h4>3. CAS Letter Generation Trigger</h4>
+                                <p>Once fees are paid and documents verified, the system automatically alerts the university to issue the CAS letter and emails it to the student with visa application links.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step intl">
+                            <div class="step-icon">️</div>
+                            <div class="step-content">
+                                <h4>4. Pre-Arrival & Airport Pickup</h4>
+                                <p>Automated "Welcome to the UK" sequence: sends accommodation links, airport pickup booking forms, and orientation schedules 2 weeks before arrival.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title">Why Education Agencies Choose Our System</h2>
+            <p class="section-subtitle">The 4 biggest bottlenecks in student admissions — and how we eliminate them.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Application Assistant</h3>
+                    <p>Answers 80% of student questions instantly: "Do I need IELTS?", "How much is the deposit?", "When does funding start?"</p>
+                    <div class="feature-stat">12 hours saved/week</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Multi-Channel Updates</h3>
+                    <p>Students get status updates via SMS, WhatsApp, or Email. "Your transcript has been verified" or "Your CAS is ready."</p>
+                    <div class="feature-stat">95% open rate</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Secure Fee Collection</h3>
+                    <p>Collect international deposits and UK enrollment fees securely. Auto-reconciles with university finance systems.</p>
+                    <div class="feature-stat">Zero missed payments</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Agent Dashboard</h3>
+                    <p>See exactly where every student is in the pipeline. Red flags appear automatically if a visa deadline is approaching.</p>
+                    <div class="feature-stat">100% compliance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Want This for Your Admissions Agency?</h2>
+                <p>This exact portal — dual-track applications, automated document chasing, funding/visa checkers — can be built for your agency in 3–4 weeks. Stop drowning in emails and start scaling your placements across the UK.</p>
+                <a href="https://calendly.com/syedlatief-info/30min" target="_blank" class="btn btn-primary">Get This For My Agency — Free Call →</a>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 20px;">Custom portals from £2,500 · AI automation from £300 · No contracts</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="./index.html" class="logo">
+                        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
+                    </a>
+                    <p>This is a demo website built by SAL Digital. Want a similar portal for your education agency?</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="./index.html">Home</a>
+                    <a href="./services.html">Services</a>
+                    <a href="./portfolio.html">Portfolio</a>
+                    <a href="./contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:info@syedlatief.com">info@syedlatief.com</a>
+                    <a href="tel:07438815827">07438 815 827</a>
+                    <a href="https://calendly.com/syedlatief-info/30min" target="_blank" style="color: var(--accent-blue); margin-top: 12px; display: inline-block;">Book a Free Call →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAL Digital. All rights reserved. | This is a demo site</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+        }
+
+        function showPath(type) {
+            document.querySelectorAll('.path-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.path-content').forEach(content => content.classList.remove('active'));
+            
+            if(type === 'home') {
+                document.querySelectorAll('.path-tab')[0].classList.add('active');
+                document.getElementById('home-path').classList.add('active');
+            } else {
+                document.querySelectorAll('.path-tab')[1].classList.add('active');
+                document.getElementById('intl-path').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
