@@ -3,1083 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK B2B Leads | Verified Companies House Data | SAL Digital</title>
-    <meta name="description" content="Generate instant UK B2B lead lists filtered by industry, postcode & newly registered businesses. 100% verified Companies House data. From £9.">
-    <meta name="keywords" content="UK B2B leads, Companies House data, business leads UK, lead generation, UK company data, B2B database, newly registered companies UK">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://syedlatief.com/uk-b2b-leads.html">
-    <meta property="og:title" content="UK B2B Leads | Verified Companies House Data | SAL Digital">
-    <meta property="og:description" content="Generate instant UK B2B lead lists filtered by industry, postcode & newly registered businesses. 100% verified Companies House data. From £9.">
-    <meta property="og:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://syedlatief.com/uk-b2b-leads.html">
-    <meta name="twitter:title" content="UK B2B Leads | Verified Companies House Data">
-    <meta name="twitter:description" content="Generate instant UK B2B lead lists filtered by industry, postcode & newly registered businesses. From £9.">
-    <meta name="twitter:image" content="https://syedlatief.com/SAL-Digital-Logo.png">
-    
-    <!-- Favicon -->
+    <!-- SEO OPTIMIZATION -->
+    <title>Newly Registered UK Business Leads | Fresh Companies House Data CSV</title>
+    <meta name="description" content="Download a verified CSV of newly registered UK businesses and newly incorporated companies. Get fresh B2B leads with Director Names instantly. Perfect for accountants and web designers.">
+    <meta name="keywords" content="newly registered UK businesses, new business leads UK, Companies House data export, newly incorporated companies list UK, fresh B2B leads, UK company formation leads, new business prospects UK">
+    <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
-    <link rel="manifest" href="./favicon_io/site.webmanifest">
     
     <style>
         :root {
             --bg-primary: #09090b;
-            --bg-secondary: #18181b;
             --bg-card: #1f1f23;
             --text-primary: #fafafa;
             --text-secondary: #a1a1aa;
             --accent-gold: #FBBF24;
             --accent-neon: #34D399;
-            --accent-red: #EF4444;
             --border-color: #27272a;
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-            --radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-main: 'Inter', system-ui, sans-serif;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-main); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-main);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        /* Navigation */
-        .navbar {
-            background: rgba(9, 9, 11, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-        
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: var(--radius);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-        
-        .btn-primary {
-            background: var(--accent-gold);
-            color: #000;
-            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(251, 191, 36, 0.4);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--border-color);
-        }
-        
-        .btn-secondary:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 6rem 2rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-neon) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .hero-badges {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        
-        .badge {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-        
-        .badge svg {
-            width: 16px;
-            height: 16px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 0.5rem;
-            color: var(--accent-neon);
-        }
-        
-        /* Tool Section */
-        .tool-section {
-            background: var(--bg-secondary);
-            padding: 4rem 2rem;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .section-title p {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-        }
-        
-        .tool-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .form-group select,
-        .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .form-group select:focus,
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-        
-        /* Preview Table */
-        .preview-section {
-            margin-top: 2rem;
-            display: none;
-        }
-        
-        .preview-section.active {
-            display: block;
-        }
-        
-        .table-container {
-            overflow-x: auto;
-            margin-top: 1rem;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--bg-primary);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-        
-        thead {
-            background: var(--bg-secondary);
-        }
-        
-        th {
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        td {
-            padding: 1rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-primary);
-        }
-        
-        tr:hover td {
-            background: var(--bg-secondary);
-        }
-        
-        /* Pricing Section */
-        .pricing-section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        /* SEO Typography */
+        h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--accent-gold); text-align: center; }
+        h2 { font-size: 2rem; margin: 3rem 0 1.5rem; color: var(--text-primary); }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-neon); }
+        p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.125rem; }
         
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .pricing-card {
-            background: var(--bg-card);
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 2.5rem 2rem;
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        .pricing-card:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        
-        .pricing-card.popular {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 30px rgba(251, 191, 36, 0.15);
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent-gold);
-            color: #000;
-            padding: 0.25rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        
-        .pricing-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .price {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--accent-gold);
-            margin: 1rem 0;
-        }
-        
-        .price-note {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 2rem;
-        }
-        
-        .features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .features li {
-            padding: 0.75rem 0;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .features li svg {
-            width: 20px;
-            height: 20px;
-            color: var(--accent-neon);
-            flex-shrink: 0;
-        }
-        
-        .pricing-card .btn {
-            width: 100%;
-            text-align: center;
-        }
-        
-        /* Features Section */
-        .features-section {
-            background: var(--bg-secondary);
-            padding: 6rem 2rem;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 3rem auto 0;
-        }
-        
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 2rem;
-            transition: var(--transition);
-        }
-        
-        .feature-card:hover {
-            border-color: var(--accent-neon);
-            transform: translateY(-4px);
-        }
-        
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--bg-primary);
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-icon svg {
-            width: 24px;
-            height: 24px;
-            color: var(--accent-gold);
-        }
-        
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
+        .hero-sub { text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 1.25rem; }
         
-        /* CTA Section */
-        .cta-section {
-            padding: 6rem 2rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cta-section p {
-            color: var(--text-secondary);
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            padding: 4rem 2rem 2rem;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto 3rem;
-        }
-        
-        .footer-brand .logo {
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        
-        .footer-brand p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-card);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background: var(--accent-gold);
-            transform: translateY(-3px);
-        }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+        .feature-card { background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); }
         
-        .social-links svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--text-secondary);
-        }
-        
-        .social-links a:hover svg {
-            fill: #000;
-        }
-        
-        .footer-col h4 {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-        }
-        
-        .footer-col a {
-            display: block;
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin-bottom: 0.75rem;
-            transition: var(--transition);
-        }
-        
-        .footer-col a:hover {
-            color: var(--accent-gold);
-        }
-        
-        .footer-col p {
-            color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Loading State */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-        }
+        .pricing-section { text-align: center; background: var(--bg-card); padding: 3rem; border-radius: 16px; border: 2px solid var(--accent-gold); max-width: 600px; margin: 0 auto; }
+        .price { font-size: 4rem; font-weight: 800; color: var(--accent-gold); margin: 1rem 0; }
+        .price-note { color: var(--text-secondary); margin-bottom: 2rem; }
         
-        .loading.active {
-            display: block;
-        }
-        
-        .spinner {
-            border: 3px solid var(--border-color);
-            border-top-color: var(--accent-gold);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        select, input { width: 100%; padding: 12px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); font-size: 1rem; }
         
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        .btn { display: block; width: 100%; padding: 16px; background: var(--accent-gold); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 1.25rem; cursor: pointer; transition: all 0.3s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3); }
         
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-toggle {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
+        .trust-badges { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+        .badge { color: var(--text-secondary); font-size: 0.875rem; display: flex; align-items: center; gap: 0.5rem; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="./index.html" class="logo">
-                <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./services.html">Services</a></li>
-                <li><a href="./portfolio.html">Portfolio</a></li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./tools.html">Free Tools</a></li>
-                <li><a href="./uk-b2b-leads.html" style="color: var(--accent-gold);">UK B2B Leads</a></li>
-                <li><a href="./products.html">Products</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li><a href="https://calendly.com/syedlatief-info/30min" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Book Audit</a></li>
-            </ul>
-            <button class="mobile-toggle" id="mobileToggle">☰</button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>UK B2B Lead Generation Tool</h1>
-        <p>Generate instant, verified business leads from official UK Companies House data. Filter by industry, location, and newly registered companies.</p>
-        <div class="hero-badges">
-            <span class="badge">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                100% Legal & Verified
-            </span>
-            <span class="badge">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                Official Companies House Data
-            </span>
-            <span class="badge">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                Instant Download
-            </span>
-            <span class="badge">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                GDPR Compliant
-            </span>
-        </div>
-    </section>
-
-    <!-- Interactive Tool Section -->
-    <section class="tool-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Try It Free - See Real Data</h2>
-                <p>Enter your criteria below to preview 5 real UK businesses. Upgrade to unlock the full list.</p>
-            </div>
-            
-            <div class="tool-card">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="industrySelect">Industry Category</label>
-                        <select id="industrySelect">
-                            <option value="68310">Estate Agents</option>
-                            <option value="56101">Licensed Restaurants & Cafes</option>
-                            <option value="47220">Retail Butchers (Halal & HMC)</option>
-                            <option value="96020">Hair & Beauty Salons</option>
-                            <option value="69102">Solicitors & Legal Services</option>
-                            <option value="41201">Construction & Builders</option>
-                            <option value="45200">Vehicle Maintenance & Repair</option>
-                            <option value="62012">Software Development & IT</option>
-                            <option value="70229">Management Consultants</option>
-                            <option value="82990">Other Business Support Services</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="postcodeInput">Postcode / City (Optional)</label>
-                        <input type="text" id="postcodeInput" placeholder="e.g., London, E1, Manchester">
-                    </div>
-                </div>
-                
-                <button id="previewBtn" class="btn btn-primary" style="width: 100%;">
-                    Generate Free Preview (5 Leads)
-                </button>
-                
-                <div id="loadingState" class="loading">
-                    <div class="spinner"></div>
-                    <p>Fetching verified data from Companies House...</p>
-                </div>
-                
-                <div id="previewSection" class="preview-section">
-                    <h3 style="margin-bottom: 1rem; color: var(--accent-neon);">✓ Preview Results:</h3>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Company Name</th>
-                                    <th>Company Number</th>
-                                    <th>Registered Address</th>
-                                </tr>
-                            </thead>
-                            <tbody id="previewTableBody">
-                                <!-- Data injected by JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div style="margin-top: 2rem; text-align: center; padding: 2rem; background: var(--bg-primary); border-radius: var(--radius);">
-                        <h3 style="margin-bottom: 1rem;">Want the Full List?</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Get 50+ verified leads with complete contact details instantly.</p>
-                        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                            <a href="https://buy.stripe.com/dRm4gBdaBcbecMH05B5os00" class="btn btn-secondary">25 Leads - £9</a>
-                            <a href="https://buy.stripe.com/5kQ14p5I91wA4gbg4z5os01" class="btn btn-primary">50 Leads - £19</a>
-                            <a href="https://buy.stripe.com/cNi00lgmN0sw5kf05B5os02" class="btn btn-secondary">100 Leads - £29</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-        <div class="section-title">
-            <h2>Choose Your Package</h2>
-            <p>One-time payments. No subscriptions. Instant CSV download after payment.</p>
-        </div>
+    <div class="container">
+        <!-- SEO H1: Primary Keyword -->
+        <h1>Download Newly Registered UK Business Leads Instantly</h1>
         
-        <div class="pricing-grid">
-            <!-- Starter Pack -->
-            <div class="pricing-card">
-                <h3>Starter Pack</h3>
-                <div class="price">£9</div>
-                <div class="price-note">one-time payment</div>
-                <ul class="features">
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        25 Verified UK Business Leads
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Company Name & Number
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Registered Address
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Industry Filtered
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Clean CSV Format
-                    </li>
-                </ul>
-                <a href="https://buy.stripe.com/dRm4gBdaBcbecMH05B5os00" class="btn btn-secondary">Buy Starter Pack</a>
-            </div>
-            
-            <!-- Growth Pack (Popular) -->
-            <div class="pricing-card popular">
-                <div class="popular-badge">Most Popular</div>
-                <h3>Growth Pack</h3>
-                <div class="price">£19</div>
-                <div class="price-note">one-time payment</div>
-                <ul class="features">
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        50 Verified UK Business Leads
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Company Name & Number
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Registered Address
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Industry & Location Filtered
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Clean CSV Format
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Best Value
-                    </li>
-                </ul>
-                <a href="https://buy.stripe.com/5kQ14p5I91wA4gbg4z5os01" class="btn btn-primary">Buy Growth Pack</a>
-            </div>
-            
-            <!-- Agency Pack -->
-            <div class="pricing-card">
-                <h3>Agency Pack</h3>
-                <div class="price">£29</div>
-                <div class="price-note">one-time payment</div>
-                <ul class="features">
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        100 Verified UK Business Leads
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Company Name & Number
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Registered Address
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Industry & Location Filtered
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Clean CSV Format
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Perfect for Agencies
-                    </li>
-                </ul>
-                <a href="https://buy.stripe.com/cNi00lgmN0sw5kf05B5os02" class="btn btn-secondary">Buy Agency Pack</a>
-            </div>
-            
-            <!-- Monthly Subscription -->
-            <div class="pricing-card" style="border-color: var(--accent-neon);">
-                <h3>Monthly Alerts</h3>
-                <div class="price">£49<span style="font-size: 1rem; color: var(--text-secondary);">/mo</span></div>
-                <div class="price-note">recurring subscription</div>
-                <ul class="features">
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Newly Registered Businesses
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Delivered Every Month
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Your Chosen Industry
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Your Chosen Location
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Be First to Contact
-                    </li>
-                    <li>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Cancel Anytime
-                    </li>
-                </ul>
-                <a href="https://buy.stripe.com/6oUfZj8Ulcbe5kfbOj5os03" class="btn btn-primary" style="background: var(--accent-neon); color: #000;">Subscribe Now</a>
-            </div>
-        </div>
-    </section>
+        <!-- SEO H2: Secondary Keywords & Value Prop -->
+        <p class="hero-sub">Get a verified CSV of <strong>newly incorporated companies</strong> from the last 30 days. Includes Director Names and Official Government Links. Perfect for accountants, web designers, and B2B sales teams looking for fresh prospects.</p>
 
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="section-title">
-            <h2>Why Choose Our Data?</h2>
-            <p>Official, verified, and always up-to-date from UK Companies House</p>
-        </div>
-        
+        <!-- Features Section (SEO Rich) -->
+        <h2>Why Buy Newly Formed Company Leads?</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                </div>
-                <h3>100% Legal & Compliant</h3>
-                <p>All data sourced from official UK Companies House public records. Fully GDPR compliant for B2B outreach.</p>
+                <h3>🚀 Fresh B2B Prospects</h3>
+                <p>Target businesses that were just registered. New companies need websites, insurance, accounting, and marketing immediately.</p>
             </div>
-            
             <div class="feature-card">
-                <div class="feature-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-                <h3>Instant Delivery</h3>
-                <p>Get your verified lead list in clean CSV format within seconds of payment. No waiting, no delays.</p>
+                <h3>👤 Director Names Included</h3>
+                <p>Stop emailing info@. Get the actual name of the company director so you can personalize your outreach and close more deals.</p>
             </div>
-            
             <div class="feature-card">
-                <div class="feature-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                </div>
-                <h3>Precise Targeting</h3>
-                <p>Filter by SIC industry codes, postcodes, cities, and newly registered companies for perfect targeting.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <h3>Affordable Pricing</h3>
-                <p>Starting from just £9. No subscriptions required. Pay once, use forever. Perfect for small businesses.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
-                </div>
-                <h3>Clean CSV Format</h3>
-                <p>Ready-to-use CSV files compatible with Excel, Google Sheets, CRM systems, and email marketing tools.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                </div>
-                <h3>24/7 Support</h3>
-                <p>Questions about your data? Need a custom filter? Our team is here to help you succeed.</p>
+                <h3>🏛️ Official Companies House Data</h3>
+                <p>100% legal, verified data sourced directly from the UK Government. Includes a direct link to the official company profile.</p>
             </div>
         </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <h2>Ready to Grow Your Business?</h2>
-        <p>Join hundreds of UK businesses using our verified leads to close more deals and expand their client base.</p>
-        <a href="https://buy.stripe.com/5kQ14p5I91wA4gbg4z5os01" class="btn btn-primary" style="font-size: 1.125rem; padding: 16px 32px;">Get 50 Leads Now - £19</a>
-        <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-secondary);">Instant delivery • Secure payment • 100% verified data</p>
-    </section>
+        <!-- Single Pricing Option (Impulse Buy) -->
+        <div class="pricing-section">
+            <h2>The New Business Lead Pack</h2>
+            <div class="price">£9</div>
+            <p class="price-note">One-time payment. Instant CSV Download.</p>
+            
+            <ul style="text-align: left; margin-bottom: 2rem; color: var(--text-secondary); list-style: none;">
+                <li style="margin-bottom: 0.5rem;">✅ 50 Newly Registered UK Businesses</li>
+                <li style="margin-bottom: 0.5rem;">✅ Filtered by Your Chosen Industry</li>
+                <li style="margin-bottom: 0.5rem;">✅ Filtered by Your Chosen Location</li>
+                <li style="margin-bottom: 0.5rem;">✅ Includes Director/Owner Names</li>
+                <li style="margin-bottom: 0.5rem;">✅ Instant CSV Download</li>
+            </ul>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="./index.html" class="logo">
-                    <img src="./SAL-Digital-Logo.png" alt="SAL Digital" style="height: 40px;">
-                </a>
-                <p>Engineering high-converting websites and intelligent digital systems for modern businesses.</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/im_sal1/" target="_blank" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/saldigital/" target="_blank" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
-                    </a>
-                    <a href="https://x.com/imsal101" target="_blank" aria-label="X">
-                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                </div>
+            <div class="form-group">
+                <label for="industrySelect">1. Select Industry (SIC Code)</label>
+                <select id="industrySelect">
+                    <option value="68310">Estate Agents</option>
+                    <option value="56101">Licensed Restaurants & Cafes</option>
+                    <option value="47220">Retail Butchers</option>
+                    <option value="96020">Hair & Beauty Salons</option>
+                    <option value="69102">Solicitors</option>
+                    <option value="41201">Construction & Builders</option>
+                    <option value="62020">IT & Computer Consultancy</option>
+                    <option value="70229">Management Consultancy</option>
+                </select>
             </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <a href="./index.html">Home</a>
-                <a href="./services.html">Services</a>
-                <a href="./portfolio.html">Portfolio</a>
-                <a href="./blog.html">Blog</a>
-                <a href="./tools.html">Free Tools</a>
-                <a href="./uk-b2b-leads.html">UK B2B Leads</a>
+
+            <div class="form-group">
+                <label for="locationInput">2. Select Location (Optional)</label>
+                <input type="text" id="locationInput" placeholder="e.g., London, Manchester, E1">
             </div>
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <a href="./products.html">Products</a>
-                <a href="https://calendly.com/syedlatief-info/30min" target="_blank">Book a Call</a>
-                <a href="./privacy.html">Privacy Policy</a>
-                <a href="./terms.html">Terms & Conditions</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p style="color: var(--text-secondary); margin-bottom: 8px;">Based in London, UK</p>
-                <a href="mailto:info@syedlatief.com" style="color: var(--accent-gold); margin-top: 12px; display: inline-block;">info@syedlatief.com</a>
-                <p style="color: var(--text-secondary); margin-top: 8px;">07438 815 827</p>
+
+            <button class="btn" onclick="buyLeads()">Buy 50 New Leads - £9</button>
+
+            <div class="trust-badges">
+                <span class="badge">🔒 Secure Stripe Payment</span>
+                <span class="badge"> Instant CSV Download</span>
+                <span class="badge">🇬🇧 100% UK Gov Data</span>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SAL Digital. Engineered for Growth. All Rights Reserved.</p>
-        </div>
-    </footer>
+    </div>
 
     <script>
-        // Mobile Navigation Toggle
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileToggle.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '100%';
-            navLinks.style.left = '0';
-            navLinks.style.right = '0';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.background = 'var(--bg-primary)';
-            navLinks.style.padding = '2rem';
-            navLinks.style.borderBottom = '1px solid var(--border-color)';
-        });
-
-        // Tool Functionality
-        const previewBtn = document.getElementById('previewBtn');
-        const industrySelect = document.getElementById('industrySelect');
-        const postcodeInput = document.getElementById('postcodeInput');
-        const previewSection = document.getElementById('previewSection');
-        const previewTableBody = document.getElementById('previewTableBody');
-        const loadingState = document.getElementById('loadingState');
-
-        // IMPORTANT: Replace this with your actual Cloudflare Worker URL
-        const WORKER_URL = 'https://leadforge-api.latiefsyed.workers.dev';
-
-        previewBtn.addEventListener('click', async () => {
-            const sicCode = industrySelect.value;
-            const postcode = postcodeInput.value.trim();
+        function buyLeads() {
+            const sic = document.getElementById('industrySelect').value;
+            const location = document.getElementById('locationInput').value.trim();
             
-            // Show loading state
-            loadingState.classList.add('active');
-            previewSection.classList.remove('active');
-            previewBtn.disabled = true;
-            previewBtn.textContent = 'Fetching Data...';
-            
-            try {
-                // Build API URL
-                let apiUrl = `${WORKER_URL}/api/preview?sic=${sicCode}&limit=5`;
-                if (postcode) {
-                    apiUrl += `&postcode=${encodeURIComponent(postcode)}`;
-                }
-                
-                const response = await fetch(apiUrl);
-                
-                if (!response.ok) {
-                    throw new Error('Failed to fetch data');
-                }
-                
-                const data = await response.json();
-                
-                // Clear previous data
-                previewTableBody.innerHTML = '';
-                
-                // Populate table
-                if (data.length === 0) {
-                    previewTableBody.innerHTML = `
-                        <tr>
-                            <td colspan="3" style="text-align: center; padding: 2rem; color: var(--text-secondary);">
-                                No companies found for this criteria. Try a different industry or location.
-                            </td>
-                        </tr>
-                    `;
-                } else {
-                    data.forEach(item => {
-                        const address = `${item.address?.address_line_1 || 'N/A'}, ${item.address?.postal_code || 'N/A'}`;
-                        const row = `
-                            <tr>
-                                <td style="font-weight: 600;">${item.company_name}</td>
-                                <td>${item.company_number}</td>
-                                <td>${address}</td>
-                            </tr>
-                        `;
-                        previewTableBody.innerHTML += row;
-                    });
-                }
-                
-                // Show preview
-                loadingState.classList.remove('active');
-                previewSection.classList.add('active');
-                
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                alert('Failed to fetch data. Please make sure your Cloudflare Worker is configured correctly.');
-                loadingState.classList.remove('active');
-            } finally {
-                previewBtn.disabled = false;
-                previewBtn.textContent = 'Generate Free Preview (5 Leads)';
-            }
-        });
+            // Save selection to browser storage so it survives the Stripe redirect
+            localStorage.setItem('lead_sic', sic);
+            localStorage.setItem('lead_location', location);
+
+            // Redirect to your Stripe Payment Link
+            // REPLACE THIS WITH YOUR ACTUAL STRIPE TEST/LIVE LINK
+            window.location.href = 'https://buy.stripe.com/dRm4gBdaBcbecMH05B5os00'; 
+        }
     </script>
 </body>
 </html>
