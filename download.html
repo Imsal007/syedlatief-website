@@ -2,176 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Your Leads | SAL Digital</title>
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
     <style>
-        :root {
-            --bg-primary: #09090b;
-            --bg-secondary: #18181b;
-            --bg-card: #1f1f23;
-            --text-primary: #fafafa;
-            --text-secondary: #a1a1aa;
-            --accent-gold: #FBBF24;
-            --accent-neon: #34D399;
-            --border-color: #27272a;
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: var(--font-main);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        .container { max-width: 600px; width: 100%; }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 3rem;
-            text-align: center;
-        }
-        .logo { height: 40px; margin-bottom: 2rem; }
-        h1 { font-size: 2rem; margin-bottom: 1rem; color: var(--accent-gold); }
-        p { color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
+        body { font-family: system-ui, sans-serif; background: #09090b; color: #fafafa; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: #1f1f23; padding: 3rem; border-radius: 12px; border: 1px solid #27272a; max-width: 500px; width: 100%; text-align: center; }
+        h1 { color: #FBBF24; margin-bottom: 1rem; }
+        p { color: #a1a1aa; margin-bottom: 2rem; }
         .form-group { margin-bottom: 1.5rem; text-align: left; }
         label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-        input, select {
-            width: 100%;
-            padding: 12px 16px;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 1rem;
-        }
-        input:focus, select:focus { outline: none; border-color: var(--accent-gold); }
-        .btn {
-            display: inline-block;
-            padding: 12px 32px;
-            background: var(--accent-gold);
-            color: #000;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-        }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(251, 191, 36, 0.4); }
-        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-        .error { background: rgba(239, 68, 68, 0.1); border: 1px solid #EF4444; color: #EF4444; padding: 1rem; border-radius: 8px; margin-top: 1rem; display: none; }
-        .error.show { display: block; }
-        .success { background: rgba(52, 211, 153, 0.1); border: 1px solid var(--accent-neon); color: var(--accent-neon); padding: 1rem; border-radius: 8px; margin-top: 1rem; display: none; }
-        .success.show { display: block; }
-        .spinner { border: 3px solid var(--border-color); border-top-color: var(--accent-gold); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 2rem auto; display: none; }
+        input, select { width: 100%; padding: 12px; background: #09090b; border: 1px solid #27272a; border-radius: 8px; color: #fafafa; }
+        input:disabled, select:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn { width: 100%; padding: 16px; background: #FBBF24; color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; cursor: pointer; }
+        .btn:disabled { opacity: 0.6; }
+        .spinner { border: 3px solid #27272a; border-top-color: #FBBF24; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 1rem auto; display: none; }
         @keyframes spin { to { transform: rotate(360deg); } }
+        .error { color: #EF4444; margin-top: 1rem; display: none; }
+        .success { color: #34D399; margin-top: 1rem; display: none; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <img src="./SAL-Digital-Logo.png" alt="SAL Digital" class="logo">
-            <h1>🎉 Payment Successful!</h1>
-            <p>Enter your email and select your criteria below to generate and download your verified UK B2B leads instantly.</p>
-            
-            <div class="form-group">
-                <label for="emailInput">Email Address (For your records)</label>
-                <input type="email" id="emailInput" placeholder="your@email.com" required>
-            </div>
-
-            <div class="form-group">
-                <label for="industrySelect">Industry Category</label>
-                <select id="industrySelect">
-                    <option value="68310">Estate Agents</option>
-                    <option value="56101">Licensed Restaurants & Cafes</option>
-                    <option value="47220">Retail Butchers</option>
-                    <option value="96020">Hair & Beauty Salons</option>
-                    <option value="69102">Solicitors</option>
-                    <option value="41201">Construction & Builders</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="locationInput">Location / Postcode (Optional)</label>
-                <input type="text" id="locationInput" placeholder="e.g., London, E1, Manchester">
-            </div>
-            
-            <button class="btn" id="downloadBtn">Generate & Download CSV</button>
-            
-            <div id="loading" class="spinner"></div>
-            <div id="error" class="error"></div>
-            <div id="success" class="success"></div>
+    <div class="card">
+        <h1> Payment Successful!</h1>
+        <p>Your category is locked to your purchase. Enter your email to download your 50 new business leads.</p>
+        
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="emailInput" placeholder="your@email.com">
         </div>
+        
+        <div class="form-group">
+            <label>Industry (Locked)</label>
+            <select id="industrySelect" disabled></select>
+        </div>
+        
+        <div class="form-group">
+            <label>Location (Locked)</label>
+            <input type="text" id="locationInput" disabled>
+        </div>
+
+        <button class="btn" id="downloadBtn">Download CSV</button>
+        <div id="loading" class="spinner"></div>
+        <div id="error" class="error"></div>
+        <div id="success" class="success"></div>
     </div>
 
     <script>
         const WORKER_URL = 'https://leadforge-api.latiefsyed.workers.dev';
         
-        const downloadBtn = document.getElementById('downloadBtn');
-        const emailInput = document.getElementById('emailInput');
+        // Read from localStorage (saved before Stripe redirect)
+        const sic = localStorage.getItem('lead_sic') || '68310';
+        const location = localStorage.getItem('lead_location') || '';
+        
+        // Populate and lock fields
         const industrySelect = document.getElementById('industrySelect');
         const locationInput = document.getElementById('locationInput');
-        const loading = document.getElementById('loading');
-        const error = document.getElementById('error');
-        const success = document.getElementById('success');
         
-        downloadBtn.addEventListener('click', async () => {
-            const email = emailInput.value.trim();
-            const sic = industrySelect.value;
-            const location = locationInput.value.trim();
-            
-            if (!email || !email.includes('@')) {
-                showError('Please enter a valid email address');
+        // Map SIC codes to names for display
+        const sicNames = {
+            '68310': 'Estate Agents', '56101': 'Restaurants & Cafes', '47220': 'Retail Butchers',
+            '96020': 'Hair & Beauty Salons', '69102': 'Solicitors', '41201': 'Construction',
+            '62020': 'IT Consultancy', '70229': 'Management Consultancy'
+        };
+        
+        industrySelect.innerHTML = `<option>${sicNames[sic] || 'Selected Industry'}</option>`;
+        locationInput.value = location || 'UK Wide';
+        
+        document.getElementById('downloadBtn').addEventListener('click', async () => {
+            const email = document.getElementById('emailInput').value.trim();
+            if (!email.includes('@')) {
+                document.getElementById('error').textContent = 'Please enter a valid email';
+                document.getElementById('error').style.display = 'block';
                 return;
             }
             
-            loading.style.display = 'block';
-            downloadBtn.disabled = true;
-            error.classList.remove('show');
-            success.classList.remove('show');
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('downloadBtn').disabled = true;
             
             try {
-                let downloadUrl = `${WORKER_URL}/api/download?sic=${sic}&limit=50`;
-                if (location) downloadUrl += `&postcode=${encodeURIComponent(location)}`;
-                if (email) downloadUrl += `&email=${encodeURIComponent(email)}`;
+                let url = `${WORKER_URL}/api/download?sic=${sic}&days=30`;
+                if (location) url += `&location=${encodeURIComponent(location)}`;
                 
-                const response = await fetch(downloadUrl);
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('Failed to generate');
                 
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(errorText || 'Failed to generate leads');
-                }
-                
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
+                const blob = await res.blob();
                 const a = document.createElement('a');
-                a.href = url;
-                a.download = `uk-b2b-leads-${sic}.csv`;
-                document.body.appendChild(a);
+                a.href = URL.createObjectURL(blob);
+                a.download = 'new-uk-business-leads.csv';
                 a.click();
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
                 
-                showSuccess('✅ Download started! Check your downloads folder.');
-                
-            } catch (err) {
-                showError('❌ ' + err.message);
+                document.getElementById('success').textContent = '✅ Download started!';
+                document.getElementById('success').style.display = 'block';
+            } catch (e) {
+                document.getElementById('error').textContent = '❌ Error: ' + e.message;
+                document.getElementById('error').style.display = 'block';
             } finally {
-                loading.style.display = 'none';
-                downloadBtn.disabled = false;
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('downloadBtn').disabled = false;
             }
         });
-        
-        function showError(msg) { error.textContent = msg; error.classList.add('show'); }
-        function showSuccess(msg) { success.textContent = msg; success.classList.add('show'); }
     </script>
 </body>
 </html>
