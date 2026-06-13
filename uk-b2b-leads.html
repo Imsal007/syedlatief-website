@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newly Registered UK Business Leads | Fresh Companies House Data CSV</title>
-    <meta name="description" content="Download a verified CSV of newly registered UK businesses and newly incorporated companies. Get fresh B2B leads with Director Names instantly. Perfect for accountants and web designers.">
-    <meta name="keywords" content="newly registered UK businesses, new business leads UK, Companies House data export, newly incorporated companies list UK, fresh B2B leads, UK company formation leads, new business prospects UK">
+    <meta name="description" content="Download a verified CSV of newly registered UK businesses and newly incorporated companies. Get fresh B2B leads with Director Names, Full Addresses, and Official Government Links. Perfect for accountants, web designers, and B2B sales teams.">
+    <meta name="keywords" content="newly registered UK businesses, new business leads UK, Companies House data export, newly incorporated companies list UK, fresh B2B leads, UK company formation leads, new business prospects UK, estate agent leads, restaurant leads, accountant leads">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
 
@@ -22,6 +22,39 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-main); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        
+        /* Header with Logo */
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        .header-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        .header-links a:hover {
+            color: var(--accent-gold);
+        }
+        
         .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
 
         h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--accent-gold); text-align: center; }
@@ -41,6 +74,7 @@
         .form-group { margin-bottom: 1.5rem; text-align: left; }
         label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
         select, input { width: 100%; padding: 12px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); font-size: 1rem; }
+        select:focus, input:focus { outline: none; border-color: var(--accent-gold); }
 
         .btn { display: block; width: 100%; padding: 16px; background: var(--accent-gold); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 1.25rem; cursor: pointer; transition: all 0.3s; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3); }
@@ -51,13 +85,32 @@
 
         .form-error { color: #EF4444; margin-top: 0.5rem; font-size: 0.875rem; display: none; }
         .form-error.show { display: block; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            .header-links a { margin: 0 1rem; }
+            .container { padding: 2rem 1rem; }
+            .pricing-section { padding: 2rem 1.5rem; }
+        }
     </style>
 </head>
 <body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="header-content">
+            <img src="./SAL-Digital-Logo.png" alt="SAL Digital" class="logo">
+            <nav class="header-links">
+                <a href="./index.html">Home</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
     <div class="container">
         <h1>Download Newly Registered UK Business Leads Instantly</h1>
 
-        <p class="hero-sub">Get a verified CSV of <strong>newly incorporated companies</strong> from the last 30 days. Includes Director Names and Official Government Links. Perfect for accountants, web designers, and B2B sales teams looking for fresh prospects.</p>
+        <p class="hero-sub">Get a verified CSV of <strong>newly incorporated companies</strong> from the last 30 days. Includes Director Names, Full Addresses, and Official Government Links. Perfect for accountants, web designers, and B2B sales teams looking for fresh prospects.</p>
 
         <h2>Why Buy Newly Formed Company Leads?</h2>
         <div class="features-grid">
@@ -71,7 +124,7 @@
             </div>
             <div class="feature-card">
                 <h3>🏛️ Official Companies House Data</h3>
-                <p>100% legal, verified data sourced directly from the UK Government. Includes a direct link to the official company profile.</p>
+                <p>100% legal, verified data sourced directly from the UK Government. Includes full addresses and a direct link to the official company profile.</p>
             </div>
         </div>
 
@@ -84,27 +137,70 @@
                 <li style="margin-bottom: 0.5rem;">✅ 50 Newly Registered UK Businesses</li>
                 <li style="margin-bottom: 0.5rem;">✅ Filtered by Your Chosen Industry</li>
                 <li style="margin-bottom: 0.5rem;">✅ Filtered by Your Chosen Location</li>
-                <li style="margin-bottom: 0.5rem;">✅ Includes Director/Owner Names</li>
+                <li style="margin-bottom: 0.5rem;">✅ Includes Director Names & Full Addresses</li>
                 <li style="margin-bottom: 0.5rem;">✅ Instant CSV Download</li>
             </ul>
 
             <div class="form-group">
-                <label for="industrySelect">1. Select Industry (SIC Code)</label>
+                <label for="industrySelect">1. Select Industry</label>
                 <select id="industrySelect">
-                    <option value="68310">Estate Agents</option>
-                    <option value="56101">Licensed Restaurants & Cafes</option>
-                    <option value="47220">Retail Butchers</option>
-                    <option value="96020">Hair & Beauty Salons</option>
-                    <option value="69102">Solicitors</option>
-                    <option value="41201">Construction & Builders</option>
-                    <option value="62020">IT & Computer Consultancy</option>
-                    <option value="70229">Management Consultancy</option>
+                    <optgroup label="Property & Real Estate">
+                        <option value="68310">Estate Agents</option>
+                        <option value="68100">Buying & Selling of Real Estate</option>
+                        <option value="68209">Other letting and operating of own or leased real estate</option>
+                        <option value="68320">Management of real estate on a fee or contract basis</option>
+                    </optgroup>
+                    <optgroup label="Hospitality & Food">
+                        <option value="56101">Licensed Restaurants & Cafes</option>
+                        <option value="56102">Unlicensed restaurants and cafes</option>
+                        <option value="56302">Public houses and bars</option>
+                    </optgroup>
+                    <optgroup label="Professional Services">
+                        <option value="69201">Accounting and auditing activities</option>
+                        <option value="69202">Bookkeeping activities</option>
+                        <option value="69102">Solicitors</option>
+                        <option value="70229">Management consultancy activities other than financial management</option>
+                        <option value="74909">Other professional, scientific and technical activities n.e.c.</option>
+                    </optgroup>
+                    <optgroup label="Financial & Insurance">
+                        <option value="64999">Financial intermediation not elsewhere classified</option>
+                        <option value="66220">Activities of insurance agents and brokers</option>
+                    </optgroup>
+                    <optgroup label="Construction & Trades">
+                        <option value="41201">Construction of commercial and domestic buildings</option>
+                        <option value="41202">Construction of other buildings</option>
+                        <option value="43110">Demolition</option>
+                        <option value="43999">Other specialised construction activities n.e.c.</option>
+                    </optgroup>
+                    <optgroup label="Beauty & Personal Services">
+                        <option value="96020">Hairdressing and other beauty treatment</option>
+                    </optgroup>
+                    <optgroup label="Retail">
+                        <option value="47220">Retail sale of meat and meat products in specialised stores</option>
+                    </optgroup>
+                    <optgroup label="Technology & IT">
+                        <option value="62020">Information technology consultancy activities</option>
+                        <option value="62012">Business and domestic software development</option>
+                    </optgroup>
+                    <optgroup label="Marketing & Advertising">
+                        <option value="73110">Advertising agencies</option>
+                        <option value="73120">Media representation</option>
+                    </optgroup>
+                    <optgroup label="Education & Training">
+                        <option value="85320">Technical and vocational secondary education</option>
+                    </optgroup>
+                    <optgroup label="Engineering">
+                        <option value="71129">Other engineering activities</option>
+                    </optgroup>
+                    <optgroup label="Other Business Services">
+                        <option value="82990">Other business support service activities n.e.c.</option>
+                    </optgroup>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="locationInput">2. Select Location (Optional)</label>
-                <input type="text" id="locationInput" placeholder="e.g., London, Manchester, E1">
+                <input type="text" id="locationInput" placeholder="e.g., London, Manchester, E1, Bristol">
             </div>
 
             <button class="btn" id="buyBtn">Buy 50 New Leads - £9</button>
@@ -119,11 +215,6 @@
     </div>
 
     <script>
-        // IMPORTANT: This page and the /download success page MUST be on the
-        // same origin (same domain + subdomain) for sessionStorage to work
-        // across the Stripe redirect. Stripe's "success_url" should point
-        // back to this same domain's /download page.
-
         const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/test_dRm4gBdaBcbecMH05B5os00';
 
         document.getElementById('buyBtn').addEventListener('click', () => {
@@ -134,7 +225,6 @@
             try {
                 sessionStorage.setItem('lead_sic', sic);
                 sessionStorage.setItem('lead_location', location);
-                // Fallback for cases where sessionStorage doesn't survive redirect
                 localStorage.setItem('lead_sic', sic);
                 localStorage.setItem('lead_location', location);
             } catch (e) {
