@@ -5,146 +5,321 @@
     <title>Download Your Leads | SAL Digital</title>
     <meta name="robots" content="noindex, nofollow">
     <style>
-        body { font-family: system-ui, sans-serif; background: #09090b; color: #fafafa; margin: 0; padding: 0; min-height: 100vh; }
-        .header { background: #1f1f23; border-bottom: 1px solid #27272a; padding: 1rem 0; }
+        :root {
+            --bg-primary: #09090b;
+            --bg-card: #1f1f23;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent-gold: #FBBF24;
+            --accent-neon: #34D399;
+            --border-color: #27272a;
+            --error-color: #EF4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, sans-serif; background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; }
+
+        /* ── Header ── */
+        .header { background: var(--bg-card); border-bottom: 1px solid var(--border-color); padding: 1rem 0; }
         .header-content { max-width: 1000px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
         .logo { height: 40px; width: auto; }
-        .header-links a { color: #a1a1aa; text-decoration: none; margin-left: 2rem; transition: color 0.3s; font-weight: 500; }
-        .header-links a:hover { color: #FBBF24; }
-        .main-content { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 100px); padding: 2rem; }
-        .card { background: #1f1f23; padding: 3rem; border-radius: 12px; border: 1px solid #27272a; max-width: 500px; width: 100%; text-align: center; }
-        h1 { color: #FBBF24; margin-bottom: 1rem; font-size: 2rem; }
-        p { color: #a1a1aa; margin-bottom: 2rem; }
-        .form-group { margin-bottom: 1.5rem; text-align: left; }
-        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-        input { width: 100%; padding: 12px; background: #09090b; border: 1px solid #27272a; border-radius: 8px; color: #fafafa; }
-        .btn { width: 100%; padding: 16px; background: #FBBF24; color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3); }
-        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-        .spinner { border: 3px solid #27272a; border-top-color: #FBBF24; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 1rem auto; display: none; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .error { color: #EF4444; margin-top: 1rem; display: none; text-align: left; word-break: break-word; background: rgba(239, 68, 68, 0.1); padding: 1rem; border-radius: 8px; }
-        .success { color: #34D399; margin-top: 1rem; display: none; background: rgba(52, 211, 153, 0.1); padding: 1rem; border-radius: 8px; }
+        .header-links a { color: var(--text-secondary); text-decoration: none; margin-left: 2rem; font-weight: 500; transition: color 0.3s; }
+        .header-links a:hover { color: var(--accent-gold); }
+
+        /* ── Card ── */
+        .main-content { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 73px); padding: 2rem; }
+        .card { background: var(--bg-card); padding: 3rem; border-radius: 12px; border: 1px solid var(--border-color); max-width: 500px; width: 100%; text-align: center; }
+        h1 { color: var(--accent-gold); margin-bottom: 1rem; font-size: 2rem; }
+        p { color: var(--text-secondary); margin-bottom: 2rem; }
+
+        /* ── Info box ── */
         .info-box { background: #27272a; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: left; }
-        .info-box strong { color: #FBBF24; }
+        .info-box strong { color: var(--accent-gold); }
+        .info-row { margin-bottom: 0.4rem; font-size: 0.95rem; color: var(--text-secondary); }
+        .info-row:last-child { margin-bottom: 0; }
+
+        /* ── Form ── */
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-primary); }
+        input { width: 100%; padding: 12px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); font-size: 1rem; transition: border-color 0.2s; }
+        input:focus { outline: none; border-color: var(--accent-gold); }
+
+        /* ── Button ── */
+        .btn { width: 100%; padding: 16px; background: var(--accent-gold); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; }
+        .btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* ── Spinner ── */
+        .spinner {
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent-gold);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 0.8s linear infinite;
+            margin: 1rem auto;
+            display: none;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Status messages ── */
+        .error {
+            color: var(--error-color);
+            margin-top: 1rem;
+            display: none;
+            text-align: left;
+            word-break: break-word;
+            background: rgba(239, 68, 68, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .success {
+            color: var(--accent-neon);
+            margin-top: 1rem;
+            display: none;
+            background: rgba(52, 211, 153, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            font-size: 0.9rem;
+        }
+
+        /* ── Progress bar ── */
+        .progress-wrap {
+            display: none;
+            margin-top: 1rem;
+        }
+        .progress-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            text-align: left;
+        }
+        .progress-bar-bg {
+            background: var(--border-color);
+            border-radius: 4px;
+            height: 6px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--accent-gold);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 2rem 1.25rem; }
+        }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <img src="./SAL-Digital-Logo.png" alt="SAL Digital" class="logo">
-            <nav class="header-links">
-                <a href="./index.html">Home</a>
-                <a href="./contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
 
-    <div class="main-content">
-        <div class="card">
-            <h1>✅ Payment Successful!</h1>
-            <p>Your category is locked to your purchase. Enter your email to download your 50 new business leads.</p>
-
-            <div class="info-box">
-                <div style="margin-bottom: 0.5rem;"><strong>Industry:</strong> <span id="displayIndustry">Loading...</span></div>
-                <div><strong>Location:</strong> <span id="displayLocation">Loading...</span></div>
-            </div>
-
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="emailInput" placeholder="your@email.com">
-            </div>
-
-            <button class="btn" id="downloadBtn">Download CSV</button>
-            <div id="loading" class="spinner"></div>
-            <div id="error" class="error"></div>
-            <div id="success" class="success"></div>
-        </div>
+<header class="header">
+    <div class="header-content">
+        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" class="logo">
+        <nav class="header-links">
+            <a href="./index.html">Home</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
     </div>
+</header>
 
-    <script>
-        const WORKER_URL = 'https://leadforge-api.latiefsyed.workers.dev';
+<div class="main-content">
+    <div class="card">
+        <h1>✅ Payment Successful!</h1>
+        <p>Your lead pack is ready. Enter your email below and click Download CSV.</p>
 
-        const sicNames = {
-            '68310': 'Estate Agents', '56101': 'Restaurants & Cafes', '47220': 'Retail Butchers',
-            '96020': 'Hair & Beauty Salons', '69102': 'Solicitors', '41201': 'Construction',
-            '62020': 'IT Consultancy', '70229': 'Management Consultancy', '69201': 'Accountants',
-            '66220': 'Insurance Agents', '73110': 'Advertising Agencies'
-        };
+        <div class="info-box">
+            <div class="info-row"><strong>Industry:</strong> <span id="displayIndustry">Loading…</span></div>
+            <div class="info-row"><strong>Location:</strong> <span id="displayLocation">Loading…</span></div>
+            <div class="info-row"><strong>Period:</strong> <span>Last 30 days</span></div>
+        </div>
 
-        // FIXED: Renamed 'location' to 'userLocation' to avoid collision with window.location
-        function readStored(key) {
-            try {
-                return sessionStorage.getItem(key) || localStorage.getItem(key) || '';
-            } catch (e) {
-                return '';
+        <div class="form-group">
+            <label for="emailInput">Email Address</label>
+            <input type="email" id="emailInput" placeholder="your@email.com" autocomplete="email">
+        </div>
+
+        <button class="btn" id="downloadBtn">Download CSV</button>
+
+        <div id="loading" class="spinner"></div>
+
+        <div class="progress-wrap" id="progressWrap">
+            <div class="progress-label" id="progressLabel">Fetching companies…</div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div id="error" class="error"></div>
+        <div id="success" class="success"></div>
+    </div>
+</div>
+
+<script>
+    const WORKER_URL = 'https://leadforge-api.latiefsyed.workers.dev';
+
+    const sicNames = {
+        '68310': 'Estate Agents',
+        '68100': 'Buying & Selling of Real Estate',
+        '68209': 'Lettings & Property Management',
+        '68320': 'Property Management',
+        '56101': 'Licensed Restaurants & Cafes',
+        '56102': 'Unlicensed Restaurants & Cafes',
+        '56302': 'Pubs & Bars',
+        '69201': 'Accountants',
+        '69202': 'Bookkeeping',
+        '69102': 'Solicitors',
+        '70229': 'Management Consultancy',
+        '74909': 'Professional & Technical Services',
+        '64999': 'Financial Intermediation',
+        '66220': 'Insurance Agents & Brokers',
+        '41201': 'Construction (Commercial & Domestic)',
+        '41202': 'Construction (Other)',
+        '43110': 'Demolition',
+        '43999': 'Specialised Construction',
+        '96020': 'Hair & Beauty Salons',
+        '47220': 'Retail Butchers',
+        '62020': 'IT Consultancy',
+        '62012': 'Software Development',
+        '73110': 'Advertising Agencies',
+        '73120': 'Media Representation',
+        '85320': 'Technical & Vocational Education',
+        '71129': 'Engineering',
+        '82990': 'Business Support Services',
+    };
+
+    // Read stored values (set before payment on the sales page)
+    function readStored(key) {
+        try {
+            return sessionStorage.getItem(key) || localStorage.getItem(key) || '';
+        } catch (e) {
+            return '';
+        }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const sic = readStored('lead_sic') || params.get('sic') || '68310';
+    const userLocation = readStored('lead_location') || params.get('location') || '';
+
+    document.getElementById('displayIndustry').textContent = sicNames[sic] || `Industry code ${sic}`;
+    document.getElementById('displayLocation').textContent = userLocation || 'UK-wide (All Locations)';
+
+    // ── Animated progress to give feedback during ~5–10s enrichment ──
+    function animateProgress(labelEl, fillEl, messages, durationMs) {
+        let step = 0;
+        const stepDuration = durationMs / messages.length;
+        const interval = setInterval(() => {
+            if (step < messages.length) {
+                labelEl.textContent = messages[step];
+                fillEl.style.width = ((step + 1) / messages.length * 90) + '%';
+                step++;
+            } else {
+                clearInterval(interval);
             }
+        }, stepDuration);
+        return interval;
+    }
+
+    document.getElementById('downloadBtn').addEventListener('click', async () => {
+        const email = document.getElementById('emailInput').value.trim();
+        const errorEl = document.getElementById('error');
+        const successEl = document.getElementById('success');
+        const loadingEl = document.getElementById('loading');
+        const progressWrap = document.getElementById('progressWrap');
+        const progressLabel = document.getElementById('progressLabel');
+        const progressFill = document.getElementById('progressFill');
+        const btn = document.getElementById('downloadBtn');
+
+        // Reset state
+        errorEl.style.display = 'none';
+        errorEl.textContent = '';
+        successEl.style.display = 'none';
+
+        if (!email || !email.includes('@') || !email.includes('.')) {
+            errorEl.textContent = 'Please enter a valid email address.';
+            errorEl.style.display = 'block';
+            return;
         }
 
-        const params = new URLSearchParams(window.location.search);
-        const sic = readStored('lead_sic') || params.get('sic') || '68310';
-        const userLocation = readStored('lead_location') || params.get('location') || '';
+        loadingEl.style.display = 'block';
+        progressWrap.style.display = 'block';
+        progressFill.style.width = '0%';
+        btn.disabled = true;
+        btn.textContent = 'Generating your CSV…';
 
-        // Display values
-        document.getElementById('displayIndustry').textContent = sicNames[sic] || sic || 'Selected Industry';
-        document.getElementById('displayLocation').textContent = userLocation || 'UK Wide (All Locations)';
+        // Animate progress bar while we wait for enrichment
+        const progressMessages = [
+            'Searching Companies House…',
+            'Fetching company profiles…',
+            'Retrieving director names…',
+            'Building your CSV…',
+        ];
+        const progressInterval = animateProgress(progressLabel, progressFill, progressMessages, 8000);
 
-        // Handle download
-        document.getElementById('downloadBtn').addEventListener('click', async () => {
-            const email = document.getElementById('emailInput').value.trim();
-            const errorEl = document.getElementById('error');
-            const successEl = document.getElementById('success');
-            const loadingEl = document.getElementById('loading');
-            const btn = document.getElementById('downloadBtn');
+        try {
+            let url = `${WORKER_URL}/api/download?sic=${encodeURIComponent(sic)}&days=30`;
+            if (userLocation) url += `&location=${encodeURIComponent(userLocation)}`;
+            if (email) url += `&email=${encodeURIComponent(email)}`;
 
-            errorEl.style.display = 'none';
-            successEl.style.display = 'none';
+            const res = await fetch(url);
 
-            if (!email.includes('@')) {
-                errorEl.textContent = 'Please enter a valid email address';
-                errorEl.style.display = 'block';
-                return;
+            clearInterval(progressInterval);
+            progressFill.style.width = '100%';
+            progressLabel.textContent = 'Download ready!';
+
+            if (!res.ok) {
+                const bodyText = await res.text().catch(() => '');
+                let msg = `Server error (${res.status}).`;
+                if (res.status === 404) {
+                    msg = 'No companies found for your filters. This is unusual since your order was validated — please contact support.';
+                } else if (res.status === 502) {
+                    msg = 'Could not reach Companies House. Please wait a moment and try again.';
+                } else if (bodyText) {
+                    msg += ` Details: ${bodyText}`;
+                }
+                throw new Error(msg);
             }
 
-            loadingEl.style.display = 'block';
-            btn.disabled = true;
+            const blob = await res.blob();
 
+            if (blob.size < 100) {
+                throw new Error('The CSV file appears to be empty. Please contact support with your order details.');
+            }
+
+            // Trigger download
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'new-uk-business-leads.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(a.href);
+
+            // Clear stored values so a refresh doesn't re-use the same filters
             try {
-                let url = `${WORKER_URL}/api/download?sic=${encodeURIComponent(sic)}&days=30`;
-                if (userLocation) url += `&location=${encodeURIComponent(userLocation)}`;
-                if (email) url += `&email=${encodeURIComponent(email)}`;
+                sessionStorage.removeItem('lead_sic');
+                sessionStorage.removeItem('lead_location');
+            } catch (e) {}
 
-                const res = await fetch(url);
+            successEl.innerHTML = '✅ <strong>Download started!</strong> Check your Downloads folder. Need help? <a href="./contact.html" style="color: var(--accent-gold);">Contact us</a>.';
+            successEl.style.display = 'block';
 
-                if (!res.ok) {
-                    const bodyText = await res.text().catch(() => '');
-                    throw new Error(`Server returned ${res.status}: ${bodyText || 'no details'}`);
-                }
-
-                const blob = await res.blob();
-
-                if (blob.size === 0) {
-                    throw new Error('Received empty file from server. No companies found for these filters.');
-                }
-
-                const a = document.createElement('a');
-                a.href = URL.createObjectURL(blob);
-                a.download = 'new-uk-business-leads.csv';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(a.href);
-
-                successEl.textContent = '✅ Download started! Check your downloads folder.';
-                successEl.style.display = 'block';
-            } catch (e) {
-                errorEl.textContent = '❌ Error: ' + e.message;
-                errorEl.style.display = 'block';
-            } finally {
-                loadingEl.style.display = 'none';
-                btn.disabled = false;
-            }
-        });
-    </script>
+        } catch (e) {
+            clearInterval(progressInterval);
+            progressWrap.style.display = 'none';
+            errorEl.textContent = '❌ ' + e.message;
+            errorEl.style.display = 'block';
+        } finally {
+            loadingEl.style.display = 'none';
+            btn.disabled = false;
+            btn.textContent = 'Download CSV';
+        }
+    });
+</script>
 </body>
 </html>
