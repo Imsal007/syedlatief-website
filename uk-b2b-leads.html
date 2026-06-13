@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO OPTIMIZATION -->
     <title>Newly Registered UK Business Leads | Fresh Companies House Data CSV</title>
     <meta name="description" content="Download a verified CSV of newly registered UK businesses and newly incorporated companies. Get fresh B2B leads with Director Names instantly. Perfect for accountants and web designers.">
     <meta name="keywords" content="newly registered UK businesses, new business leads UK, Companies House data export, newly incorporated companies list UK, fresh B2B leads, UK company formation leads, new business prospects UK">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
-    
+
     <style>
         :root {
             --bg-primary: #09090b;
@@ -23,43 +22,89 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-main); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
         
-        /* SEO Typography */
+        /* Header with Logo */
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        .header-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+        .header-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
+
         h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--accent-gold); text-align: center; }
         h2 { font-size: 2rem; margin: 3rem 0 1.5rem; color: var(--text-primary); }
         h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-neon); }
         p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.125rem; }
-        
+
         .hero-sub { text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 1.25rem; }
-        
+
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
         .feature-card { background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); }
-        
+
         .pricing-section { text-align: center; background: var(--bg-card); padding: 3rem; border-radius: 16px; border: 2px solid var(--accent-gold); max-width: 600px; margin: 0 auto; }
         .price { font-size: 4rem; font-weight: 800; color: var(--accent-gold); margin: 1rem 0; }
         .price-note { color: var(--text-secondary); margin-bottom: 2rem; }
-        
+
         .form-group { margin-bottom: 1.5rem; text-align: left; }
         label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
         select, input { width: 100%; padding: 12px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); font-size: 1rem; }
-        
+
         .btn { display: block; width: 100%; padding: 16px; background: var(--accent-gold); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 1.25rem; cursor: pointer; transition: all 0.3s; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3); }
-        
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
         .trust-badges { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
         .badge { color: var(--text-secondary); font-size: 0.875rem; display: flex; align-items: center; gap: 0.5rem; }
+
+        .form-error { color: #EF4444; margin-top: 0.5rem; font-size: 0.875rem; display: none; }
+        .form-error.show { display: block; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .header-content { flex-direction: column; gap: 1rem; }
+            .header-links a { margin: 0 1rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- SEO H1: Primary Keyword -->
-        <h1>Download Newly Registered UK Business Leads Instantly</h1>
-        
-        <!-- SEO H2: Secondary Keywords & Value Prop -->
-        <p class="hero-sub">Get a verified CSV of <strong>newly incorporated companies</strong> from the last 30 days. Includes Director Names and Official Government Links. Perfect for accountants, web designers, and B2B sales teams looking for fresh prospects.</p>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="header-content">
+            <img src="./SAL-Digital-Logo.png" alt="SAL Digital" class="logo">
+            <nav class="header-links">
+                <a href="./index.html">Home</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-        <!-- Features Section (SEO Rich) -->
+    <div class="container">
+        <h1>Download Newly Registered UK Business Leads Instantly</h1>
+
+        <p class="hero-sub">Get a verified CSV of <strong>newly incorporated companies</strong> from the last 30 days. Includes Director Names, Full Addresses, and Official Government Links. Perfect for accountants, web designers, and B2B sales teams looking for fresh prospects.</p>
+
         <h2>Why Buy Newly Formed Company Leads?</h2>
         <div class="features-grid">
             <div class="feature-card">
@@ -72,26 +117,25 @@
             </div>
             <div class="feature-card">
                 <h3>🏛️ Official Companies House Data</h3>
-                <p>100% legal, verified data sourced directly from the UK Government. Includes a direct link to the official company profile.</p>
+                <p>100% legal, verified data sourced directly from the UK Government. Includes full addresses and a direct link to the official company profile.</p>
             </div>
         </div>
 
-        <!-- Single Pricing Option (Impulse Buy) -->
         <div class="pricing-section">
             <h2>The New Business Lead Pack</h2>
             <div class="price">£9</div>
             <p class="price-note">One-time payment. Instant CSV Download.</p>
-            
+
             <ul style="text-align: left; margin-bottom: 2rem; color: var(--text-secondary); list-style: none;">
                 <li style="margin-bottom: 0.5rem;">✅ 50 Newly Registered UK Businesses</li>
                 <li style="margin-bottom: 0.5rem;">✅ Filtered by Your Chosen Industry</li>
                 <li style="margin-bottom: 0.5rem;">✅ Filtered by Your Chosen Location</li>
-                <li style="margin-bottom: 0.5rem;">✅ Includes Director/Owner Names</li>
+                <li style="margin-bottom: 0.5rem;">✅ Includes Director Names & Full Addresses</li>
                 <li style="margin-bottom: 0.5rem;">✅ Instant CSV Download</li>
             </ul>
 
             <div class="form-group">
-                <label for="industrySelect">1. Select Industry (SIC Code)</label>
+                <label for="industrySelect">1. Select Industry</label>
                 <select id="industrySelect">
                     <option value="68310">Estate Agents</option>
                     <option value="56101">Licensed Restaurants & Cafes</option>
@@ -109,29 +153,38 @@
                 <input type="text" id="locationInput" placeholder="e.g., London, Manchester, E1">
             </div>
 
-            <button class="btn" onclick="buyLeads()">Buy 50 New Leads - £9</button>
+            <button class="btn" id="buyBtn">Buy 50 New Leads - £9</button>
+            <div class="form-error" id="formError">Something went wrong saving your selection. Please try again.</div>
 
             <div class="trust-badges">
                 <span class="badge">🔒 Secure Stripe Payment</span>
-                <span class="badge"> Instant CSV Download</span>
-                <span class="badge">🇬🇧 100% UK Gov Data</span>
+                <span class="badge">⚡ Instant CSV Download</span>
+                <span class="badge">🇬 100% UK Gov Data</span>
             </div>
         </div>
     </div>
 
     <script>
-        function buyLeads() {
+        const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/test_dRm4gBdaBcbecMH05B5os00';
+
+        document.getElementById('buyBtn').addEventListener('click', () => {
             const sic = document.getElementById('industrySelect').value;
             const location = document.getElementById('locationInput').value.trim();
-            
-            // Save selection to browser storage so it survives the Stripe redirect
-            localStorage.setItem('lead_sic', sic);
-            localStorage.setItem('lead_location', location);
+            const errorEl = document.getElementById('formError');
 
-            // Redirect to your Stripe Payment Link
-            // REPLACE THIS WITH YOUR ACTUAL STRIPE TEST/LIVE LINK
-            window.location.href = 'https://buy.stripe.com/test_dRm4gBdaBcbecMH05B5os00'; 
-        }
+            try {
+                // Save to both sessionStorage and localStorage for redundancy
+                sessionStorage.setItem('lead_sic', sic);
+                sessionStorage.setItem('lead_location', location);
+                localStorage.setItem('lead_sic', sic);
+                localStorage.setItem('lead_location', location);
+            } catch (e) {
+                errorEl.classList.add('show');
+                return;
+            }
+
+            window.location.href = STRIPE_PAYMENT_LINK;
+        });
     </script>
 </body>
 </html>
