@@ -8,7 +8,6 @@
     <meta name="keywords" content="newly registered UK businesses, new business leads UK, Companies House data export, newly incorporated companies list UK, fresh B2B leads, UK company formation leads, new business prospects UK, estate agent leads, restaurant leads, accountant leads">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
-
     <style>
         :root {
             --bg-primary: #09090b;
@@ -18,12 +17,14 @@
             --accent-gold: #FBBF24;
             --accent-neon: #34D399;
             --border-color: #27272a;
+            --border-focus: #FBBF24;
+            --error-color: #EF4444;
             --font-main: 'Inter', system-ui, sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-main); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
-        
-        /* Header with Logo */
+
+        /* ── Header ── */
         .header {
             background: var(--bg-card);
             border-bottom: 1px solid var(--border-color);
@@ -40,10 +41,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            height: 40px;
-            width: auto;
-        }
+        .logo { height: 40px; width: auto; }
         .header-links a {
             color: var(--text-secondary);
             text-decoration: none;
@@ -51,10 +49,9 @@
             transition: color 0.3s;
             font-weight: 500;
         }
-        .header-links a:hover {
-            color: var(--accent-gold);
-        }
-        
+        .header-links a:hover { color: var(--accent-gold); }
+
+        /* ── Layout ── */
         .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
 
         h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--accent-gold); text-align: center; }
@@ -67,25 +64,128 @@
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
         .feature-card { background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); }
 
-        .pricing-section { text-align: center; background: var(--bg-card); padding: 3rem; border-radius: 16px; border: 2px solid var(--accent-gold); max-width: 600px; margin: 0 auto; }
+        /* ── Pricing / Order Card ── */
+        .pricing-section {
+            text-align: center;
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 2px solid var(--accent-gold);
+            max-width: 600px;
+            margin: 0 auto;
+        }
         .price { font-size: 4rem; font-weight: 800; color: var(--accent-gold); margin: 1rem 0; }
         .price-note { color: var(--text-secondary); margin-bottom: 2rem; }
 
         .form-group { margin-bottom: 1.5rem; text-align: left; }
-        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-        select, input { width: 100%; padding: 12px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); font-size: 1rem; }
-        select:focus, input:focus { outline: none; border-color: var(--accent-gold); }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-primary); }
+        .field-hint { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; display: block; }
+        select, input {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        select:focus, input:focus { outline: none; border-color: var(--border-focus); }
 
-        .btn { display: block; width: 100%; padding: 16px; background: var(--accent-gold); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 1.25rem; cursor: pointer; transition: all 0.3s; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3); }
-        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        /* ── Validation result box ── */
+        .validation-box {
+            display: none;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .validation-box.success {
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            color: var(--accent-neon);
+        }
+        .validation-box.error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: var(--error-color);
+        }
+        .validation-box .samples {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .validation-box .sample-item::before { content: "• "; }
 
-        .trust-badges { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+        /* ── Buttons ── */
+        .btn-check {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+        }
+        .btn-check:hover:not(:disabled) {
+            background: rgba(251, 191, 36, 0.08);
+        }
+        .btn-check:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-pay {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--accent-gold);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-pay:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
+        }
+        .btn-pay:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* ── Spinner ── */
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(251,191,36,0.3);
+            border-top-color: var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Trust badges ── */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
         .badge { color: var(--text-secondary); font-size: 0.875rem; display: flex; align-items: center; gap: 0.5rem; }
 
-        .form-error { color: #EF4444; margin-top: 0.5rem; font-size: 0.875rem; display: none; }
-        .form-error.show { display: block; }
-        
+        /* ── Checklist ── */
+        .checklist { text-align: left; margin-bottom: 2rem; color: var(--text-secondary); list-style: none; }
+        .checklist li { margin-bottom: 0.5rem; }
+
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             .header-content { flex-direction: column; gap: 1rem; }
@@ -96,144 +196,219 @@
     </style>
 </head>
 <body>
-    <!-- Header with Logo -->
-    <header class="header">
-        <div class="header-content">
-            <img src="./SAL-Digital-Logo.png" alt="SAL Digital" class="logo">
-            <nav class="header-links">
-                <a href="./index.html">Home</a>
-                <a href="./contact.html">Contact</a>
-            </nav>
+
+<header class="header">
+    <div class="header-content">
+        <img src="./SAL-Digital-Logo.png" alt="SAL Digital" class="logo">
+        <nav class="header-links">
+            <a href="./index.html">Home</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <h1>Download Newly Registered UK Business Leads Instantly</h1>
+
+    <p class="hero-sub">Get a verified CSV of <strong>newly incorporated companies</strong> from the last 30 days. Includes Director Names, Full Addresses, and Official Government Links. Perfect for accountants, web designers, and B2B sales teams looking for fresh prospects.</p>
+
+    <h2>Why Buy Newly Formed Company Leads?</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>🚀 Fresh B2B Prospects</h3>
+            <p>Target businesses that were just registered. New companies need websites, insurance, accounting, and marketing immediately.</p>
         </div>
-    </header>
-
-    <div class="container">
-        <h1>Download Newly Registered UK Business Leads Instantly</h1>
-
-        <p class="hero-sub">Get a verified CSV of <strong>newly incorporated companies</strong> from the last 30 days. Includes Director Names, Full Addresses, and Official Government Links. Perfect for accountants, web designers, and B2B sales teams looking for fresh prospects.</p>
-
-        <h2>Why Buy Newly Formed Company Leads?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>🚀 Fresh B2B Prospects</h3>
-                <p>Target businesses that were just registered. New companies need websites, insurance, accounting, and marketing immediately.</p>
-            </div>
-            <div class="feature-card">
-                <h3>👤 Director Names Included</h3>
-                <p>Stop emailing info@. Get the actual name of the company director so you can personalize your outreach and close more deals.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🏛️ Official Companies House Data</h3>
-                <p>100% legal, verified data sourced directly from the UK Government. Includes full addresses and a direct link to the official company profile.</p>
-            </div>
+        <div class="feature-card">
+            <h3>👤 Director Names Included</h3>
+            <p>Stop emailing info@. Get the actual name of the company director so you can personalise your outreach and close more deals.</p>
         </div>
-
-        <div class="pricing-section">
-            <h2>The New Business Lead Pack</h2>
-            <div class="price">£9</div>
-            <p class="price-note">One-time payment. Instant CSV Download.</p>
-
-            <ul style="text-align: left; margin-bottom: 2rem; color: var(--text-secondary); list-style: none;">
-                <li style="margin-bottom: 0.5rem;">✅ 50 Newly Registered UK Businesses</li>
-                <li style="margin-bottom: 0.5rem;">✅ Filtered by Your Chosen Industry</li>
-                <li style="margin-bottom: 0.5rem;">✅ Filtered by Your Chosen Location</li>
-                <li style="margin-bottom: 0.5rem;">✅ Includes Director Names & Full Addresses</li>
-                <li style="margin-bottom: 0.5rem;">✅ Instant CSV Download</li>
-            </ul>
-
-            <div class="form-group">
-                <label for="industrySelect">1. Select Industry</label>
-                <select id="industrySelect">
-                    <optgroup label="Property & Real Estate">
-                        <option value="68310">Estate Agents</option>
-                        <option value="68100">Buying & Selling of Real Estate</option>
-                        <option value="68209">Other letting and operating of own or leased real estate</option>
-                        <option value="68320">Management of real estate on a fee or contract basis</option>
-                    </optgroup>
-                    <optgroup label="Hospitality & Food">
-                        <option value="56101">Licensed Restaurants & Cafes</option>
-                        <option value="56102">Unlicensed restaurants and cafes</option>
-                        <option value="56302">Public houses and bars</option>
-                    </optgroup>
-                    <optgroup label="Professional Services">
-                        <option value="69201">Accounting and auditing activities</option>
-                        <option value="69202">Bookkeeping activities</option>
-                        <option value="69102">Solicitors</option>
-                        <option value="70229">Management consultancy activities other than financial management</option>
-                        <option value="74909">Other professional, scientific and technical activities n.e.c.</option>
-                    </optgroup>
-                    <optgroup label="Financial & Insurance">
-                        <option value="64999">Financial intermediation not elsewhere classified</option>
-                        <option value="66220">Activities of insurance agents and brokers</option>
-                    </optgroup>
-                    <optgroup label="Construction & Trades">
-                        <option value="41201">Construction of commercial and domestic buildings</option>
-                        <option value="41202">Construction of other buildings</option>
-                        <option value="43110">Demolition</option>
-                        <option value="43999">Other specialised construction activities n.e.c.</option>
-                    </optgroup>
-                    <optgroup label="Beauty & Personal Services">
-                        <option value="96020">Hairdressing and other beauty treatment</option>
-                    </optgroup>
-                    <optgroup label="Retail">
-                        <option value="47220">Retail sale of meat and meat products in specialised stores</option>
-                    </optgroup>
-                    <optgroup label="Technology & IT">
-                        <option value="62020">Information technology consultancy activities</option>
-                        <option value="62012">Business and domestic software development</option>
-                    </optgroup>
-                    <optgroup label="Marketing & Advertising">
-                        <option value="73110">Advertising agencies</option>
-                        <option value="73120">Media representation</option>
-                    </optgroup>
-                    <optgroup label="Education & Training">
-                        <option value="85320">Technical and vocational secondary education</option>
-                    </optgroup>
-                    <optgroup label="Engineering">
-                        <option value="71129">Other engineering activities</option>
-                    </optgroup>
-                    <optgroup label="Other Business Services">
-                        <option value="82990">Other business support service activities n.e.c.</option>
-                    </optgroup>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="locationInput">2. Select Location (Optional)</label>
-                <input type="text" id="locationInput" placeholder="e.g., London, Manchester, E1, Bristol">
-            </div>
-
-            <button class="btn" id="buyBtn">Buy 50 New Leads - £9</button>
-            <div class="form-error" id="formError">Something went wrong saving your selection. Please try again.</div>
-
-            <div class="trust-badges">
-                <span class="badge">🔒 Secure Stripe Payment</span>
-                <span class="badge">⚡ Instant CSV Download</span>
-                <span class="badge">🇬🇧 100% UK Gov Data</span>
-            </div>
+        <div class="feature-card">
+            <h3>🏛️ Official Companies House Data</h3>
+            <p>100% legal, verified data sourced directly from the UK Government. Includes full addresses and a direct link to the official company profile.</p>
         </div>
     </div>
 
-    <script>
-        const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/test_dRm4gBdaBcbecMH05B5os00';
+    <div class="pricing-section">
+        <h2>The New Business Lead Pack</h2>
+        <div class="price">£9</div>
+        <p class="price-note">One-time payment. Instant CSV Download.</p>
 
-        document.getElementById('buyBtn').addEventListener('click', () => {
-            const sic = document.getElementById('industrySelect').value;
-            const location = document.getElementById('locationInput').value.trim();
-            const errorEl = document.getElementById('formError');
+        <ul class="checklist">
+            <li>✅ Up to 50 Newly Registered UK Businesses</li>
+            <li>✅ Filtered by Your Chosen Industry</li>
+            <li>✅ Filtered by Your Chosen Location</li>
+            <li>✅ Includes Director Names & Full Addresses</li>
+            <li>✅ Instant CSV Download</li>
+        </ul>
 
-            try {
-                sessionStorage.setItem('lead_sic', sic);
-                sessionStorage.setItem('lead_location', location);
-                localStorage.setItem('lead_sic', sic);
-                localStorage.setItem('lead_location', location);
-            } catch (e) {
-                errorEl.classList.add('show');
-                return;
+        <div class="form-group">
+            <label for="industrySelect">1. Select Industry</label>
+            <select id="industrySelect">
+                <optgroup label="Property & Real Estate">
+                    <option value="68310">Estate Agents</option>
+                    <option value="68100">Buying & Selling of Real Estate</option>
+                    <option value="68209">Other letting and operating of own or leased real estate</option>
+                    <option value="68320">Management of real estate on a fee or contract basis</option>
+                </optgroup>
+                <optgroup label="Hospitality & Food">
+                    <option value="56101">Licensed Restaurants & Cafes</option>
+                    <option value="56102">Unlicensed restaurants and cafes</option>
+                    <option value="56302">Public houses and bars</option>
+                </optgroup>
+                <optgroup label="Professional Services">
+                    <option value="69201">Accounting and auditing activities</option>
+                    <option value="69202">Bookkeeping activities</option>
+                    <option value="69102">Solicitors</option>
+                    <option value="70229">Management consultancy activities other than financial management</option>
+                    <option value="74909">Other professional, scientific and technical activities n.e.c.</option>
+                </optgroup>
+                <optgroup label="Financial & Insurance">
+                    <option value="64999">Financial intermediation not elsewhere classified</option>
+                    <option value="66220">Activities of insurance agents and brokers</option>
+                </optgroup>
+                <optgroup label="Construction & Trades">
+                    <option value="41201">Construction of commercial and domestic buildings</option>
+                    <option value="41202">Construction of other buildings</option>
+                    <option value="43110">Demolition</option>
+                    <option value="43999">Other specialised construction activities n.e.c.</option>
+                </optgroup>
+                <optgroup label="Beauty & Personal Services">
+                    <option value="96020">Hairdressing and other beauty treatment</option>
+                </optgroup>
+                <optgroup label="Retail">
+                    <option value="47220">Retail sale of meat and meat products in specialised stores</option>
+                </optgroup>
+                <optgroup label="Technology & IT">
+                    <option value="62020">Information technology consultancy activities</option>
+                    <option value="62012">Business and domestic software development</option>
+                </optgroup>
+                <optgroup label="Marketing & Advertising">
+                    <option value="73110">Advertising agencies</option>
+                    <option value="73120">Media representation</option>
+                </optgroup>
+                <optgroup label="Education & Training">
+                    <option value="85320">Technical and vocational secondary education</option>
+                </optgroup>
+                <optgroup label="Engineering">
+                    <option value="71129">Other engineering activities</option>
+                </optgroup>
+                <optgroup label="Other Business Services">
+                    <option value="82990">Other business support service activities n.e.c.</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="locationInput">2. Location (Optional)</label>
+            <input type="text" id="locationInput" placeholder="e.g., London, Manchester, Bristol — leave blank for all UK">
+            <span class="field-hint">Leave blank to search across the whole of the UK.</span>
+        </div>
+
+        <!-- Step 3: Check availability before paying -->
+        <button class="btn-check" id="checkBtn">3. Check Availability</button>
+
+        <div class="validation-box" id="validationBox"></div>
+
+        <button class="btn-pay" id="buyBtn" disabled>Pay £9 &amp; Get Leads</button>
+
+        <div class="trust-badges">
+            <span class="badge">🔒 Secure Stripe Payment</span>
+            <span class="badge">⚡ Instant CSV Download</span>
+            <span class="badge">🇬🇧 100% UK Gov Data</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const WORKER_URL = 'https://leadforge-api.latiefsyed.workers.dev';
+    const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/test_dRm4gBdaBcbecMH05B5os00';
+
+    const checkBtn = document.getElementById('checkBtn');
+    const buyBtn = document.getElementById('buyBtn');
+    const validationBox = document.getElementById('validationBox');
+    const industrySelect = document.getElementById('industrySelect');
+    const locationInput = document.getElementById('locationInput');
+
+    // Reset validation whenever filters change
+    function resetValidation() {
+        buyBtn.disabled = true;
+        validationBox.style.display = 'none';
+        validationBox.className = 'validation-box';
+        validationBox.innerHTML = '';
+    }
+
+    industrySelect.addEventListener('change', resetValidation);
+    locationInput.addEventListener('input', resetValidation);
+
+    // ── Check availability (pre-payment validation) ──
+    checkBtn.addEventListener('click', async () => {
+        const sic = industrySelect.value;
+        const location = locationInput.value.trim();
+
+        resetValidation();
+
+        // Show spinner in button
+        checkBtn.disabled = true;
+        checkBtn.innerHTML = '<span class="spinner"></span> Checking availability…';
+
+        try {
+            let validateUrl = `${WORKER_URL}/api/validate?sic=${encodeURIComponent(sic)}&days=30`;
+            if (location) validateUrl += `&location=${encodeURIComponent(location)}`;
+
+            const res = await fetch(validateUrl);
+            const data = await res.json();
+
+            validationBox.style.display = 'block';
+
+            if (data.valid) {
+                validationBox.classList.add('success');
+                let html = `✅ <strong>${data.count} companies found</strong> in the last 30 days`;
+                if (data.location && data.location !== 'UK-wide') {
+                    html += ` in <strong>${data.location}</strong>`;
+                } else {
+                    html += ` across the <strong>UK</strong>`;
+                }
+                html += '.';
+
+                if (data.samples && data.samples.length > 0) {
+                    html += `<div class="samples"><strong>Sample companies:</strong><br>`;
+                    data.samples.forEach(name => {
+                        html += `<span class="sample-item">${name}</span><br>`;
+                    });
+                    html += `</div>`;
+                }
+
+                validationBox.innerHTML = html;
+                buyBtn.disabled = false;
+
+                // Save to storage so download page can read it
+                try {
+                    sessionStorage.setItem('lead_sic', sic);
+                    sessionStorage.setItem('lead_location', location);
+                    localStorage.setItem('lead_sic', sic);
+                    localStorage.setItem('lead_location', location);
+                } catch (e) {}
+
+            } else {
+                validationBox.classList.add('error');
+                validationBox.innerHTML = `❌ ${data.error || 'No results found. Try adjusting your filters.'}`;
+                buyBtn.disabled = true;
             }
 
-            window.location.href = STRIPE_PAYMENT_LINK;
-        });
-    </script>
+        } catch (err) {
+            validationBox.style.display = 'block';
+            validationBox.classList.add('error');
+            validationBox.innerHTML = '❌ Could not check availability. Please try again.';
+        } finally {
+            checkBtn.disabled = false;
+            checkBtn.innerHTML = '3. Check Availability';
+        }
+    });
+
+    // ── Pay button — only reachable after successful validation ──
+    buyBtn.addEventListener('click', () => {
+        window.location.href = STRIPE_PAYMENT_LINK;
+    });
+</script>
 </body>
 </html>
