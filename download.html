@@ -12,13 +12,15 @@
         .form-group { margin-bottom: 1.5rem; text-align: left; }
         label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
         input, select { width: 100%; padding: 12px; background: #09090b; border: 1px solid #27272a; border-radius: 8px; color: #fafafa; }
-        input:disabled, select:disabled { opacity: 0.5; cursor: not-allowed; }
+        input:disabled, select:disabled { opacity: 0.7; cursor: not-allowed; }
         .btn { width: 100%; padding: 16px; background: #FBBF24; color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; cursor: pointer; }
         .btn:disabled { opacity: 0.6; }
         .spinner { border: 3px solid #27272a; border-top-color: #FBBF24; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 1rem auto; display: none; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .error { color: #EF4444; margin-top: 1rem; display: none; }
         .success { color: #34D399; margin-top: 1rem; display: none; }
+        .info-box { background: #27272a; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: left; }
+        .info-box strong { color: #FBBF24; }
     </style>
 </head>
 <body>
@@ -26,21 +28,16 @@
         <h1> Payment Successful!</h1>
         <p>Your category is locked to your purchase. Enter your email to download your 50 new business leads.</p>
         
+        <div class="info-box">
+            <div style="margin-bottom: 0.5rem;"><strong>Industry:</strong> <span id="displayIndustry">Loading...</span></div>
+            <div><strong>Location:</strong> <span id="displayLocation">Loading...</span></div>
+        </div>
+        
         <div class="form-group">
             <label>Email Address</label>
             <input type="email" id="emailInput" placeholder="your@email.com">
         </div>
         
-        <div class="form-group">
-            <label>Industry (Locked)</label>
-            <select id="industrySelect" disabled></select>
-        </div>
-        
-        <div class="form-group">
-            <label>Location (Locked)</label>
-            <input type="text" id="locationInput" disabled>
-        </div>
-
         <button class="btn" id="downloadBtn">Download CSV</button>
         <div id="loading" class="spinner"></div>
         <div id="error" class="error"></div>
@@ -54,19 +51,21 @@
         const sic = localStorage.getItem('lead_sic') || '68310';
         const location = localStorage.getItem('lead_location') || '';
         
-        // Populate and lock fields
-        const industrySelect = document.getElementById('industrySelect');
-        const locationInput = document.getElementById('locationInput');
-        
         // Map SIC codes to names for display
         const sicNames = {
-            '68310': 'Estate Agents', '56101': 'Restaurants & Cafes', '47220': 'Retail Butchers',
-            '96020': 'Hair & Beauty Salons', '69102': 'Solicitors', '41201': 'Construction',
-            '62020': 'IT Consultancy', '70229': 'Management Consultancy'
+            '68310': 'Estate Agents', 
+            '56101': 'Restaurants & Cafes', 
+            '47220': 'Retail Butchers',
+            '96020': 'Hair & Beauty Salons', 
+            '69102': 'Solicitors', 
+            '41201': 'Construction',
+            '62020': 'IT Consultancy', 
+            '70229': 'Management Consultancy'
         };
         
-        industrySelect.innerHTML = `<option>${sicNames[sic] || 'Selected Industry'}</option>`;
-        locationInput.value = location || 'UK Wide';
+        // Display the locked values
+        document.getElementById('displayIndustry').textContent = sicNames[sic] || 'Selected Industry';
+        document.getElementById('displayLocation').textContent = location || 'UK Wide (All Locations)';
         
         document.getElementById('downloadBtn').addEventListener('click', async () => {
             const email = document.getElementById('emailInput').value.trim();
@@ -78,21 +77,23 @@
             
             document.getElementById('loading').style.display = 'block';
             document.getElementById('downloadBtn').disabled = true;
+            document.getElementById('error').style.display = 'none';
             
             try {
                 let url = `${WORKER_URL}/api/download?sic=${sic}&days=30`;
                 if (location) url += `&location=${encodeURIComponent(location)}`;
                 
                 const res = await fetch(url);
-                if (!res.ok) throw new Error('Failed to generate');
+                if (!res.ok) throw new Error('Failed to generate leads');
                 
                 const blob = await res.blob();
                 const a = document.createElement('a');
                 a.href = URL.createObjectURL(blob);
                 a.download = 'new-uk-business-leads.csv';
                 a.click();
+                URL.revokeObjectURL(a.href);
                 
-                document.getElementById('success').textContent = '✅ Download started!';
+                document.getElementById('success').textContent = '✅ Download started! Check your downloads folder.';
                 document.getElementById('success').style.display = 'block';
             } catch (e) {
                 document.getElementById('error').textContent = '❌ Error: ' + e.message;
