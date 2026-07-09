@@ -452,7 +452,7 @@
 
 <script>
     // IMPORTANT: Change this URL to your live backend URL later (e.g., https://sal-bot.onrender.com/chat)
-    const BACKEND_URL = 'http://localhost:8000/chat'; 
+    const BACKEND_URL = 'https://sal-ai-bot.onrender.com/chat';
     const TEASER_DELAY = 6000; const TEASER_DURATION = 10000;
     let sessionId = localStorage.getItem('sal_session_id');
     if (!sessionId) { sessionId = 'web-' + Math.random().toString(36).substr(2, 9); localStorage.setItem('sal_session_id', sessionId); }
